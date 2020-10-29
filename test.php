@@ -1,32 +1,6 @@
 <?php 
-
-$config = array(
-    "digest_alg" => "sha512",
-    "private_key_bits" => 4096,
-    "private_key_type" => OPENSSL_KEYTYPE_RSA,
-);
-   
-// Create the private and public key
-$res = openssl_pkey_new($config);
-
-// Extract the private key from $res to $privKey
-openssl_pkey_export($res, $privKey);
-
-// Extract the public key from $res to $pubKey
-$pubKey = openssl_pkey_get_details($res);
-$pubKey = $pubKey["key"];
-echo $pubKey;
-echo "<br/>";
-echo $privKey;
-$data = '<br/>plaintext data goes here';
-
-// Encrypt the data to $encrypted using the public key
-openssl_public_encrypt($data, $encrypted, $pubKey);
-
-// Decrypt the data using the private key and store the results in $decrypted
-openssl_private_decrypt($encrypted, $decrypted, $privKey);
-
-echo $decrypted."<br/>";
+$encryption_key = bin2hex(random_bytes(4096));
+echo $encryption_key."<br/>";
 // Store a string into the variable which 
 // need to be Encrypted 
 
@@ -55,9 +29,6 @@ $options = 0;
 $encryption_iv = '1234567891011121'; 
 
   
-// Store the encryption key 
-
-$encryption_key = "GeeksforGeeks"; 
 
   
 // Use openssl_encrypt() function to encrypt the data 
