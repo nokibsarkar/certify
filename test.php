@@ -16,7 +16,7 @@ openssl_pkey_export($res, $privKey);
 $pubKey = openssl_pkey_get_details($res);
 $pubKey = $pubKey["key"];
 $r = "[crypt]\npublic=$pubKey\nprivate=$privKey";
-$fp = fopen("replica.my.cnf","w");
+$fp = fopen("../replica.my.cnf","w");
 file_put_contents($fp,$r);
 fclose($fp);
 $data = 'plaintext data goes here';
@@ -27,7 +27,7 @@ openssl_public_encrypt($data, $encrypted, $pubKey);
 // Decrypt the data using the private key and store the results in $decrypted
 openssl_private_decrypt($encrypted, $decrypted, $privKey);
 
-echo $decrypted;
+echo $decrypted."<br/>";
 // Store a string into the variable which 
 // need to be Encrypted 
 
