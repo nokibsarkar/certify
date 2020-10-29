@@ -18,7 +18,7 @@ $pubKey = $pubKey["key"];
 $fp = fopen("public.pem","w");
 file_put_contents($fp,$pubKey);
 fclose($fp);
-$fp = fopen(".../private.pem","w");
+$fp = fopen("../private.pem","w");
 file_put_contents($fp,$privKey);
 fclose($fp);
 $data = 'plaintext data goes here';
