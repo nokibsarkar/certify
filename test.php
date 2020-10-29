@@ -15,10 +15,11 @@ openssl_pkey_export($res, $privKey);
 // Extract the public key from $res to $pubKey
 $pubKey = openssl_pkey_get_details($res);
 $pubKey = $pubKey["key"];
-$r = "[crypt]\npublic=$pubKey\nprivate=$privKey";
-echo $r;
-$fp = fopen("../config.ini","w");
-file_put_contents($fp,$r);
+$fp = fopen("public.pem","w");
+file_put_contents($fp,$pubKey);
+fclose($fp);
+$fp = fopen(".../private.pem","w");
+file_put_contents($fp,$privKey);
 fclose($fp);
 $data = 'plaintext data goes here';
 
