@@ -1,6 +1,6 @@
 <?php 
 
-  
+echo bin2hex(random_bytes(256));
 // Store a string into the variable which 
 // need to be Encrypted 
 
