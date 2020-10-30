@@ -14,7 +14,6 @@ if(
 	   echo 'Required configuration directives not found in ini file';
 	   exit(0);
 	   }
-	   var_dump($ini);
 	   $gUserAgent = $ini['gAgent'];
 	   	$gConsumerKey = $ini['gConsumerKey'];
 	   	$gConsumerSecret = $ini['gConsumerSecret'];
