@@ -91,7 +91,7 @@ $url .= http_build_query( array(
 'format' => 'json',
 
 // OAuth information
-'oauth_callback' => 'https://goodarticlebot.toolforge.org/authorize.php', // Must be "oob" or something prefixed by the configured callback URL
+'oauth_callback' => 'https://certify.toolforge.org/authorize.php', // Must be "oob" or something prefixed by the configured callback URL
 'oauth_consumer_key' => $gConsumerKey,
 'oauth_version' => '1.0',
 'oauth_nonce' => md5( microtime() . mt_rand() ),
