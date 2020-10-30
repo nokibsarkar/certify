@@ -76,7 +76,7 @@ $mwOAuthIW = 'meta';
  return base64_encode( hash_hmac( 'sha1', $toSign, $key, true ) );
  }
 
-function fetch($action='token') {
+function fetch($action='/token') {
 	global $mwOAuthUrl, $gUserAgent, $gConsumerKey, $gTokenKey, $gTokenSecret, $errorCode;
 	$url = $mwOAuthUrl . $action;
 	$url .= strpos( $url, '?' ) ? '&' : '?';
@@ -115,7 +115,7 @@ function fetch($action='token') {
 	//$_SESSION['tokenKey'] = $gTokenKey = $token['key'];
 	//$_SESSION['tokenSecret'] = $gTokenSecret = $token['secret'];
 }
-fetch('identify');
+fetch('/identify');
 /*//fetch User info
 $data = [
 	'action'=>'query',
