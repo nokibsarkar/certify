@@ -76,7 +76,7 @@ $mwOAuthIW = 'meta';
  return base64_encode( hash_hmac( 'sha1', $toSign, $key, true ) );
  }
 
-function fetchIdentity($action='token') {
+function fetch($action='token') {
 	global $mwOAuthUrl, $gUserAgent, $gConsumerKey, $gTokenKey, $gTokenSecret, $errorCode;
 	$url = $mwOAuthUrl . $action;
 	$url .= strpos( $url, '?' ) ? '&' : '?';
@@ -189,6 +189,6 @@ session_write_close();
 //$return = isset($_SESSION['return'])?urldecode($_SESSION['return']):'index.php';
 //header("Location: $return");
 }catch(Exception $e){
-	echo $e->message;
+	echo $e;
 }
 ?>
