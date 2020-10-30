@@ -109,8 +109,9 @@ function fetch($action='/token') {
 	//	exit(0);
 	}
 	curl_close( $ch );
+	echo "Retrieving $action<br/>";
 	$token = json_decode( $data, true);
-	echo $data;
+	var_dump($token);;
 	// Save the access token
 	//$_SESSION['tokenKey'] = $gTokenKey = $token['key'];
 	//$_SESSION['tokenSecret'] = $gTokenSecret = $token['secret'];
