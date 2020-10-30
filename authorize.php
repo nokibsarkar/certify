@@ -116,7 +116,7 @@ function fetch($action='/token') {
 	//$_SESSION['tokenKey'] = $gTokenKey = $token['key'];
 	//$_SESSION['tokenSecret'] = $gTokenSecret = $token['secret'];
 }
-fetch('/identify');
+fetch('/token');
 /*//fetch User info
 $data = [
 	'action'=>'query',
