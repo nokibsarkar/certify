@@ -1,5 +1,5 @@
 <?php 
-$inifile = 'oauth.ini';
+$inifile = '../oauth.ini';
 $ini = parse_ini_file( $inifile );
 if ( $ini === false ) {
 	echo 'The ini file could not be read';
