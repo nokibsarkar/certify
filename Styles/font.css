@@ -11,20 +11,69 @@
 * {
 	font-family:SiyamRupali;
 }
+
+
+
 #certificate {
 	background:url("frame.webp") no-repeat;
 	background-attachment:fixed;
 	background-size:100%;
 	display:block;
-	padding:8%;
 	width:800px;
-	text-align:left;
-	position:absolute;
+	padding: 8%;
+	text-align:justify;
 	min-height:400px;
+	font-size: 3vw;
 }
 .center{
 	text-align:center;
 }
+
+@media (max-width: 575px)
+{
+	#certificate{
+		width: 100%;
+		height: 100vh;
+		max-width: 100%;
+	}
+}
+@media (min-width: 576px)
+{
+	#certificate{
+		width: 100%;
+		height: 100vh;
+		max-width: 540px;
+		max-height: 382px;
+	}
+}
+@media (min-width: 768px)
+{
+	#certificate{
+		width: 100%;
+		height: 100vh;
+		max-width: 720px;
+		max-height: 509px;
+	}
+}
+@media (min-width: 992px)
+{
+	#certificate{
+		width: 100%;
+		height: 100vh;
+		max-width: 960px;
+		max-height: 679px;
+	}
+}
+@media (min-width: 1200px)
+{
+	#certificate{
+		width: 100%;
+		height: 100vh;
+		max-width: 1140px;
+		max-height: 806px;
+	}
+}
+
 @media print{
 	#options {
 		color:red;
@@ -44,7 +93,7 @@
 		outline:0 !important;
 		top:0 !important;
 		width:9in !important;
-		background-size:10.6in 6in;
+		background-size:297mm 210mm;
 		border:2px solid black;
 	}
 }
