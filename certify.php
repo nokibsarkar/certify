@@ -60,10 +60,40 @@ if($serial){
 			$i++;
 		}
 		unset($t);
-		echo $c;
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<link href="Styles/font.css" rel="stylesheet"/>
+<script type="text/javascript">
+function t(){
+	var o = document.querySelectorAll("[data-tr]");
+	[...o].forEach(function(v){
+		var prev = v.innerHTML;
+		v.innerHTML = v.dataset.tr;
+		v.dataset.tr = prev;
+		prev = getComputedStyle(v).fontFamily;
+		v.style.fontFamily = v.dataset.ff=="undefined"?"Times new Roman":v.dataset.ff;
+		v.dataset.ff = prev;
+	})
+}
+</script>
+</head>
+<body>
+	<div id="options">
+		<button data-ff="SiyamRupali" style="font-family:Times new Roman" data-tr="বাংলা" type="button" onclick="t()">English</button>
+		<button type="button" onclick="window.print()"  data-tr="Print" >মুদ্রণ</button>
+	</div>
+	<div id="certificate">
+	<?php echo $c;?>
+	</div>
+<?php
 	}
 }
 else{
 
 }
 ?>
+</body>
+</html>
