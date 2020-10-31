@@ -16,7 +16,6 @@ if($serial){
 	$res = $conn->query($sql);
 	if($res){
 		$res = $res->fetch_assoc();
-		var_dump($res);
 		$ref = ["০", "১", " ২", "৩", " ৪", "৫"," ৬", "৭"," ৮", "৯"];
 		function en2bn($n = ''){
 			$n = ''.$n;
@@ -25,13 +24,14 @@ if($serial){
 				$n[$i] = isset($ref[$n[$i]])?$ref[$n[$i]]:$n[$i];
 			return $n;
 		}
-		$res["Partner"] = json_decode($res["Partner"],true);
+		$res["partners"] = json_decode($res["Partner"],true);
 		$data = ["bn"=>[
 			"name"=>$res["Bengali"],
 			"institution"=>$res["Institution"],
 			"email"=>$res["Email"]
 		],"en"=>[]];
-		$t = $data["Certificate"];
+		var_dump($data);
+		$t = $res["Certificate"];
 		$l = strlen($t) ;
 		$i = 0;
 		$c = "";
