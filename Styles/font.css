@@ -1,0 +1,50 @@
+@font-face {
+  font-family: 'SiyamRupali';
+  src: url('SiyamRupali.eot');
+  src: url('SiyamRupali.woff') format('woff'),
+       url('SiyamRupali.ttf') format('truetype'),
+       url('SiyamRupali.svg#SiyamRupali') format('svg'),
+       url('SiyamRupali.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+	font-family:SiyamRupali;
+}
+#certificate {
+	background:url("frame.webp") no-repeat;
+	background-attachment:fixed;
+	background-size:100%;
+	display:block;
+	padding:8%;
+	width:800px;
+	text-align:left;
+	position:absolute;
+	min-height:400px;
+}
+.center{
+	text-align:center;
+}
+@media print{
+	#options {
+		color:red;
+		display:none;
+	}
+	@page {
+		size:A4 landscape;
+		
+	}
+	body {
+		padding:0 !important;
+	}
+	#certificate{
+		-webkit-print-color-adjust: exact;
+		margin:0 !important;
+		left:0 !important;
+		outline:0 !important;
+		top:0 !important;
+		width:9in !important;
+		background-size:10.6in 6in;
+		border:2px solid black;
+	}
+}
