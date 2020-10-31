@@ -19,7 +19,7 @@ if($serial){
 		var_dump($res);
 		$ref = ["০", "১", " ২", "৩", " ৪", "৫"," ৬", "৭"," ৮", "৯"];
 		function en2bn($n = ''){
-			$n = (str)$n;
+			$n = ''.$n;
 			$l = strlen($l);
 			for($i=0;$i<$l;$i++)
 				$n[$i] = isset($ref[$n[$i]])?$ref[$n[$i]]:$n[$i];
