@@ -8,79 +8,44 @@
   font-weight: normal;
   font-style: normal;
 }
+
 * {
 	font-family:SiyamRupali;
+	margin: 0;
+	padding: 0;
 }
-
-
-
+#options {
+	position: fixed;
+}
 #certificate {
+	height: 100vh;
 	background:url("frame.webp") no-repeat;
-	background-attachment:fixed;
-	background-size:100%;
-	display:block;
-	width:800px;
-	padding: 8%;
+	background-size: 100% 100%;
+	width:100%;
 	text-align:justify;
-	min-height:400px;
-	font-size: 3vw;
+	font-size: 1.8vw;
+}
+.cert-container{
+	position: absolute;
+  	left: 50%;
+  	top: 50%;
+    transform: translate(-50%, -50%);
 }
 .center{
 	text-align:center;
 }
-
-@media (max-width: 575px)
-{
+@media (min-width: 320px) and (max-width: 480px) {
 	#certificate{
-		width: 100%;
-		height: 100vh;
-		max-width: 100%;
-	}
-}
-@media (min-width: 576px)
-{
-	#certificate{
-		width: 100%;
-		height: 100vh;
-		max-width: 540px;
-		max-height: 382px;
-	}
-}
-@media (min-width: 768px)
-{
-	#certificate{
-		width: 100%;
-		height: 100vh;
-		max-width: 720px;
-		max-height: 509px;
-	}
-}
-@media (min-width: 992px)
-{
-	#certificate{
-		width: 100%;
-		height: 100vh;
-		max-width: 960px;
-		max-height: 679px;
-	}
-}
-@media (min-width: 1200px)
-{
-	#certificate{
-		width: 100%;
-		height: 100vh;
-		max-width: 1140px;
-		max-height: 806px;
+		/*height: auto;*/
 	}
 }
 
 @media print{
 	#options {
-		color:red;
 		display:none;
 	}
 	@page {
-		size:A4 landscape;
+		size: A4 landscape;
 		
 	}
 	body {
@@ -88,12 +53,6 @@
 	}
 	#certificate{
 		-webkit-print-color-adjust: exact;
-		margin:0 !important;
-		left:0 !important;
-		outline:0 !important;
-		top:0 !important;
-		width:9in !important;
-		background-size:297mm 210mm;
-		border:2px solid black;
+		background-size:100% 100%;
 	}
 }
