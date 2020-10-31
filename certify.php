@@ -3,7 +3,7 @@ $serial = isset($_REQUEST['i'])?(int)$_REQUEST['i']:0;
 if($serial){
 	$host = "tools.db.svc.eqiad.wmflabs";
 	$creds = parse_ini_file("../replica.my.cnf");
-	$conn = mysqli_connect($host,$creds['username'],$creds['password'],'s54548__certify');
+	$conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify');
 	if(!$conn)
 		die(mysqli_connect_error());
 	$sql = "SELECT *
