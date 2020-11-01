@@ -84,7 +84,6 @@ function t(){
 
 	<div id="certificate">
 		<div style="padding: 10%;">
-	<div id="certificate">
 	<?php echo $c;?>
 	</div>
 	</div>
