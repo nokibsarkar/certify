@@ -17,8 +17,8 @@
 
 
 button {
-	height: 3vw;
-	width: 5vw;
+	height: 40px;
+	width: 70px;
 	background-color: skyblue;
 	border: 2px solid black;
 	color: black;
@@ -31,9 +31,10 @@ button {
 
 #options {
 	position: fixed;
+	margin-bottom: 20px;
+	justify-content: center;
 }
 #certificate {
-	height: 100vh;
 	background:url("frame.webp") no-repeat;
 	background-size: 100% 100%;
 	width:100%;
@@ -43,11 +44,6 @@ button {
 
 .center{
 	text-align:center;
-}
-@media (min-width: 320px) and (max-width: 480px) {
-	#certificate{
-		/*height: auto;*/
-	}
 }
 
 @media print{
