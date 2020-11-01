@@ -30,7 +30,6 @@ if($serial){
 			"institution"=>$res["Institution"],
 			"email"=>$res["Email"]
 		],"en"=>[]];
-		var_dump($data);
 		$t = $res["Certificate"];
 		$l = strlen($t) ;
 		$i = 0;
