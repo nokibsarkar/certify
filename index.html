@@ -1,0 +1,51 @@
+<!--
+array(2) {
+  ["bn"]=>
+  array(3) {
+    ["name"]=>
+    string(38) "নাজমুল হক নকীব"
+    ["institution"]=>
+    string(18) "Notre Dame College"
+    ["email"]=>
+    string(21) "nokibsarkar@gmail.com"
+  }
+  ["en"]=>
+  array(0) {
+  }
+}
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title></title>
+<link href="Styles/font.css" rel="stylesheet"/>
+<script type="text/javascript">
+function t(){
+	var o = document.querySelectorAll("[data-tr]");
+	[...o].forEach(function(v){
+		var prev = v.innerHTML;
+		v.innerHTML = v.dataset.tr;
+		v.dataset.tr = prev;
+		prev = getComputedStyle(v).fontFamily;
+		v.style.fontFamily = v.dataset.ff=="undefined"?"Times new Roman":v.dataset.ff;
+		v.dataset.ff = prev;
+	})
+}
+</script>
+</head>
+<body>
+
+	<div id="certificate">
+		<div style="padding: 10%;">
+		<h1 class="center">অংশগ্রহণ সনদ</h1>
+	<hr>
+	<p>এতদ্বারা প্রত্যয়ন করা হচ্ছে যে, </span><b>Notre Dame College</b> শিক্ষা প্রতিষ্ঠানের শিক্ষার্থী <b>নাজমুল হক নকীব</b>(<i>nokibsarkar@gmail.com</i>) গত <i>$bn.date$</i> তারিখে <i>$bn.partners$</i> ও <i>উইকিমিডিয়া বাংলাদেশ</i> কর্তৃক আয়োজিত একটি কর্মশালায় অংশগ্রহণ করেছে।</p>
+		</div>
+	</div>
+	<div id="options">
+		<button data-ff="SiyamRupali" style="font-family:Times new Roman" data-tr="বাংলা" type="button" onclick="t()">English</button>
+		<button type="button" onclick="window.print()"  value="Print" >মুদ্রণ</button>
+	</div>
+</body>
+</html>
