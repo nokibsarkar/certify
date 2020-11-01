@@ -63,6 +63,7 @@ if($serial){
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title></title>
 <link href="Styles/font.css" rel="stylesheet"/>
 <script type="text/javascript">
@@ -80,12 +81,16 @@ function t(){
 </script>
 </head>
 <body>
-	<div id="options">
-		<button data-ff="SiyamRupali" style="font-family:Times new Roman" data-tr="বাংলা" type="button" onclick="t()">English</button>
-		<button type="button" onclick="window.print()"  data-tr="Print" >মুদ্রণ</button>
-	</div>
+
+	<div id="certificate">
+		<div style="padding: 10%;">
 	<div id="certificate">
 	<?php echo $c;?>
+	</div>
+	</div>
+	<div id="options">
+	<button data-ff="SiyamRupali" style="font-family:Times new Roman" data-tr="বাংলা" type="button" onclick="t()">English</button>
+	<button type="button" onclick="window.print()"  data-tr="Print" >মুদ্রণ</button>
 	</div>
 <?php
 	}
