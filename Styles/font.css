@@ -38,6 +38,7 @@ button {
 	background:url("frame.webp") no-repeat;
 	background-size: 100% 100%;
 	width:100%;
+        height:100vh !important;
 	text-align:justify;
 	font-size: 2.5vw;
 }
