@@ -6,7 +6,7 @@ $conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify'
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 	if(!isset($_POST['policy'])){
 		echo "<b class='error'>আপনি আমাদের নীতির সঙ্গে সম্মত হন নি</b>";
-		goto register;
+		//goto register;
 	}
 	$bn_name = htmlspecialchars(addslashes($_POST['bn_name']));
 	$en_name = htmlspecialchars(addslashes($_POST['en_name']));
