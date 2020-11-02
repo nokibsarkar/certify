@@ -3,7 +3,7 @@ session_start();
 $host = "tools.db.svc.eqiad.wmflabs";
 $creds = parse_ini_file("../replica.my.cnf");
 $conn = mysqli_init();
-$conn = $conn->real_connect($host,$creds['user'],$creds['password'],'s54548__certify','','',MYSQLI_CLIENT_FOUND_ROWS);
+$conn = $conn->real_connect($host,$creds['user'],$creds['password'],'s54548__certify',0,NULL,MYSQLI_CLIENT_FOUND_ROWS);
 if(!$conn)
 	die(mysqli_connect_error());
 if($_SERVER["REQUEST_METHOD"]=="POST"){
