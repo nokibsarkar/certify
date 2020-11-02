@@ -199,7 +199,11 @@ session_write_close();
 ///Check if already exists
 $sql = "UPDATE Users SET Token_Secret = '$gTokenSecret', Token_Key = '$gTokenKey' WHERE Username = '".$_SESSION['user']['name']."'";
 $conn->query($sql);
-echo $conn->affected_rows;
+if(!$conn->affected_rows){
+	//Not yet registered so prompt for register
+register:
+echo "No update";
+}
 }
 $return = isset($_SESSION['return'])?urldecode($_SESSION['return']):'index.php';
 //header("Location: $return");
