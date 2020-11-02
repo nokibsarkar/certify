@@ -6,19 +6,18 @@ $conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify'
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 	if(!isset($_POST['policy'])){
 		echo "<b class='error'>আপনি আমাদের নীতির সঙ্গে সম্মত হন নি</b>";
-		//goto register;
+		goto register;
 	}
-	var_dump($_SESSION);
 	$bn_name = htmlspecialchars(addslashes($_POST['bn_name']));
 	$en_name = htmlspecialchars(addslashes($_POST['en_name']));
 	$inst = json_encode([htmlspecialchars(addslashes($_POST['bn_inst'])),htmlspecialchars(addslashes($_POST['en_inst']))]);
 	$sql = "INSERT INTO Users (Username, Bengali, English, Institution, Token_Key, Token_Secret) VALUES ('".$_SESSION['user']['name']."','$bn_name','$en_name','$inst','".$_SESSION['tokenKey']."','".$_SESSION['tokenSecret']."')";
 	$conn->query($sql);
 }else{
-/*if(!isset($_SESSION['consumer']) || !isset($_SESSION['user']))
+if(!isset($_SESSION['consumer']) || !isset($_SESSION['user']))
 	header("Location:login.php");
 if(!isset($_GET['oauth_verifier']) ||! isset($_GET['oauth_token']))
-	header("Location: index.php");*/
+	header("Location: index.php");
 $gConsumerKey = $_SESSION['consumer']['Key'];
 $gConsumerSecret = $_SESSION['consumer']['Secret'];
 $gUserAgent = $_SESSION['consumer']['Agent'];
