@@ -1,20 +1,14 @@
 <?php
-try{
 session_start();
-/*if(!isset($_SESSION['consumer']) || !isset($_SESSION['user']))
+if(!isset($_SESSION['consumer']) || !isset($_SESSION['user']))
 	header("Location:login.php");
 if(!isset($_GET['oauth_verifier']) ||! isset($_GET['oauth_token']))
-	header("Location: index.php");*/
+	header("Location: index.php");
 $gConsumerKey = $_SESSION['consumer']['Key'];
 $gConsumerSecret = $_SESSION['consumer']['Secret'];
 $gUserAgent = $_SESSION['consumer']['Agent'];
 $gTokenKey = $_SESSION['tokenKey'];
 $gTokenSecret=$_SESSION['tokenSecret'];
-echo "\$gConsumerKey = $gConsumerKey;
-\$gConsumerSecret = $gConsumerSecret;
-\$gUserAgent = $gUserAgent;
-\$gTokenKey = $gTokenKey;
-\$gTokenSecret=$gTokenSecret";
 /**
  * Set this to the Special:OAuth URL. 
  * Note that /wiki/Special:OAuth fails when checking the signature, while
@@ -116,13 +110,12 @@ function fetch($action='/token') {
 	curl_close( $ch );
 	echo "Retrieving $action<br/>";
 	$token = json_decode( $data, true);
-	var_dump($token);;
 	// Save the access token
-	//$_SESSION['tokenKey'] = $gTokenKey = $token['key'];
-	//$_SESSION['tokenSecret'] = $gTokenSecret = $token['secret'];
+	$_SESSION['tokenKey'] = $gTokenKey = $token['key'];
+	$_SESSION['tokenSecret'] = $gTokenSecret = $token['secret'];
 }
 fetch('/token');
-/*//fetch User info
+//fetch User info
 $data = [
 	'action'=>'query',
 	'meta'=>'userinfo',
@@ -138,7 +131,7 @@ $apiUrl = 'https://bn.wikipedia.org/w/api.php';
  * @param object $ch Curl handle
  * @return array API results
  */
-/*function doApiQuery( $post, &$ch = null ) {
+function doApiQuery( $post, &$ch = null ) {
 	global $apiUrl, $gUserAgent, $gConsumerKey, $gTokenKey, $errorCode;
 
 	$headerArr = array(
@@ -190,11 +183,10 @@ $res = doApiQuery($data, $ch);
 curl_close($ch);
 $_SESSION['user']=[
 	'name'=>$res['query']['userinfo']
-];*/
+];
 session_write_close();
-//$return = isset($_SESSION['return'])?urldecode($_SESSION['return']):'index.php';
+var_dump($_SESSION);
+$return = isset($_SESSION['return'])?urldecode($_SESSION['return']):'index.php';
 //header("Location: $return");
-}catch(Exception $e){
-	echo $e;
-}
+
 ?>
