@@ -220,5 +220,5 @@ register:
 }
 }
 $return = isset($_SESSION['return'])?urldecode($_SESSION['return']):'index.php';
-//header("Location: $return");
+header("Location: $return");
 ?>
