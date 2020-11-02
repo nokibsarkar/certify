@@ -198,6 +198,7 @@ $_SESSION['user']=[
 /****SAVE it on database ***/
 ///Check if already exists
 $sql = "UPDATE Users SET Token_Secret = '$gTokenSecret', Token_Key = '$gTokenKey' WHERE Username = '".$_SESSION['user']['name']."'";
+echo $sql;
 $conn->query($sql);
 echo $conn->affected_rows;
 if(!$conn->affected_rows){
