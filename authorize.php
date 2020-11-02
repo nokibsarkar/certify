@@ -194,7 +194,6 @@ curl_close($ch);
 $_SESSION['user']=[
 	'name'=>$res['query']['userinfo']['name']
 ];
-session_write_close();
 /****SAVE it on database ***/
 ///Check if already exists
 $sql = "UPDATE Users SET Token_Secret = '$gTokenSecret', Token_Key = '$gTokenKey' WHERE Username = '".$_SESSION['user']['name']."'";
@@ -205,7 +204,7 @@ register:
 ?>
 <form action="authorize.php" method="post">
 	<label for="username">ব্যবহারকারী নাম : </label>
-	<input name="username" value="" readonly/><br/>
+	<input name="username" value="<?php echo $_SESSION['user']['name'];?>" readonly/><br/>
 	<label for="bn_name">আসল নাম (বাংলা)</label>
 	<input name="bn_name" required/><br/>
 	<label for="en_name">আসল নাম (ইংরেজি)</label>
