@@ -206,6 +206,7 @@ if(!$conn->affected_rows){
 register:
 ?>
 <link rel="stylesheet" href="Styles/form.css"/>
+<h1>নিবন্ধন ফর্ম</h1>
 <form action="authorize.php" method="post">
 	<label for="username">ব্যবহারকারী নাম </label>
 	<input type="text" name="username" placeholder="ব্যবহারকারী নাম" value="" readonly/><br/>
