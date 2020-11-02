@@ -1,4 +1,5 @@
 <?php 
+session_start();
 $inifile = '../oauth.ini';
 $ini = parse_ini_file( $inifile );
 if ( $ini === false ) {
