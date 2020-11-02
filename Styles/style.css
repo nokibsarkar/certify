@@ -47,8 +47,8 @@ button {
 @media (orientation: portrait){
 	#certificate{
 		font-size: 2.5vw !important;
-		width: 80vw !important;
-		height: 56.56vw !important;
+		width: 100vw !important;
+		height: 70.70vw !important;
 	}
 }
 
@@ -87,3 +87,6 @@ button {
 		font-size: xx-large !important;
 	}
 }
+
+
+
