@@ -16,10 +16,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$conn->query($sql);
 	goto go;
 }else{
-/*if(!isset($_SESSION['consumer']) || !isset($_SESSION['user']))
+if(!isset($_SESSION['consumer']) || !isset($_SESSION['user']))
 	header("Location:login.php");
 if(!isset($_GET['oauth_verifier']) ||! isset($_GET['oauth_token']))
-	header("Location: index.php");*/
+	header("Location: index.php");
 $gConsumerKey = $_SESSION['consumer']['Key'];
 $gConsumerSecret = $_SESSION['consumer']['Secret'];
 $gUserAgent = $_SESSION['consumer']['Agent'];
