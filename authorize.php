@@ -8,6 +8,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		echo "<b class='error'>আপনি আমাদের নীতির সঙ্গে সম্মত হন নি</b>";
 		//goto register;
 	}
+	var_dump($_SESSION);
 	$bn_name = htmlspecialchars(addslashes($_POST['bn_name']));
 	$en_name = htmlspecialchars(addslashes($_POST['en_name']));
 	$inst = json_encode([htmlspecialchars(addslashes($_POST['bn_inst'])),htmlspecialchars(addslashes($_POST['en_inst']))]);
