@@ -13,6 +13,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$inst = json_encode([htmlspecialchars(addslashes($_POST['bn_inst'])),htmlspecialchars(addslashes($_POST['en_inst']))]);
 	$sql = "INSERT INTO Users (Username, Bengali, English, Institution, Token_Key, Token_Secret) VALUES ('".$_SESSION['user']['name']."','$bn_name','$en_name','$inst','".$_SESSION['tokenKey']."','".$_SESSION['tokenSecret']."')";
 	$conn->query($sql);
+	goto go;
 }else{
 /*if(!isset($_SESSION['consumer']) || !isset($_SESSION['user']))
 	header("Location:login.php");
@@ -217,8 +218,10 @@ register:
 	<input type="submit" value="নিবন্ধন"/>
 </form>
 <?php
-}
-}
+}else{
+go:
 $return = isset($_SESSION['return'])?urldecode($_SESSION['return']):'index.php';
 header("Location: $return");
+}
+}
 ?>
