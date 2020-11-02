@@ -1,20 +1,21 @@
 @font-face {
-  font-family: 'SiyamRupali';
-  src: url('SiyamRupali.eot');
-  src: url('SiyamRupali.woff') format('woff'),
-       url('SiyamRupali.ttf') format('truetype'),
-       url('SiyamRupali.svg#SiyamRupali') format('svg'),
-       url('SiyamRupali.eot?#iefix') format('embedded-opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-* {
-	font-family:SiyamRupali;
-	margin: 0;
-	padding: 0;
-}
-
+    font-family: 'SiyamRupali';
+    src: url('SiyamRupali.eot');
+    src: url('SiyamRupali.woff') format('woff'),
+         url('SiyamRupali.ttf') format('truetype'),
+         url('SiyamRupali.svg#SiyamRupali') format('svg'),
+         url('SiyamRupali.eot?#iefix') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  * {
+      font-family:SiyamRupali;
+      margin: 0;
+      padding: 0;
+  }
+  
+    
 
 button {
 	height: 40px;
@@ -80,7 +81,7 @@ button {
 		background-size:100% 100% !important;
 		background:url("frame.webp") no-repeat;
 		background-size: 100% 100% !important;
-		width:100% !important;
+		width:100vw !important;
 		height: 100vh !important;
 		text-align:justify !important;
 		font-size: xx-large !important;

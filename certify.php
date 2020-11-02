@@ -65,7 +65,7 @@ if($serial){
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title></title>
-<link href="Styles/font.css" rel="stylesheet"/>
+<link href="Styles/style.css" rel="stylesheet"/>
 <script type="text/javascript">
 function t(){
 	var o = document.querySelectorAll("[data-tr]");
