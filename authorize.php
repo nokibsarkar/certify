@@ -199,26 +199,7 @@ session_write_close();
 ///Check if already exists
 $sql = "UPDATE Users SET Token_Secret = '$gTokenSecret', Token_Key = '$gTokenKey' WHERE Username = '".$_SESSION['user']['name']."'";
 $conn->query($sql);
-if(!$conn->affected_rows){
-	//Not yet registered so prompt for register
-	register:
-?>
-<form action="authorize.php" method="post">
-	<label for="username">ব্যবহারকারী নাম : </label>
-	<input name="username" value="<?php echo $_SESSION['user']['name'];?>" readonly/><br/>
-	<label for="bn_name">আসল নাম (বাংলা)</label>
-	<input name="bn_name" required/><br/>
-	<label for="en_name">আসল নাম (ইংরেজি)</label>
-	<input name="en_name" required/><br/>
-	<label for="bn_inst">প্রতিষ্ঠান (বাংলা)</label>
-	<input name="bn_inst" required/><br/>
-	<label for="en_inst">প্রতিষ্ঠান (ইংরেজি)</label>
-	<input name="en_inst" required/><br/>
-	<input type="checkbox" name="policy"/> আপনি নিবন্ধনের মাধ্যমে উইকিমিডিয়া বাংলাদেশের গোপনীয়তা নীতির সঙ্গে সম্মত হচ্ছেন।
-	<input type="submit" value="নিবন্ধন"/>
-</form>
-<?
-}
+
 }
 $return = isset($_SESSION['return'])?urldecode($_SESSION['return']):'index.php';
 //header("Location: $return");
