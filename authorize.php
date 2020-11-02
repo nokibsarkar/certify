@@ -14,10 +14,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$sql = "INSERT INTO Users (Username, Bengali, English, Institution, Token_Key, Token_Secret) VALUES ('".$_SESSION['user']['name']."','$bn_name','$en_name','$inst','".$_SESSION['tokenKey']."','".$_SESSION['tokenSecret']."')";
 	$conn->query($sql);
 }else{
-if(!isset($_SESSION['consumer']) || !isset($_SESSION['user']))
+/*if(!isset($_SESSION['consumer']) || !isset($_SESSION['user']))
 	header("Location:login.php");
 if(!isset($_GET['oauth_verifier']) ||! isset($_GET['oauth_token']))
-	header("Location: index.php");
+	header("Location: index.php");*/
 $gConsumerKey = $_SESSION['consumer']['Key'];
 $gConsumerSecret = $_SESSION['consumer']['Secret'];
 $gUserAgent = $_SESSION['consumer']['Agent'];
