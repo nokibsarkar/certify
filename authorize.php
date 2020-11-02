@@ -10,11 +10,11 @@ $gConsumerSecret = $_SESSION['consumer']['Secret'];
 $gUserAgent = $_SESSION['consumer']['Agent'];
 $gTokenKey = $_SESSION['tokenKey'];
 $gTokenSecret=$_SESSION['tokenSecret'];
-echo "\$gConsumerKey = $_SESSION['consumer']['Key'];
-\$gConsumerSecret = $_SESSION['consumer']['Secret'];
-\$gUserAgent = $_SESSION['consumer']['Agent'];
-\$gTokenKey = $_SESSION['tokenKey'];
-\$gTokenSecret=$_SESSION['tokenSecret'];";
+echo "\$gConsumerKey = $gConsumerKey;
+\$gConsumerSecret = $gConsumerSecret;
+\$gUserAgent = $gUserAgent;
+\$gTokenKey = $gTokenKey;
+\$gTokenSecret=$gTokenSecret";
 /**
  * Set this to the Special:OAuth URL. 
  * Note that /wiki/Special:OAuth fails when checking the signature, while
