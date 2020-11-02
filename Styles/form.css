@@ -1,0 +1,111 @@
+@media (orientation: portrait){
+
+    label {
+        display: none;
+    }
+
+    input[type=text] {
+        border-radius: 25px;
+        width: 90%;
+        height: 10vh;
+        margin-bottom: 1vh;
+        padding: 3%;
+        margin-left: 5%;
+        margin-right: 5%;
+        font-size: 3vh;
+        justify-content: center;
+        border-color: skyblue;
+        outline: none;
+        border: 1px solid #5F6368;
+    }
+
+    input[type=text]::placeholder{
+        font-size: 3vh;
+        justify-content: center;
+    }
+
+    input[type=checkbox]{
+        height: 4vh;
+        width: 4vh;
+    }
+
+    div{
+        text-align: justify;
+        font-size: 3vh;
+        margin-left: 5%;
+        margin-right: 5%;
+        position: relative;
+    }
+
+    input[type=submit]{
+        font-size: 3vh;
+        height: 8vh;
+        width: 12vh;
+        margin-left: 5%;
+        border: .5vh solid skyblue;
+        background-color: rgb(192, 230, 245);
+    }
+
+    h1 {
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        font-size: 4vh;
+        margin-left: 5%;
+    }
+}
+
+@media (orientation: landscape){
+
+    label{
+        margin-left: 5%;
+        font-size: 3vh;
+    }
+    input[type=text] {
+        border-radius: 25px;
+        width: 60%;
+        height: 2.5vh;
+        margin-bottom: 2vh;
+        padding: 3vh;
+        margin-left: 5%;
+        margin-right: 35%;
+        font-size: 1.5vh;
+        justify-content: center;
+        border-color: skyblue;
+        outline: none;
+        border: 1px solid #5F6368;
+    }
+
+    input[type=text]::placeholder{
+        font-size: 3vh;
+        justify-content: center;
+    }
+
+    input[type=checkbox]{
+        height: 3vh;
+        width: 3vh;
+    }
+
+    div{
+        text-align: justify;
+        font-size: 3vh;
+        margin-left: 5%;
+        margin-right: 5%;
+        position: relative;
+    }
+
+    input[type=submit]{
+        font-size: 3vh;
+        height: 7vh;
+        width: 10vh;
+        margin-left: 5%;
+        border: .25vh solid skyblue;
+        background-color: rgb(192, 230, 245);
+    }
+
+    h1 {
+        margin-top: 1.5vh;
+        margin-bottom: 1.5vh;
+        font-size: 8vh;
+        margin-left: 5%;
+    }
+}
