@@ -4,8 +4,6 @@ $host = "tools.db.svc.eqiad.wmflabs";
 $creds = parse_ini_file("../replica.my.cnf");
 $conn = mysqli_init();
 $conn = $conn->real_connect($host,$creds['user'],$creds['password'],'s54548__certify',0,NULL,MYSQLI_CLIENT_FOUND_ROWS);
-if($conn)
-	echo "Connected";
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 	if(!isset($_POST['policy'])){
 		echo "<b class='error'>আপনি আমাদের নীতির সঙ্গে সম্মত হন নি</b>";
@@ -201,9 +199,8 @@ $_SESSION['user']=[
 /****SAVE it on database ***/
 ///Check if already exists
 $sql = "UPDATE Users SET Token_Secret = '$gTokenSecret', Token_Key = '$gTokenKey' WHERE Username = '".$_SESSION['user']['name']."'";
-echo $sql;
 $conn->query($sql);
-echo $conn->affected_rows;
+echo mysqli_error($conn);
 if(!$conn->affected_rows){
 	//Not yet registered so prompt for register
 register:
