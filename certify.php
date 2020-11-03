@@ -19,7 +19,6 @@ if($serial){
 		$res = $res->fetch_assoc();
 		$res["partners"] = json_decode($res["Partner"],true);
 		$res["Institution"] = json_decode($res["Institution"],true);
-		var_dump($res);
 		$data = ["bn"=>[
 			"name"=>$res["Bengali"],
 			"institution"=>$res["Institution"][0]
