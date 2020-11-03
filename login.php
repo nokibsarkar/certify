@@ -176,11 +176,6 @@ $return = urldecode((isset($_REQUEST['return'])&&$_REQUEST['return'])?$_REQUEST[
 		?>
 <link rel="stylesheet" href="Styles/font.css"/>
 <style>
-	.container {
-	height: 40vh;
-	position: relative;
-	}
-
 	.center {
 	margin: 0;
 	position: absolute;
@@ -200,11 +195,8 @@ $return = urldecode((isset($_REQUEST['return'])&&$_REQUEST['return'])?$_REQUEST[
 		color: grey;
 	}
 </style>
-
-<div class="container center">
-	<div class="center">
-		<a href="login.php?confirm&return=<?php echo $return;?>"<button id="login">প্রবেশ করুন</button></a>
-	</div>
+<div class="center">
+	<a href="login.php?confirm&return=<?php echo $return;?>"<button id="login">প্রবেশ করুন</button></a>
 </div>
 <?php
 }
