@@ -53,8 +53,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$sql = "INSERT INTO `Queue` VALUES (NULL, '$user', b'01', '$list', b'00');";
 	$conn->query($sql);
 	$id = $conn->insert_id;
-	exec("jsub -N T$id php -f /data/project/certify/public_html/email.php '$user'");
-	echo en2bn($id)."নং কাজটি জমা দেয়া হয়েছে";
+	echo exec("jsub -N T$id php -f /data/project/certify/public_html/email.php '$user'");
+	//echo en2bn($id)."নং কাজটি জমা দেয়া হয়েছে";
 }
 else{
 ?>
@@ -64,16 +64,18 @@ else{
 <form action="admin.php" method="post">
 	<label>কর্মশালা নং</label><input type="text" placeholder="কর্মশালা নং" name="ID" value="" readonly/><br/>
 	<label for="subject">বিষয়:</label><input type="text" name="subject" placeholder="বিষয় লিখুন" value="আপনার অংশগ্রহণ সার্টিফিকেট"></input><br/>
-	<label for="body" id="unhide">বিষয়বস্তু</label>
+	<label for="body" class="unhide">বিষয়বস্তু</label>
 	<ul id="suggestions">
-	<input id="suggestion" type="button" onclick="in_body.value+=this.value" value="$bn.name$">
-	<input id="suggestion" type="button" onclick="in_body.value+=this.value" value="$en.name$">
+	<input class="suggestion" type="button" onclick="in_body.value+=this.value" value="$bn.name$">
+	<input class="suggestion" type="button" onclick="in_body.value+=this.value" value="$en.name$">
 	</ul>
-	<textarea id="in_body"> ওকে </textarea><br/>
-	<select name="list">
+	<textarea name id="in_body"> ওকে </textarea><br/>
+	<label>ছাঁকনী:</label>
+<select name="list">
 		<option value="0">উত্তীর্ণ অংশগ্রহণকারী</option>
 	</select>
 	<br>
+<label>ন্যুনতম স্কোর:</label>
 	<input name="data[minScore]" type="range" min="0" max="100" step="0.5" onchange="value.innerHTML = this.value"/><font id="value"></font>
 	<br>
 	<input type="submit"/>
