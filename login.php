@@ -163,71 +163,39 @@ $return = urldecode((isset($_REQUEST['return'])&&$_REQUEST['return'])?$_REQUEST[
    		'oauth_token' => $token->key,
    		'oauth_consumer_key' => $gConsumerKey,
    		) );
+   		$_SESSION["return"] = $return;
    		header( "Location: $url" );
    		echo 'Please see <a href="' . htmlspecialchars( $url ) . '">' . htmlspecialchars( $url ) . '</a>';
    		}
    	}elseif(isset($_REQUEST['logout'])){
    ?>
-
-   <head>
-   	<link rel="stylesheet" href="Styles/style.css"/>
-   </head>
-   <style>
-	.center {
-	margin: 0;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	}
-
-	#logout{
-        font-size: 5vw;
-		height: 28vh;
-		width: 60vw;
-        padding: 2vh;
-        border: .25vh solid skyblue;
-		background-color: rgb(192, 230, 245);
-		color: black;
-		text-decoration:none;
-	}
-	</style>
-	<div class="center">
-		<a href='login.php?logout&confirm&return=<?php echo $return;?>'<button id="logout">প্রস্থান করুন</button></a>
-	</div>
+  	 <script>window.location = confirm('Do You want to logout?')?'login.php?logout&confirm&return=<?php echo $return;?>' : '<?php echo urldecode($return);?>';</script>
    <?php
    	}
    	else{
    	login:
-		?>
-<head>
-   	<link rel="stylesheet" href="Styles/style.css"/>
-   </head>
+   		?>
+<link rel="stylesheet" href="Styles/font.css"/>
 <style>
-	.center {
-	margin: 0;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	}
-
-	#login{
-        font-size: 5vw;
-		height: 28vh;
-		width: 60vw;
-        padding: 2vh;
-        border: .25vh solid skyblue;
-		background-color: rgb(192, 230, 245);
-		color: black;
-		text-decoration:none
-	}
+#login
+{
+top:calc(43% - 24px);
+height:7%;
+left:calc((30% - 24px)/2);
+width:70%;
+padding:30px;
+position:absolute;
+text-decoration:none;
+background:green;
+background-opacity:0.5;
+color:white;
+border:2px solid green;
+border-radius:50px;
+font-size:400%;
+text-align:center;
+}
 </style>
-<div class="center">
-	<a href="login.php?confirm&return=<?php echo $return;?>"<button id="login">প্রবেশ করুন</button></a>
-</div>
+<a href="login.php?confirm&return=<?php echo $return;?>"<button id="login">প্রবেশ করুন</button></a>
 <?php
 }
 ?>
