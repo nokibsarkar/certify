@@ -132,7 +132,7 @@ function doApiQuery( $post, &$ch = null ) {
 	if ( $ret == []) {
 	//	header( "HTTP/1.1 $errorCode Internal Server Error" );
 		echo 'Unparsable API response: <pre>' . htmlspecialchars( $data ) . '</pre>';
-		//exit(0);
+		exit(0);
 	}
 	return $ret;
 }
@@ -143,15 +143,11 @@ function fetch_token(){
 	"meta"=> "tokens",
 	"type"=> "csrf"
 	];
-	$res = doApiQuery($data);
-	return $res;
-	//["query"]["tokens"]["csrftoken"];
-	//return $res=="+\\"?NULL : $res;
+	$res = doApiQuery($data)["query"]["tokens"]["csrftoken"];
+	return $res=="+\\"?NULL : $res;
 	
 }
 $token = fetch_token();
-var_dump($token);
-exit(0);
 foreach($mail_list as $v){
 	send:
 	$data = [
@@ -171,5 +167,7 @@ foreach($mail_list as $v){
 			}
 		echo $res["info"];
 	}
+	else
+		echo "Sent to :".$v[0];
 }
 ?>
