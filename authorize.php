@@ -204,10 +204,10 @@ echo mysqli_error($conn);
 if(!$conn->affected_rows){
 	//Not yet registered so prompt for register
 register:
+var_dump($_SESSION);
 ?>
 <link rel="stylesheet" href="Styles/form.css"/>
 <link rel="stylesheet" href="Styles/style.css"/>
-
 
 <h1>নিবন্ধন ফর্ম</h1>
 <form action="authorize.php" method="post">
