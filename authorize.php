@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	}
 	$bn_name = htmlspecialchars(addslashes($_POST['bn_name']));
 	$en_name = htmlspecialchars(addslashes($_POST['en_name']));
-	$inst = json_encode([htmlspecialchars(addslashes($_POST['bn_inst'])),htmlspecialchars(addslashes($_POST['en_inst']))]);
+	$inst = json_encode([htmlspecialchars(addslashes($_POST['bn_inst'])),htmlspecialchars(addslashes($_POST['en_inst']))],JSON_UNESCAPED_UNICODE);
 	$sql = "INSERT INTO Users (Username, Bengali, English, Institution, Token_Key, Token_Secret) VALUES ('".$_SESSION['user']['name']."','$bn_name','$en_name','$inst','".$_SESSION['tokenKey']."','".$_SESSION['tokenSecret']."')";
 	$conn->query($sql);
 	goto go;
