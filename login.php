@@ -168,6 +168,7 @@ $return = urldecode((isset($_REQUEST['return'])&&$_REQUEST['return'])?$_REQUEST[
    		}
    	}elseif(isset($_REQUEST['logout'])){
    ?>
+   <link rel="stylesheet" href="Styles/style.css"/>
    <style>
 	.center {
 	margin: 0;
@@ -185,7 +186,8 @@ $return = urldecode((isset($_REQUEST['return'])&&$_REQUEST['return'])?$_REQUEST[
         padding: 2vh;
         border: .25vh solid skyblue;
 		background-color: rgb(192, 230, 245);
-		color: grey;
+		color: black;
+		text-decoration:none;
 	}
 	</style>
 	<div class="center">
@@ -196,7 +198,6 @@ $return = urldecode((isset($_REQUEST['return'])&&$_REQUEST['return'])?$_REQUEST[
    	else{
    	login:
 		?>
-<link rel="stylesheet" href="Styles/font.css"/>
 <style>
 	.center {
 	margin: 0;
@@ -214,7 +215,8 @@ $return = urldecode((isset($_REQUEST['return'])&&$_REQUEST['return'])?$_REQUEST[
         padding: 2vh;
         border: .25vh solid skyblue;
 		background-color: rgb(192, 230, 245);
-		color: grey;
+		color: black;
+		text-decoration:none
 	}
 </style>
 <div class="center">
