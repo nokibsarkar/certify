@@ -179,7 +179,6 @@ $return = urldecode((isset($_REQUEST['return'])&&$_REQUEST['return'])?$_REQUEST[
 	.container {
 	height: 40vh;
 	position: relative;
-	border: 3px solid green;
 	}
 
 	.center {
@@ -193,15 +192,15 @@ $return = urldecode((isset($_REQUEST['return'])&&$_REQUEST['return'])?$_REQUEST[
 
 	#login{
         font-size: 5vh;
-        height: 14vh;
-        width: 20vh;
+        height: 28vh;
+        width: 40vh;
         margin-left: 5%;
         border: .25vh solid skyblue;
         background-color: rgb(192, 230, 245);
 	}
 </style>
 
-<div class="container">
+<div class="container center">
 	<div class="center">
 		<a href="login.php?confirm&return=<?php echo $return;?>"<button id="login">প্রবেশ করুন</button></a>
 	</div>
