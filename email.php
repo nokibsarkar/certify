@@ -38,7 +38,7 @@ $gTokenSecret= $res["S"];
 $id = $res["I"];
 //Update the Status
 $sql = "UPDATE Queue SET Status = 1 WHERE ID = $id";
-//$conn->query($sql);
+$conn->query($sql);
 $mwOAuthUrl = 'https://meta.wikimedia.org/w/index.php?title=Special:OAuth';
 $mwOAuthIW = 'meta';
 
@@ -170,4 +170,6 @@ foreach($mail_list as $v){
 	else
 		echo "Sent to :".$v[0];
 }
+$sql = "UPDATE Queue SET Status = 2 WHERE ID = $id";
+$conn->query($sql);
 ?>
