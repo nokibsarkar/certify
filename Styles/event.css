@@ -225,12 +225,10 @@
 
     textarea{
         border-radius: 15px;
-        width: 60vw;
+        width: 89%;
         height: 25vh;
         padding: 0.8vh;
-        flex-wrap: wrap;
         margin-bottom: 2vh;
-        margin-right: 35%;
         font-size: 2vh;
         border-color: skyblue;
         outline: none;
