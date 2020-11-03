@@ -168,6 +168,7 @@ $return = urldecode((isset($_REQUEST['return'])&&$_REQUEST['return'])?$_REQUEST[
    		}
    	}elseif(isset($_REQUEST['logout'])){
    ?>
+
    <head>
    	<link rel="stylesheet" href="Styles/style.css"/>
    </head>
@@ -200,6 +201,9 @@ $return = urldecode((isset($_REQUEST['return'])&&$_REQUEST['return'])?$_REQUEST[
    	else{
    	login:
 		?>
+<head>
+   	<link rel="stylesheet" href="Styles/style.css"/>
+   </head>
 <style>
 	.center {
 	margin: 0;
