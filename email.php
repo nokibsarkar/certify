@@ -150,7 +150,7 @@ function fetch_token(){
 	
 }
 $token = fetch_token();
-echo $token;
+var_dump($token);
 exit(0);
 foreach($mail_list as $v){
 	send:
