@@ -199,7 +199,6 @@ $_SESSION['user']=[
 /****SAVE it on database ***/
 ///Check if already exists
 $sql = "UPDATE Users SET Token_Secret = '$gTokenSecret', Token_Key = '$gTokenKey' WHERE Username = '".$_SESSION['user']['name']."'";
-echo $sql;
 $conn->query($sql);
 if(!$conn->affected_rows){
 	//Not yet registered so prompt for register
