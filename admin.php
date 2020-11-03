@@ -58,18 +58,24 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 }
 else{
 ?>
+<link rel="stylesheet" href="Styles/style.css">
+<link rel="stylesheet" href="Styles/form.css">
+<h1>ইমেইল ফর্ম</h1>
 <form action="admin.php" method="post">
-	<label>আইডি</label><input name="ID" value="" readonly/><br/>
-	<label for="subject">বিষয়:</label><textarea name="subject" placeholder="বিষয় লিখুন">আপনার অংশগ্রহণ সার্টিফিকেট</textarea><br/>
-	<label for="body">বিষয়বস্তু</label>
+	<label>কর্মশালা নং</label><input type="text" placeholder="কর্মশালা নং" name="ID" value="" readonly/><br/>
+	<label for="subject">বিষয়:</label><input type="text" name="subject" placeholder="বিষয় লিখুন" value="আপনার অংশগ্রহণ সার্টিফিকেট"></input><br/>
+	<label for="body" id="unhide">বিষয়বস্তু</label>
 	<ul id="suggestions">
-	<li type="button" onclick="in_body.innerHTML+=this.innerHTML">$bn.name$</li>
+	<input id="suggestion" type="button" onclick="in_body.value+=this.value" value="$bn.name$">
+	<input id="suggestion" type="button" onclick="in_body.value+=this.value" value="$en.name$">
 	</ul>
-	<textarea name="body" id="in_body" rows="20">আপনার সনদপত্র</textarea><br/>
+	<textarea id="in_body"> ওকে </textarea><br/>
 	<select name="list">
 		<option value="0">উত্তীর্ণ অংশগ্রহণকারী</option>
 	</select>
+	<br>
 	<input name="data[minScore]" type="range" min="0" max="100" step="0.5" onchange="value.innerHTML = this.value"/><font id="value"></font>
+	<br>
 	<input type="submit"/>
 </form>
 <?php
