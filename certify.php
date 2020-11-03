@@ -17,7 +17,7 @@ if($serial){
 	$res = $conn->query($sql);
 	if($res){
 		$res = $res->fetch_assoc();
-		$res["partners"] = json_decode($res["Partner"],true);
+		$res["Partner"] = json_decode($res["Partner"],true);
 		$res["Institution"] = json_decode($res["Institution"],true);
 		$dt = date_create($res["Start"]);
 		$month = [
@@ -35,11 +35,13 @@ if($serial){
 		$data = ["bn"=>[
 			"name"=>$res["Bengali"],
 			"institution"=>$res["Institution"][0],
-			"date"=>$month[$dt->format("n") - 1].en2bn($dt->format(" j, Y"))
+			"date"=>$month[$dt->format("n") - 1].en2bn($dt->format(" j, Y")),
+			"partners"=>implode(", ",$res["Partner"][0])
 		],"en"=>[
 			"name"=>$res["English"],
 			"institution"=>$res["Institution"][1],
-			"date"=>$dt->format("F j, Y")
+			"date"=>$dt->format("F j, Y"),
+			"partners"=>implode(", ",$res["Partner"][1])
 		]];
 ?>
 <!DOCTYPE html>
