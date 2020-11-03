@@ -173,28 +173,39 @@ $return = urldecode((isset($_REQUEST['return'])&&$_REQUEST['return'])?$_REQUEST[
    	}
    	else{
    	login:
-   		?>
+		?>
 <link rel="stylesheet" href="Styles/font.css"/>
-<style>
-#login
-{
-top:calc(43% - 24px);
-height:7%;
-left:calc((30% - 24px)/2);
-width:70%;
-padding:30px;
-position:absolute;
-text-decoration:none;
-background:green;
-background-opacity:0.5;
-color:white;
-border:2px solid green;
-border-radius:50px;
-font-size:400%;
-text-align:center;
-}
+	<style>
+	.container {
+	height: 40vh;
+	position: relative;
+	border: 3px solid green;
+	}
+
+	.center {
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	}
+
+	#login{
+        font-size: 5vh;
+        height: 14vh;
+        width: 20vh;
+        margin-left: 5%;
+        border: .25vh solid skyblue;
+        background-color: rgb(192, 230, 245);
+	}
 </style>
-<a href="login.php?confirm&return=<?php echo $return;?>"<button id="login">প্রবেশ করুন</button></a>
+
+<div class="container">
+	<div class="center">
+		<a href="login.php?confirm&return=<?php echo $return;?>"<button id="login">প্রবেশ করুন</button></a>
+	</div>
+</div>
 <?php
 }
 ?>
