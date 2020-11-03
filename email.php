@@ -29,7 +29,7 @@ $creds = parse_ini_file("../replica.my.cnf");
 $conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify');
 $sql = "SELECT Users.Token_Key AS K, Users.Token_Secret AS S, Queue.Task AS T, Queue.ID AS I FROM Users JOIN Queue WHERE Users.Username = '".$argv[1]."' AND Users.Username = Queue.Initiator AND Queue.Type = 1 AND Queue.Status = 0";
 $res = $conn->query($sql);
-if(!($res = $conn->fetch_assoc()))
+if(!($res = $res->fetch_assoc()))
 	exit("No task is Defined");
 $mail_list = json_decode($res["T"],true);
 $gTokenKey = $res["K"];
