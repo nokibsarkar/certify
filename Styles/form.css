@@ -72,6 +72,33 @@
         background-color: rgb(192, 230, 245);
     }
 
+    input[type=range]{
+        -webkit-appearance: none;
+        width: 40vw;
+        height: 1vh;
+        background:rgb(192, 230, 245);
+        outline: none;
+        margin-bottom: 3vh;
+    }
+    input[type=range]::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        border: 3px solid royalblue;
+        height: 2vh;
+        width: 2vh;
+        border-radius: 3px;
+        background: royalblue;
+        cursor: pointer;
+    }
+
+    select {
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        background-color: rgb(192, 230, 245);
+        color: black;
+        padding: 1vh;
+        font-size: 2vh;
+    }
+
     h1 {
         margin-top: 3vh;
         margin-bottom: 3vh;
@@ -143,6 +170,19 @@
         padding: 0.5vh;
         border: .25vh solid skyblue;
         background-color: rgb(192, 230, 245);
+    }
+
+    input[type=range]{
+        margin-bottom: 2vh;
+    }
+
+    
+    select {
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        background-color: rgb(192, 230, 245);
+        color: black;
+        padding: 1vh;
     }
 
     textarea{

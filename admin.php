@@ -70,12 +70,12 @@ else{
 	<input class="suggestion" type="button" onclick="in_body.value+=this.value" value="$en.name$">
 	</ul>
 	<textarea name id="in_body"> ওকে </textarea><br/>
-	<label>ছাঁকনী:</label>
-<select name="list">
+	<label for="list" class="unhide">ছাঁকনী:</label>
+	<select name="list">
 		<option value="0">উত্তীর্ণ অংশগ্রহণকারী</option>
 	</select>
 	<br>
-<label>ন্যুনতম স্কোর:</label>
+	<label for="data[minScore]" class="unhide">ন্যুনতম স্কোর:</label>
 	<input name="data[minScore]" type="range" min="0" max="100" step="0.5" onchange="value.innerHTML = this.value"/><font id="value"></font>
 	<br>
 	<input type="submit"/>
