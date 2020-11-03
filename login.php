@@ -183,9 +183,9 @@ $return = urldecode((isset($_REQUEST['return'])&&$_REQUEST['return'])?$_REQUEST[
 	}
 
 	#logout{
-        font-size: 5vh;
+        font-size: 5vw;
 		height: 28vh;
-		width: 60vh;
+		width: 60vw;
         padding: 2vh;
         border: .25vh solid skyblue;
 		background-color: rgb(192, 230, 245);
@@ -215,9 +215,9 @@ $return = urldecode((isset($_REQUEST['return'])&&$_REQUEST['return'])?$_REQUEST[
 	}
 
 	#login{
-        font-size: 5vh;
+        font-size: 5vw;
 		height: 28vh;
-		width: 60vh;
+		width: 60vw;
         padding: 2vh;
         border: .25vh solid skyblue;
 		background-color: rgb(192, 230, 245);
