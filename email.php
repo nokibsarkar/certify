@@ -2,7 +2,7 @@
 if(php_sapi_name()!="cli")
 	exit(http_response_code(403));
 // Read the ini file
-$inifile = '../oauth.ini';
+$inifile = '/data/project/certify/oauth.ini';
 $ini = parse_ini_file( $inifile );
 if ( $ini === false ) {
 	//header( "HTTP/1.1 $errorCode Internal Server Error" );
