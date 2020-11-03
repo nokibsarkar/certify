@@ -4,7 +4,7 @@
         display: none;
     }
 
-    #unhide{
+    .unhide{
         display: initial;
         margin-left: 5%;
         font-size: 3vh;
@@ -80,7 +80,7 @@
         margin-left: 5%;
     }
 
-    #suggestion{
+    .suggestion{
         margin-left: 0%;
         margin-right: 0.5vh;
     }
@@ -169,7 +169,7 @@
         margin-left: 5%;
     }
 
-    #suggestion{
+    .suggestion{
         margin-left: 0%;
         margin-right: 0.5vw;
     }
