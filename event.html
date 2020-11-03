@@ -2,6 +2,8 @@
 <html>
 <head>
 <title></title>
+<link rel="stylesheet" href="Styles/style.css">
+<link rel="stylesheet" href="Styles/event.css">
 <script type="text/javascript">
 function multiAdd(obj,name){
 	obj.innerHTML+="<li class='pair'><input name='bn_" + name + "[]' placeholder='বাংলা' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input name='en_" + name + "[]' placeholder='English' required/></li>";
@@ -12,37 +14,38 @@ function multiAdd(obj,name){
 <body>
 
 <form method="post" action="">
-	<fieldset>
-	<legend>তথ্যাদি</legend>
-		<fieldset>
-		<legend>নাম</legend>
-			<input name="bn_name" placeholder="বাংলা" required/>
-			<input name="en_name" placeholder="English" required/>
-		</fieldset>
-		<fieldset>
-		<legend>ভেন্যু</legend>
-			<input name="bn_ven" placeholder="বাংলা" required/>
-			<input name="en_ven" placeholder="English" required/>
-		</fieldset>
-		<fieldset id="partner">
-		<legend>সহযোগী</legend>
-		</fieldset>
-		<button type="button" onclick="multiAdd(partner,'part')">+</button>
-		<fieldset id="inst">
-		<legend>নির্দেশনা প্রদানকারী</legend>
-		</fieldset>
-		<button type="button" onclick="multiAdd(inst,'part')">+</button>
+	<fieldset class="main">
+		<legend>তথ্যাদি</legend>
+			<fieldset>
+			<legend>নাম</legend>
+				<input type="text" name="bn_name" placeholder="বাংলা" required/>
+				<input type="text" name="en_name" placeholder="English" required/>
 			</fieldset>
-	<fieldset>
+			<fieldset>
+			<legend>ভেন্যু</legend>
+				<input type="text" name="bn_ven" placeholder="বাংলা" required/>
+				<input type="text" name="en_ven" placeholder="English" required/>
+			</fieldset>
+			<fieldset id="partner">
+			<legend>সহযোগী</legend>
+			<button type="button" onclick="multiAdd(partner,'part')">+</button>
+			</fieldset>
+			<fieldset id="inst">
+			<legend>নির্দেশনা প্রদানকারী</legend>
+			<button type="button" onclick="multiAdd(inst,'part')">+</button>
+			</fieldset>
+
+	</fieldset>
+	<fieldset class="main">
 		<legend>উপাত্ত</legend>
 		<label for="ID">আইডি</label>
-		<input name="ID" type="" placeholder="" value="" readonly/><br/>
+		<input name="ID" type="text" placeholder="" value="" readonly/><br/>
 		<label for="start">শুরু</label>
 		<input name="start" type="datetime-local" placeholder="" value="" required/><br>
 		<label for="end">সমাপ্তি</label>
 		<input name="end" type="datetime-local" placeholder="" value="" required/><br/>
-		<input name="quiz" type="checkbox" onchange=""/><label for="quiz">কুইজ আছে</label><br/>
-			<fieldset>
+		<div><input name="quiz" type="checkbox" onchange=""/> কুইজ আছে </div>
+		<fieldset>
 			<legend>কুইজ</legend>
 			<label for="qstart">শুরু</label>
 			<input name="qstart" type="datetime-local" placeholder="" value="" required/><br/>
