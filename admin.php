@@ -19,6 +19,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$creds = parse_ini_file("../replica.my.cnf");
 	$conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify');
 	$res = $conn->query($sql);
+	echo mysqli_error($conn);
+	echo $sql;
 	while($row = $res->fetch_assoc()){
 	$sql = "INSERT INTO Certificates VALUES (NULL , '".$row["Username"]."',CURRENT_TIMESTAMP , ".$id.");";
 	$conn->query($sql);
