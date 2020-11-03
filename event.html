@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<script type="text/javascript">
+function multiAdd(obj,name){
+	obj.innerHTML+="<li class='pair'><input name='bn_" + name + "[]' placeholder='বাংলা' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input name='en_" + name + "[]' placeholder='English' required/></li>";
+}
+
+</script>
+</head>
+<body>
+
+<form method="post" action="">
+	<fieldset>
+	<legend>তথ্যাদি</legend>
+		<fieldset>
+		<legend>নাম</legend>
+			<input name="bn_name" placeholder="বাংলা" required/>
+			<input name="en_name" placeholder="English" required/>
+		</fieldset>
+		<fieldset>
+		<legend>ভেন্যু</legend>
+			<input name="bn_ven" placeholder="বাংলা" required/>
+			<input name="en_ven" placeholder="English" required/>
+		</fieldset>
+		<fieldset id="partner">
+		<legend>সহযোগী</legend>
+		</fieldset>
+		<button type="button" onclick="multiAdd(partner,'part')">+</button>
+		<fieldset id="inst">
+		<legend>নির্দেশনা প্রদানকারী</legend>
+		</fieldset>
+		<button type="button" onclick="multiAdd(inst,'part')">+</button>
+			</fieldset>
+	<fieldset>
+		<legend>উপাত্ত</legend>
+		<label for="ID">আইডি</label>
+		<input name="ID" type="" placeholder="" value="" readonly/><br/>
+		<label for="start">শুরু</label>
+		<input name="start" type="datetime-local" placeholder="" value="" required/><br>
+		<label for="end">সমাপ্তি</label>
+		<input name="end" type="datetime-local" placeholder="" value="" required/><br/>
+		<input name="quiz" type="checkbox" onchange=""/><label for="quiz">কুইজ আছে</label><br/>
+			<fieldset>
+			<legend>কুইজ</legend>
+			<label for="qstart">শুরু</label>
+			<input name="qstart" type="datetime-local" placeholder="" value="" required/><br/>
+			<label for="qend">সমাপ্তি</label>
+			<input name="qend" type="datetime-local" placeholder="" value="" required/><br/>
+		</fieldset>
+		<label for="certificate"></label>
+		<textarea name="" placeholder="" value="" required></textarea>
+		<br/>
+		<input name="edit" type="hidden"/>
+	</fieldset>
+	<input type="submit"/>
+	</form>
+</body>
+</html>
