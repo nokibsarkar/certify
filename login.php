@@ -168,7 +168,29 @@ $return = urldecode((isset($_REQUEST['return'])&&$_REQUEST['return'])?$_REQUEST[
    		}
    	}elseif(isset($_REQUEST['logout'])){
    ?>
-  	 <script>window.location = confirm('Do You want to logout?')?'login.php?logout&confirm&return=<?php echo $return;?>' : '<?php echo urldecode($return);?>';</script>
+   <style>
+	.center {
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	}
+
+	#logout{
+        font-size: 5vh;
+		height: 28vh;
+		width: 60vh;
+        padding: 2vh;
+        border: .25vh solid skyblue;
+		background-color: rgb(192, 230, 245);
+		color: grey;
+	}
+	</style>
+	<div class="center">
+		<a href='login.php?logout&confirm&return=<?php echo $return;?>'<button id="logout">প্রস্থান করুন</button></a>
+	</div>
    <?php
    	}
    	else{
