@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$sql = "SELECT Users.* FROM Users";
 	switch($list){
 		case 0:
-			$sql.=" JOIN Response WHERE Response.Workshop = $id AND Response.User = Users.Username AND Response.Score >= ".$data['minScore'];
+			$sql.=" JOIN Response WHERE Response.Workshop = $id AND Response.By = Users.Username AND Response.Score >= ".$data['minScore'];
 			break;
 	}
 	$list = [];
