@@ -30,10 +30,10 @@ $conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify'
 $sql = "SELECT Users.Token_Key AS K, Users.Token_Secret AS S, Queue.Task AS T, Queue.ID AS I FROM Users JOIN Queue WHERE Users.Username = '".addslashes($argv[1])."' AND Users.Username = Queue.Initiator AND Queue.Type = 1 AND Queue.Status = 0";
 $res = $conn->query($sql);
 echo mysqli_error($conn);
-echo $sql."\n";
 if(!($res = $res->fetch_assoc()))
 	exit("No task is Defined");
 $mail_list = json_decode($res["T"],true);
+var_dump($mail_list);
 $gTokenKey = $res["K"];
 $gTokenSecret= $res["S"];
 $id = $res["I"];
