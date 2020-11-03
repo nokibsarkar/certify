@@ -8,7 +8,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$id = (int)$_POST["ID"];
 	$subject = htmlspecialchars(addslashes($_POST["subject"]));
 	$body = $_POST["body"];
-	$sql = "SELECT * FROM Users.*";
+	$sql = "SELECT Users.* FROM Users";
 	switch($list){
 		case 0:
 			$sql.=" JOIN Response WHERE Response.Workshop = $id AND Response.User = Users.Username AND Response.Score >= ".$data['minScore'];
