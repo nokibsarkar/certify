@@ -32,8 +32,8 @@ $res = $conn->query($sql);
 echo mysqli_error($conn);
 if(!($res = $res->fetch_assoc()))
 	exit("No task is Defined");
+var_dump($res);
 $mail_list = json_decode($res["T"],true);
-var_dump($mail_list);
 $gTokenKey = $res["K"];
 $gTokenSecret= $res["S"];
 $id = $res["I"];
