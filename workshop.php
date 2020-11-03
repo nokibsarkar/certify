@@ -90,7 +90,7 @@ else
 ?>
 <ol id="evList">
 <?php
-for($row = $res->fetch_assoc()){
+while($row = $res->fetch_assoc()){
 ?>
 <li class="event">
 	<span class="status"><?php echo $row["Status"]?'▶️':'⏸';?>️</span>
