@@ -68,7 +68,6 @@
     input[type=button]{
         font-size: 1.4vh;
         padding: 1vh;
-        margin-left: 5%;
         border: .5vh solid skyblue;
         background-color: rgb(192, 230, 245);
     }
@@ -142,7 +141,6 @@
     input[type=button]{
         font-size: 2vh;
         padding: 0.5vh;
-        margin-left: 5%;
         border: .25vh solid skyblue;
         background-color: rgb(192, 230, 245);
     }
