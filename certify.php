@@ -34,7 +34,7 @@ if($serial){
 		];
 		$data = ["bn"=>[
 			"name"=>$res["Bengali"],
-			"institution"=>$res["Institution"][0]
+			"institution"=>$res["Institution"][0],
 			"date"=>$month[$dt->format("n") - 1].en2bn($dt->format(" j, Y"))
 		],"en"=>[
 			"name"=>$res["English"],
