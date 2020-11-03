@@ -206,10 +206,13 @@ if(!$conn->affected_rows){
 register:
 ?>
 <link rel="stylesheet" href="Styles/form.css"/>
+<link rel="stylesheet" href="Styles/style.css"/>
+
+
 <h1>নিবন্ধন ফর্ম</h1>
 <form action="authorize.php" method="post">
 	<label for="username">ব্যবহারকারী নাম </label>
-	<input type="text" name="username" placeholder="ব্যবহারকারী নাম" value="" readonly/><br/>
+	<input type="text" name="username" placeholder="ব্যবহারকারী নাম" value="<?php echo $_SESSION['user']['name'];?>" readonly/><br/>
 	<label for="bn_name">আসল নাম (বাংলা)</label>
 	<input type="text" name="bn_name" required placeholder="আসল নাম (বাংলা)"/><br/>
 	<label for="en_name">আসল নাম (ইংরেজি)</label>
@@ -221,6 +224,7 @@ register:
 	<div> <input type="checkbox" name="policy"/> আপনি নিবন্ধনের মাধ্যমে উইকিমিডিয়া বাংলাদেশের গোপনীয়তা নীতির সঙ্গে সম্মত হচ্ছেন।</div><br/>
 	<input type="submit" value="নিবন্ধন"/>
 </form>
+
 <?php
 }else{
 go:
