@@ -30,12 +30,14 @@ $l = strlen($t) ;
 		unset($t);
 return $c;
 }
-$ref = ["০", "১", " ২", "৩", " ৪", "৫"," ৬", "৭"," ৮", "৯"];
+$ref = ["০", "১", "২", "৩", "৪", "৫","৬", "৭"," ৮", "৯"];
 function en2bn($n = ''){
+$ref = $GLOBALS["ref"];
 $n = ''.$n;
-$l = strlen($l);
+$c = '';
+$l = strlen($n);
 for($i=0;$i<$l;$i++)
-	$n[$i] = isset($ref[$n[$i]])?$ref[$n[$i]]:$n[$i];
-return $n;
+	$c .= isset($ref[$n[$i]])?$ref[$n[$i]]:$n[$i];;
+return $c;
 }
 ?>
