@@ -142,11 +142,15 @@ function fetch_token(){
 	"meta"=> "tokens",
 	"type"=> "csrf"
 	];
-	$res = doApiQuery($data)["query"]["tokens"]["csrftoken"];
-	return $res=="+\\"?NULL : $res;
+	$res = doApiQuery($data);
+	return $res;
+	//["query"]["tokens"]["csrftoken"];
+	//return $res=="+\\"?NULL : $res;
 	
 }
 $token = fetch_token();
+echo $token;
+exit(0);
 foreach($mail_list as $v){
 	send:
 	$data = [
