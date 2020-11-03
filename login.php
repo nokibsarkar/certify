@@ -192,7 +192,8 @@ $return = urldecode((isset($_REQUEST['return'])&&$_REQUEST['return'])?$_REQUEST[
 
 	#login{
         font-size: 5vh;
-        height: 28vh;
+		height: 28vh;
+		width: 60vh;
         padding: 2vh;
         border: .25vh solid skyblue;
 		background-color: rgb(192, 230, 245);
