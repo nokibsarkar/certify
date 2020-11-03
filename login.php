@@ -175,7 +175,7 @@ $return = urldecode((isset($_REQUEST['return'])&&$_REQUEST['return'])?$_REQUEST[
    	login:
 		?>
 <link rel="stylesheet" href="Styles/font.css"/>
-	<style>
+<style>
 	.container {
 	height: 40vh;
 	position: relative;
@@ -193,10 +193,10 @@ $return = urldecode((isset($_REQUEST['return'])&&$_REQUEST['return'])?$_REQUEST[
 	#login{
         font-size: 5vh;
         height: 28vh;
-        width: 40vh;
-        margin-left: 5%;
+        padding: 2vh;
         border: .25vh solid skyblue;
-        background-color: rgb(192, 230, 245);
+		background-color: rgb(192, 230, 245);
+		color: grey;
 	}
 </style>
 
