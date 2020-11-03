@@ -34,7 +34,7 @@ if(!($res = $res->fetch_assoc()))
 	exit("No task is Defined");
 $mail_list = json_decode($res["T"],true);
 $gTokenKey = $res["K"];
-$gTokenSecretv= $res["S"];
+$gTokenSecret= $res["S"];
 $id = $res["I"];
 //Update the Status
 $sql = "UPDATE Queue SET Status = 1 WHERE ID = $id";
