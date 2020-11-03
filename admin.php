@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION["user"]["name"]))
 	header("location:login.php?return=".urlencode($_SERVER["REQUEST_URI"]));
-$user = $_SERVER["REQUEST_URI"];
+$user = $_SESSION["user"]["name"];
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 	//form submitted
 	require 'parse.php';
