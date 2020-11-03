@@ -19,12 +19,27 @@ if($serial){
 		$res = $res->fetch_assoc();
 		$res["partners"] = json_decode($res["Partner"],true);
 		$res["Institution"] = json_decode($res["Institution"],true);
+		$dt = date_create($res["Start"]);
+		$month = [
+			"জানুয়ারী",
+			"ফেব্রুয়ারী","মার্চ","এপ্রিল",
+			"মে",
+			"জুন",
+			"জুলাই",
+			"আগস্ট",
+			"সেপ্টেম্বর",
+			"অক্টোবর",
+			"নভেম্বর",
+			"ডিসেম্বর"
+		];
 		$data = ["bn"=>[
 			"name"=>$res["Bengali"],
 			"institution"=>$res["Institution"][0]
+			"date"=>$month[$dt->format("n") - 1].en2bn($dt->format(" j, Y"))
 		],"en"=>[
 			"name"=>$res["English"],
-			"institution"=>$res["Institution"][1]
+			"institution"=>$res["Institution"][1],
+			"date"=>$dt->format("F j, Y")
 		]];
 ?>
 <!DOCTYPE html>
