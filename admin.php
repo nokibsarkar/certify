@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION["User"]["name"]))
+if(!isset($_SESSION["user"]["name"]))
 	header("location:login.php?return=".urlencode($_SERVER["REQUEST_URI"]));
 $user = $_SERVER["REQUEST_URI"];
 if($_SERVER["REQUEST_METHOD"]=="POST"){
