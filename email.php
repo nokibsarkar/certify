@@ -27,7 +27,7 @@ if($argc==1)
 $host = "tools.db.svc.eqiad.wmflabs";
 $creds = parse_ini_file("/data/project/certify/replica.my.cnf");
 $conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify');
-$sql = "SELECT Users.Token_Key AS K, Users.Token_Secret AS S, Queue.Task AS T, Queue.ID AS I FROM Users JOIN Queue WHERE Users.Username = '".addslashes($argv[1])."' AND Users.Username = Queue.Initiator AND Queue.Type = 1 AND Queue.Status = 0";
+$sql = "SELECT Users.Token_Key AS K, Users.Token_Secret AS S, Queue.Task AS T, Queue.ID AS I FROM Users JOIN Queue WHERE Users.Username = '".addslashes($argv[1])."' AND Users.Username = Queue.Initiator AND Queue.Type = 1 AND Queue.Status = b'00'";
 $res = $conn->query($sql);
 echo mysqli_error($conn);
 if(!($res = $res->fetch_assoc()))
@@ -37,7 +37,7 @@ $gTokenKey = $res["K"];
 $gTokenSecret= $res["S"];
 $id = $res["I"];
 //Update the Status
-$sql = "UPDATE Queue SET Status = 1 WHERE ID = $id";
+$sql = "UPDATE Queue SET Status = b'01' WHERE ID = $id";
 $conn->query($sql);
 $mwOAuthUrl = 'https://meta.wikimedia.org/w/index.php?title=Special:OAuth';
 $mwOAuthIW = 'meta';
@@ -170,6 +170,6 @@ foreach($mail_list as $v){
 	else
 		echo "Sent to :".$v[0];
 }
-$sql = "UPDATE Queue SET Status = 2 WHERE ID = $id";
+$sql = "UPDATE Queue SET Status = b'10' WHERE ID = $id";
 $conn->query($sql);
 ?>
