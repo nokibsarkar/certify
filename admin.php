@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	--- নকীব বট ---
 	------ নাজমুল হক নকীব -----"
 	]);
-	$list = json_encode($list);
+	$list = json_encode($list,JSON_UNESCAPED_UNICODE);
 	$sql = "INSERT INTO `Queue` VALUES (NULL, '$user', b'01', '$list', b'00');";
 	$conn->query($sql);
 	$id = $conn->insert_id;
