@@ -4,6 +4,12 @@
         display: none;
     }
 
+    #unhide{
+        display: initial;
+        margin-left: 5%;
+        font-size: 3vh;
+    }
+
     input[type=text] {
         border-radius: 25px;
         width: 90%;
@@ -14,6 +20,19 @@
         margin-right: 5%;
         font-size: 3vh;
         justify-content: center;
+        border-color: skyblue;
+        outline: none;
+        border: 1px solid #5F6368;
+    }
+    textarea{
+        border-radius: 15px;
+        width: 90%;
+        padding: 1vh;
+        height: 25vh;
+        margin-bottom: 1vh;
+        margin-left: 5%;
+        margin-right: 5%;
+        font-size: 2vh;
         border-color: skyblue;
         outline: none;
         border: 1px solid #5F6368;
@@ -46,11 +65,29 @@
         background-color: rgb(192, 230, 245);
     }
 
+    input[type=button]{
+        font-size: 1.4vh;
+        padding: 1vh;
+        margin-left: 5%;
+        border: .5vh solid skyblue;
+        background-color: rgb(192, 230, 245);
+    }
+
     h1 {
         margin-top: 3vh;
         margin-bottom: 3vh;
         font-size: 4vh;
         margin-left: 5%;
+    }
+
+    #suggestion{
+        margin-left: 0%;
+        margin-right: 0.5vh;
+    }
+    
+    #suggestions{
+        margin-left: 5%;
+        margin-right: 5%;
     }
 }
 
@@ -102,10 +139,44 @@
         background-color: rgb(192, 230, 245);
     }
 
+    input[type=button]{
+        font-size: 2vh;
+        padding: 0.5vh;
+        margin-left: 5%;
+        border: .25vh solid skyblue;
+        background-color: rgb(192, 230, 245);
+    }
+
+    textarea{
+        border-radius: 15px;
+        width: 60%;
+        height: 25vh;
+        padding: 0.8vh;
+        flex-wrap: wrap;
+        margin-bottom: 2vh;
+        margin-left: 5%;
+        margin-right: 35%;
+        font-size: 2vh;
+        border-color: skyblue;
+        outline: none;
+        border: 1px solid #5F6368;
+    }
+
     h1 {
         margin-top: 1.5vh;
         margin-bottom: 1.5vh;
         font-size: 8vh;
         margin-left: 5%;
+    }
+
+    #suggestion{
+        margin-left: 0%;
+        margin-right: 0.5vw;
+    }
+
+    #suggestions{
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 1%;
     }
 }
