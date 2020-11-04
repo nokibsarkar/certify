@@ -57,7 +57,9 @@ else{
 	if(!($res = $res->fetch_assoc()))
 		header("Location: workshop.php");
 	$question = json_decode($res["Quiz"],true);
-	if($_SESSION["user"]["admin"]){
+var_dump($question);
+exit();
+if($_SESSION["user"]["admin"]){
 	//User is an admin so trying to edit
 ?>
 <!DOCTYPE html>
