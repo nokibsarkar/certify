@@ -145,13 +145,15 @@
     }
     
     .add{
-        background-color: rgb(120, 255, 86);
-        font-size: 2vh;
+        padding: .5vh !important;
+        background-color: rgb(120, 255, 86) !important;
+        font-size: 3vh;
     }
 
     .remove{
-        background-color: rgb(255, 86, 86);
-        font-size: 2vh;
+        padding: .5vh !important;
+        background-color: rgb(255, 86, 86) !important;
+        font-size: 3vh;
     }
 }
 
