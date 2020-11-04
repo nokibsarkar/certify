@@ -184,8 +184,8 @@
     textarea#certificate{
         background:url("frame.webp") no-repeat;
         background-size: 100%;
-        width: 84vw !important;
-        height: 59vw !important;
+        width: 75vw !important;
+        height: 51vw !important;
 	}
 }
 
