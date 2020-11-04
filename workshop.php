@@ -31,11 +31,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	if(count($partners_bn) != count($partners_en))
 		exit(var_dump(4)); //http_response_code(400));
 	$partners = json_encode([$partners_bn,$partners_en],JSON_UNESCAPED_UNICODE);
-	$venue_bn = filter_var_array($_POST["bn_ven"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-	$venue_en = filter_var_array($_POST["en_ven"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-	if(count($venue_bn) != count($venue_en))
+	$venue = filter_var_array($_POST["ven"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+		if(count($venue) != 2)
 		exit(var_dump(5)); //http_response_code(400));
-	$venue = json_encode([$venue_bn,$venue_en],JSON_UNESCAPED_UNICODE);
+	$venue = json_encode($venue,JSON_UNESCAPED_UNICODE);
 	$certificate = strip_tags(addslashes($_POST["certificate"]),["p","div","font","span","br","a","img","b","i","u","h","h1", "h2"," h3", "h4","h5", "h6"]);
 	if($id){
 		//Update an existing
@@ -113,8 +112,8 @@ function multiAdd(obj,name){
 		</fieldset>
 		<fieldset>
 		<legend>ভেন্যু</legend>
-			<input name="bn_ven" placeholder="বাংলা" value="<?php echo $res['Venue'][0];?>" required/>
-			<input name="en_ven" placeholder="English" value="<?php echo $res['Venue'][1];?>" required/>
+			<input name="ven[]" placeholder="বাংলা" value="<?php echo $res['Venue'][0];?>" required/>
+			<input name="ven[]" placeholder="English" value="<?php echo $res['Venue'][1];?>" required/>
 		</fieldset>
 		<fieldset id="partner">
 		<legend>সহযোগী</legend>
