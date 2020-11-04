@@ -140,9 +140,19 @@
         margin-right: 5%;
 	}
 	
-	.main{
+	.mainfield{
 		margin-left: 5%;
-	}
+    }
+    
+    .add{
+        background-color: rgb(120, 255, 86);
+        font-size: 2vh;
+    }
+
+    .remove{
+        background-color: rgb(255, 86, 86);
+        font-size: 2vh;
+    }
 }
 
 @media (orientation: landscape){
