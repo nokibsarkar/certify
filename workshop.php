@@ -26,9 +26,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	if(count($instructor_bn) != count($instructor_en))
 		exit(var_dump(3)); //http_response_code(400));
 	$instructor = json_encode([$instructor_bn,$instructor_en],JSON_UNESCAPED_UNICODE);
-	var_dump($_POST);
-	$partners_bn = filter_var_array($_POST["bn_part"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-	$partners_en = filter_var_array($_POST["en_part"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+	$partners_bn = filter_var_array($_POST["bn_partner"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+	$partners_en = filter_var_array($_POST["en_partner"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	if(count($partners_bn) != count($partners_en))
 		exit(var_dump(4)); //http_response_code(400));
 	$partners = json_encode([$partners_bn,$partners_en],JSON_UNESCAPED_UNICODE);
