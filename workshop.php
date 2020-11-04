@@ -26,6 +26,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	if(count($instructor_bn) != count($instructor_en))
 		exit(var_dump(3)); //http_response_code(400));
 	$instructor = json_encode([$instructor_bn,$instructor_en],JSON_UNESCAPED_UNICODE);
+	var_dump($_POST);
 	$partners_bn = filter_var_array($_POST["bn_part"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	$partners_en = filter_var_array($_POST["en_part"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	if(count($partners_bn) != count($partners_en))
@@ -47,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		`Status` = b'$status',
 		`Certificate` = '$certificate',
 		Qstart = '$qstart',
-		Qend ='$qend', Title='$name' WHERE Status = 0";
+		Qend ='$qend', Title='$name' WHERE ID = $id AND Status = 0";
 	}
 	else{
 		//Create new
