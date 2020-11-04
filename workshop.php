@@ -87,7 +87,7 @@ $res["Instructor"] = json_decode($res["Instructor"],true);
 $res["Partner"] = json_decode($res["Partner"],true);
 
 //Print a single Event
-if(0&&empty($_SESSION["user"]) || !in_array("sysop",$_SESSION["user"]["groups"])){
+if(isset($_SESSION["user"]) && in_array("sysop",$_SESSION["user"]["groups"])){
 	//Show the edit interface
 ?>
 <!DOCTYPE html>
