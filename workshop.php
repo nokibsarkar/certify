@@ -218,7 +218,7 @@ else
 <?php
 while($row = $res->fetch_assoc()){
 ?>
-<li class="event">
+<li class="event" style="margin-top: 5%;">
 	<span class="status"><?php echo $row["Status"]?'▶️':'⏸';?>️</span>
 	<a class="title" href="workshop.php?ID=<?php echo $row['ID'];?>"><?php echo json_decode($row["Title"],true)[0];?></a>
 	<span class="date">(<?php echo bn_form(date_create($row["Start"])).' - '.bn_form(date_create($row["End"]))?>)</span>
