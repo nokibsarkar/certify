@@ -8,7 +8,7 @@ if(!$id) {//No Workshop ID is given
 
 }if(!isset($_SESSION["user"]))//Not logged in
 	header("Location: login.php?return=".urlencode($_SERVER["REQUEST_URI"]));
-$_SESSION['user']['admin']=true;
+//$_SESSION['user']['admin']=true;
 $host = "tools.db.svc.eqiad.wmflabs";
 $creds = parse_ini_file("../replica.my.cnf");
 $conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify');
@@ -48,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		$s = 0;
 		for($i=0;$i<$l;$i++)
 			$s += $data[$i]==$q[$i]["a"]?1:0;
-		$s/=$l*100;
+		$s /= $l*100;
 		$sql = "INSERT INTO Response (By, Event, Answer, Score, Checked,Question) VALUES('".$_SESSION["user"]["name"]."',$id,'".implode($data)."',$s,1,'".json_encode($q,JSON_UNESCAPED_UNICODE)."')";
 		echo $sql;
 	}
@@ -61,6 +61,7 @@ else{
 	$question = ($question = json_decode($res["Quiz"],true))?$question:[];
 if($_SESSION["user"]["admin"]){
 	//User is an admin so trying to edit
+	show:
 ?>
 <!DOCTYPE html>
 <html>
