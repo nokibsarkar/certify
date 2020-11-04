@@ -174,6 +174,8 @@ function multiAdd(obj,name){
 <html>
 <head>
 <title></title>
+<link rel="stylesheet" href="Styles/style.css">
+<link rel="stylesheet" href="Styles/event.css">
 </head>
 <body>
 <div id="event">

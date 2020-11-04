@@ -138,6 +138,10 @@
         list-style-type: none;
     }
 
+    li::marker{
+        display: none;
+    }
+
     span{
         margin: 5%;
         font-size: 4vw;
@@ -325,6 +329,10 @@
     }
 
     ul::marker{
+        display: none;
+    }
+
+    li::marker{
         display: none;
     }
 
