@@ -11,7 +11,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$bn_name = strip_tags(addslashes($_POST["bn_name"]));
 	$en_name = strip_tags(addslashes($_POST["en_name"]));
 	$name = json_encode([$bn_name,$en_name],JSON_UNESCAPED_UNICODE);
-	echo $name;
 	$start = ($start = date_create($_POST["start"]))?$start->format("Y-m-d\TH:i"):NULL;
 	$end = ($end = date_create($_POST["end"]))?$end->format("Y-m-d\TH:i"):NULL;
 	/*Quiz specification*/
@@ -22,8 +21,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		exit(var_dump(1)); //http_response_code(400));
 	if(!$start ||!$end)
 		exit(var_dump(2)); //http_response_code(400));
-	$instructor_bn = filter_var_array($_POST["bn_ins"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-	$instructor_en = filter_var_array($_POST["en_ins"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+	$instructor_bn = filter_var_array($_POST["bn_inst"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+	$instructor_en = filter_var_array($_POST["en_inst"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	if(count($instructor_bn) != count($instructor_en))
 		exit(var_dump(3)); //http_response_code(400));
 	$instructor = json_encode([$instructor_bn,$instructor_en],JSON_UNESCAPED_UNICODE);
