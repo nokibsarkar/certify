@@ -4,42 +4,46 @@
 		<title></title>
 		<link rel="stylesheet" href="Styles/style.css">
 		<link rel="stylesheet" href="Styles/index.css">
-		<style>
-			form {margin-left: 5%; margin-top: 5%;}
-		</style>
 	</head>
 	<body>
-		<form>
-			<input type="button" value="login">
-			<input type="button" value="logout">
-		</form>
+	<?php if(isset($_SESSION["user"])){?>
+	<a href="login.php?logout"><button>প্রস্থান</button></a>
 		<h1>
-			স্বাগতম $bn_name
+			স্বাগতম <?php echo $_SESSION["user"]["name"];?>
 		</h1>
 		<div>
 			<details id="details">
 				<summary>সনদপত্র</summary>
 				<ol style='margin-left: 5%;'>
-					<li><a href='certify.php/id=' class='cert'>কর্মশালা</a></li>
+				<?php
+				require "parse.php";
+				$host = "tools.db.svc.eqiad.wmflabs";
+				$creds = parse_ini_file("../replica.my.cnf");
+				$conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify');
+				$sql = "SELECT * FROM Certificate WHERE To = '".$_SESSION["user"]["name"]."'";
+				$res = $conn->query($sql);
+				while($row = $res->fetch_assoc()){
+				?>
+					<li><a href='certify.php?i=<?php echo $row["ID"];?>' class='cert'><?php echo bn_form(date_create($row["Timestamp"]));?></a></li>
+				<?php }
+				 ?>
 				</ol>
+				<?php }
+				else{?>
+				<a href="login.php"><button>প্রবেশ</button></a>
+				<?php
+				}?>
+				<a href="workshop.php">কর্মশালাসমূহ</a>
 			</details>
 		</div>
-		<form>
-			<input type="button" value="আয়োজনসমূহ" onclick="window.location='workshop.php'">
-			<input type="button" value="কুইজে অংশগ্রহণ করুন" onclick="window.location='quiz.php'">
-		</form>
-		<form>
-			<input type="button" value="Demo">
-			<input type="button" value="Demo">
-		</form>
 
 		<div style="margin-top: 5%;">
 			<h3>
-				Contact Us
+				যোগাযোগ
 			</h3>
 			<div class="contact">
 				<h4>নাজমুল হক নকীব</h4>
-				Email: loremepsum@gmail.com <br>
+				ইমেল: <a href="mailto:nokibsarkar@gmail.com">nokibsarkar@gmail.com</a>
 				Facebook: <a href='https://www.facebook.com/nokib.sorkar' target="_blank">/nokib.sarkar</a>
 			</div>
 			<div class="contact">
