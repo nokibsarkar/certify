@@ -48,10 +48,10 @@
 	
     textarea{
 		width: 90% !important;
-        padding: 1vh;
+        padding: 5%;
         height: 25vh;
         margin-bottom: 1vh;
-        font-size: 2vh;
+        font-size: .8vh;
         border-color: skyblue;
         outline: none;
         border: 1px solid #5F6368;
