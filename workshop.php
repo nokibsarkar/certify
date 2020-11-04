@@ -151,8 +151,12 @@ function multiAdd(obj,name){
 			<label for="qend">সমাপ্তি</label>
 			<input name="qend" type="datetime-local" placeholder="" <?php if($q) echo 'value="'.date_create($res['Qend'])->format('Y-m-d\TH:i').'" required';?>/><br/>
 		</fieldset>
-		<label for="certificate"></label>
-		<textarea name="certificate" placeholder="" value="" required><?php echo $res["Certificate"];?></textarea>
+		<label for="certificate">সনদপত্র</label>
+		<ul id="suggestions">
+		<input class="suggestion" type="button" onclick="certificate.value+=this.value" value="$bn.name$">
+		<input class="suggestion" type="button" onclick="certificate.value+=this.value" value="$en.name$">
+		</ul>
+		<textarea id="certificate" name="certificate" placeholder="" value="" required><?php echo $res["Certificate"];?></textarea>
 		<br/>
 		<input name="edit" type="hidden"/>
 	</fieldset>
