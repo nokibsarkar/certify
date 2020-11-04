@@ -6,7 +6,9 @@
 		<link rel="stylesheet" href="Styles/index.css">
 	</head>
 	<body>
-	<?php if(isset($_SESSION["user"])){?>
+	<?php
+	session_start();
+	 if(isset($_SESSION["user"])){?>
 	<a href="login.php?logout"><button>প্রস্থান</button></a>
 		<h1>
 			স্বাগতম <?php echo $_SESSION["user"]["name"];?>
@@ -29,7 +31,7 @@
 				 ?>
 				</ol>
 				<?php }
-				else{?>
+				else{ ?>
 				<a href="login.php"><button>প্রবেশ</button></a>
 				<?php
 				}?>
