@@ -49,7 +49,7 @@
     textarea{
         padding: 5%;
         margin-bottom: 1vh;
-        font-size: .8vh;
+        font-size: .8vw;
         border-color: skyblue;
         outline: none;
         border: 1px solid #5F6368;
@@ -268,7 +268,7 @@
     textarea{
         padding: 5%;
         margin-bottom: 2vh;
-        font-size: 2vh;
+        font-size: 2.2vh;
         border-color: skyblue;
         outline: none;
         border: 1px solid #5F6368;
