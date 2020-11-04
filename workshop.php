@@ -125,7 +125,7 @@ function multiAdd(obj,name){
 			echo "<li class='pair'><input name='bn_partner[]' placeholder='বাংলা' value='".$res["Partner"][0][$i]."' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input name='en_partner[]' placeholder='English' value='".$res["Partner"][1][$i]."' required/></li>"
 		?>
 		</fieldset>
-		<button type="button" onclick="multiAdd(partner,'part')">+</button>
+		<button type="button" onclick="multiAdd(partner,'partner')">+</button>
 		<fieldset id="inst">
 		<legend>নির্দেশনা প্রদানকারী</legend>
 		<?php
@@ -134,7 +134,7 @@ function multiAdd(obj,name){
 			echo "<li class='pair'><input name='bn_inst[]' placeholder='বাংলা' value='".$res["Instructor"][0][$i]."' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input name='en_inst[]' placeholder='English' value='".$res["Instructor"][1][$i]."' required/></li>";
 		?>
 		</fieldset>
-		<button type="button" onclick="multiAdd(inst,'part')">+</button>
+		<button type="button" onclick="multiAdd(inst,'inst')">+</button>
 			</fieldset>
 	<fieldset>
 		<legend>উপাত্ত</legend>
