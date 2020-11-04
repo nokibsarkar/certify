@@ -67,6 +67,7 @@ if($_SESSION["user"]["admin"]){
 <html>
 <head>
 <title></title>
+<link rel="stylesheet" href="Styles/quiz.css">
 </head>
 <body>
 	<form method="post" action="quiz.php" id="qPaper">
@@ -83,7 +84,7 @@ if($_SESSION["user"]["admin"]){
 			?>
 				<li>
 					<input type="radio" name="question[<?php echo $i;?>][a]" value="<?php echo $j;?>" <?php if($j == $question[$i]["a"]) echo "checked";?>/>
-					<input name="question[<?php echo $i;?>][o][<?php echo $j;?>]" value="<?php echo $question[$i]['o'][$j];?>" class="option"/>
+					<input name="question[<?php echo $i;?>][o][<?php echo $j;?>]" type='text' value="<?php echo $question[$i]['o'][$j];?>" class="option"/>
 				</li>
 				<?php } ?>
 			</ol>
@@ -92,12 +93,12 @@ if($_SESSION["user"]["admin"]){
 	</form>
 	<input name="ID" type="hidden" form="qPaper" value="<?php echo $id;?>"/>
 	<input type="submit" form="qPaper" />
-	<button type="button" onclick="addQ()">+</button>
+	<input type="button" class="add" onclick="addQ()" value="+">
 <script type="text/javascript">
 var o = document.getElementsByClassName("qBox");
 function addQ(){
 	var l = o.length;
-	var s = '<div class="qBox"><button class="remove" type="button" onclick="this.parentElement.remove()">-</button><textarea placeholder="আপনার প্রশ্ন লিখুন" name="question['+l+'][q]" class="question"></textarea><ol class="options"><li><input type="radio" name="answer[]" value="0" /><input name="question['+l+'][o][0]" class="option"/></li><li><input type="radio" name="answer[]" value="1" /><input name="question['+l+'][o][1]" class="option"/></li><li><input type="radio" name="answer[]" value="2" /><input name="question['+l+'][o][2]" class="option"/></li><li><input type="radio" name="answer[]" value="3" /><input name="question['+l+'][o][3]" class="option"/></li></ol></div>';
+	var s = '<div class="qBox"><input class="remove" type="button" onclick="this.parentElement.remove()" value="-"><textarea placeholder="আপনার প্রশ্ন লিখুন" name="question['+l+'][q]" class="question"></textarea><ol class="options"><li><input type="radio" name="answer[]" value="0" /><input name="question['+l+'][o][0]" class="option"/></li><li><input type="radio" name="answer[]" value="1" /><input name="question['+l+'][o][1]" class="option"/></li><li><input type="radio" name="answer[]" value="2" /><input name="question['+l+'][o][2]" class="option"/></li><li><input type="radio" name="answer[]" value="3" /><input name="question['+l+'][o][3]" class="option"/></li></ol></div>';
 	qPaper.innerHTML+=s
 }
 </script>
@@ -113,6 +114,7 @@ $question = json_decode($res["Quiz"],true);
 <html>
 <head>
 <title></title>
+<link rel="stylesheet" href="Styles/quiz.css">
 </head>
 <body>
 	<form method="post" action="quiz.php" id="qPaper">
