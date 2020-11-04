@@ -4,8 +4,8 @@ date_default_timezone_set('Asia/Dhaka');
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 	//Request for edit
 	//Check for permission
-	if(0 &&empty($_SESSION["user"]) || !in_array("sysop",$_SESSION["user"]["groups"]))
-		exit(http_response_code(403));
+	/*if(empty($_SESSION["user"]) || !in_array("sysop",$_SESSION["user"]["groups"]))
+		exit(http_response_code(403));*/
 	//Checked he is an admin
 	$id = isset($_POST["ID"])?(int)$_POST["ID"]:0; // 0 -> new,  non-zero means edit
 	$bn_name = strip_tags(addslashes($_POST["bn_name"]));
