@@ -128,8 +128,9 @@ function multiAdd(obj,name){
 		<fieldset id="inst">
 		<legend>নির্দেশনা প্রদানকারী</legend>
 		<?php
+		$l = count($res["Partner"][0]);
 		for($i=0;$i<$l;$i++)
-		echo "<li class='pair'><input name='bn_inst[]' placeholder='বাংলা' value='".$res["Instructor"][0][$i]."' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input name='en_inst[]' placeholder='English' value='".$res["Instructor"][1][$i]."' required/></li>";
+			echo "<li class='pair'><input name='bn_inst[]' placeholder='বাংলা' value='".$res["Instructor"][0][$i]."' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input name='en_inst[]' placeholder='English' value='".$res["Instructor"][1][$i]."' required/></li>";
 		?>
 		</fieldset>
 		<button type="button" onclick="multiAdd(inst,'part')">+</button>
