@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$certificate = strip_tags(addslashes($_POST["certificate"]),["p","div","font","span","br","a","img","b","i","u","h","h1", "h2"," h3", "h4","h5", "h6"]);
 	if($id){
 		//Update an existing
-		$status = isset($_POST["status"]);
+		$status = isset($_POST["status"])?1:0;
 		$sql = "UPDATE `Workshop` SET `Instructor` = '$instructor',
 		`Start` = '$start',
 		`End` = '$end',
