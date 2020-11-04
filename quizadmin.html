@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+	<form method="post" action="quiz.php" id="qPaper">
+				<div class="qBox">
+		<button class="remove" type="button" onclick="this.parentElement.remove()">-</button>
+			<textarea name="question[0][q]" class="question">আমার জবাব চাইল</textarea>
+			<ol class="options">
+							<li>
+					<input type="radio" name="question[0][a]" value="0" checked/>
+					<input name="question[0][o][0]" value="শুদ্ধ" class="option"/>
+				</li>
+								<li>
+					<input type="radio" name="question[0][a]" value="1" />
+					<input name="question[0][o][1]" value="ভুল" class="option"/>
+				</li>
+								<li>
+					<input type="radio" name="question[0][a]" value="2" />
+					<input name="question[0][o][2]" value="ভুল" class="option"/>
+				</li>
+								<li>
+					<input type="radio" name="question[0][a]" value="3" />
+					<input name="question[0][o][3]" value="ভুল" class="option"/>
+				</li>
+							</ol>
+		</div>
+				<div class="qBox">
+		<button class="remove" type="button" onclick="this.parentElement.remove()">-</button>
+			<textarea name="question[1][q]" class="question">কিন্তু আমি তাকে কিছু বলেছি</textarea>
+			<ol class="options">
+							<li>
+					<input type="radio" name="question[1][a]" value="0" />
+					<input name="question[1][o][0]" value="ভুল" class="option"/>
+				</li>
+								<li>
+					<input type="radio" name="question[1][a]" value="1" checked/>
+					<input name="question[1][o][1]" value="শুদ্ধ" class="option"/>
+				</li>
+								<li>
+					<input type="radio" name="question[1][a]" value="2" />
+					<input name="question[1][o][2]" value="ভুল" class="option"/>
+				</li>
+								<li>
+					<input type="radio" name="question[1][a]" value="3" />
+					<input name="question[1][o][3]" value="ভুল" class="option"/>
+				</li>
+							</ol>
+		</div>
+				<div class="qBox">
+		<button class="remove" type="button" onclick="this.parentElement.remove()">-</button>
+			<textarea name="question[2][q]" class="question">Jobbbbs</textarea>
+			<ol class="options">
+							<li>
+					<input type="radio" name="question[2][a]" value="0" />
+					<input name="question[2][o][0]" value="Jcjcj" class="option"/>
+				</li>
+								<li>
+					<input type="radio" name="question[2][a]" value="1" checked/>
+					<input name="question[2][o][1]" value="Cjcj" class="option"/>
+				</li>
+								<li>
+					<input type="radio" name="question[2][a]" value="2" />
+					<input name="question[2][o][2]" value="Xicjc" class="option"/>
+				</li>
+								<li>
+					<input type="radio" name="question[2][a]" value="3" />
+					<input name="question[2][o][3]" value="Xjdjdi" class="option"/>
+				</li>
+							</ol>
+		</div>
+			</form>
+	<input name="ID" type="hidden" form="qPaper" value="1"/>
+	<input type="submit" form="qPaper" />
+	<button type="button" onclick="addQ()">+</button>
+<script type="text/javascript">
+var o = document.getElementsByClassName("qBox");
+function addQ(){
+	var l = o.length;
+	var s = '<div class="qBox"><button class="remove" type="button" onclick="this.parentElement.remove()">-</button><textarea placeholder="আপনার প্রশ্ন লিখুন" name="question['+l+'][q]" class="question"></textarea><ol class="options"><li><input type="radio" name="answer[]" value="0" /><input name="question['+l+'][o][0]" class="option"/></li><li><input type="radio" name="answer[]" value="1" /><input name="question['+l+'][o][1]" class="option"/></li><li><input type="radio" name="answer[]" value="2" /><input name="question['+l+'][o][2]" class="option"/></li><li><input type="radio" name="answer[]" value="3" /><input name="question['+l+'][o][3]" class="option"/></li></ol></div>';
+	qPaper.innerHTML+=s
+}
+</script>
+</body>
+</html>

@@ -78,11 +78,9 @@ div#certificate {
 	}
 	div#certificate{
 		-webkit-print-color-adjust: exact !important;
-		background-size:100% 100% !important;
+		background-size:100% !important;
 		background:url("frame.webp") no-repeat;
-		background-size: 100% 100% !important;
 		width:100vw !important;
-		height: 100vh !important;
 		text-align:justify !important;
 		font-size: xx-large !important;
 	}
