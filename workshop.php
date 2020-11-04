@@ -96,7 +96,7 @@ if(1 ||isset($_SESSION["user"]) && in_array("sysop",$_SESSION["user"]["groups"])
 <title></title>
 <script type="text/javascript">
 function multiAdd(obj,name){
-	obj.innerHTML+="<li class='pair'><input name='bn_" + name + "[]' placeholder='বাংলা' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input name='en_" + name + "[]' placeholder='English' required/></li>";
+	obj.innerHTML+="<li class='pair'><input type='text' name='bn_" + name + "[]' placeholder='বাংলা' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input type='text' name='en_" + name + "[]' placeholder='English' required/></li>";
 }
 
 </script>
