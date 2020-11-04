@@ -75,7 +75,7 @@ if($_SESSION["user"]["admin"]){
 		$l = count($question);
 		for($i=0;$i<$l;$i++){?>
 		<div class="qBox">
-		<button class="remove" type="button" onclick="this.parentElement.remove()">-</button>
+		<input class="remove" type="button" onclick="this.parentElement.remove()" value='-'></button>
 			<textarea name="question[<?php echo $i;?>][q]" class="question"><?php echo $question[$i]["q"];?></textarea>
 			<ol class="options">
 			<?php
