@@ -90,7 +90,7 @@ if($_SESSION["user"]["admin"]){
 		</div>
 		<?php }?>
 	</form>
-	<input name="ID" type="hidden" value=""/>
+	<input name="ID" type="hidden" form="qPaper" value="<?php echo $res['ID'];?>"/>
 	<input type="submit" form="qPaper" />
 	<button type="button" onclick="addQ()">+</button>
 <script type="text/javascript">
