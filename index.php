@@ -16,11 +16,16 @@
 		<h1>
 			স্বাগতম $bn_name
 		</h1>
+		<div>
+			<details id="details">
+				<summary>সনদপত্র</summary>
+				<ol style='margin-left: 5%;'>
+					<li><input type="button" onclick="window.location='certify.php/id='" value="কর্মশালা"></li>
+				</ol>
+			</details>
+		</div>
 		<form>
-			<input type="button" value="আপনার সার্টিফিকেট" onclick="window.location='certify.php'">
-		</form>
-		<form>
-			<input type="button" value="কর্মশালা" onclick="window.location='workshop.php'">
+			<input type="button" value="আয়োজনসমূহ" onclick="window.location='workshop.php'">
 			<input type="button" value="কুইজে অংশগ্রহণ করুন" onclick="window.location='quiz.php'">
 		</form>
 		<form>
