@@ -185,6 +185,8 @@
     textarea#certificate{
         background:url("frame.webp") no-repeat;
         background-size: 100%;
+        width: 84vw;
+        height: 59vw;
 	}
 }
 
@@ -265,7 +267,7 @@
     }
 
     textarea{
-        width: 89%;
+        width: 89% !important;
         padding: 5%;
         margin-bottom: 2vh;
         font-size: 2vh;
@@ -352,6 +354,9 @@
     textarea#certificate{
         background:url("frame.webp") no-repeat;
         background-size: 100%;
+        width: 87vh;
+        height: 58vh;
+        padding: 5%;
     }
 
     .title{

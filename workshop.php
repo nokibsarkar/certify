@@ -145,7 +145,7 @@ function multiAdd(obj,name){
 		<input name="start" type="datetime-local" placeholder="" value="<?php echo date_create($res['Start'])->format('Y-m-d\TH:i');?>" required/><br>
 		<label for="end">সমাপ্তি</label>
 		<input name="end" type="datetime-local" placeholder="" value="<?php echo date_create($res['End'])->format('Y-m-d\TH:i');?>" required/><br/>
-		<input name="quiz" type="checkbox" onchange="" <?php if($q = $res['Qstart'] != '00-00-00T00:00' ) echo 'checked'; ?>/><label for="quiz">কুইজ আছে</label><br/>
+		<div><input name="quiz" type="checkbox" onchange="" <?php if($q = $res['Qstart'] != '00-00-00T00:00' ) echo 'checked'; ?>/>কুইজ আছে</div><br/>
 			<fieldset>
 			<legend>কুইজ</legend>
 			<label for="qstart">শুরু</label>
