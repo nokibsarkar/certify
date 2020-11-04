@@ -47,6 +47,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 }
 else{
 	$sql = "SELECT Quiz,Qstart,Qend FROM Workshop WHERE ID = $id AND Status = 0";	
+	$id = isset($_GET["ID"])?(int)$_GET["ID"]:0;
+	$sql = "SELECT * FROM Workshop".($id?" WHERE ID = $id":"");
+	$host = "tools.db.svc.eqiad.wmflabs";
+	$creds = parse_ini_file("../replica.my.cnf");
+	$conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify');
+	$res = $conn->query($sql);
 	if(!($res = $res->fetch_assoc()))
 		header("Location: workshop.php");
 	$question = json_decode($res["Quiz"],true);
