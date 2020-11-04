@@ -11,12 +11,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$bn_name = strip_tags(addslashes($_POST["bn_name"]));
 	$en_name = strip_tags(addslashes($_POST["en_name"]));
 	$name = json_encode([$bn_name,$en_name],JSON_UNESCAPED_UNICODE);
-	$start = ($start = date_create($_POST["start"]))?date_format($start,DATE_ATOM):NULL;
-	$end = ($end = date_create($_POST["end"]))?date_format($start,DATE_ATOM):NULL;
+	$start = ($start = date_create($_POST["start"]))?date_format($start,"Y-m-d\TH:i"):NULL;
+	$end = ($end = date_create($_POST["end"]))?date_format($start,"Y-m-d\TH:i"):NULL;
 	/*Quiz specification*/
 	$qz = isset($_POST["quiz"]);
-	$qstart = $qz && ($qstart = date_create($_POST["qstart"]))?date_format($qstart,DATE_ATOM):"NULL";
-	$qend = $qz && ($qend = date_create($_POST["qend"]))?date_format($qend,DATE_ATOM):"NULL";
+	$qstart = $qz && ($qstart = date_create($_POST["qstart"]))?date_format($qstart,"Y-m-d\TH:i"):"NULL";
+	$qend = $qz && ($qend = date_create($_POST["qend"]))?date_format($qend,"Y-m-d\TH:i"):"NULL";
 	if($qz && ($qstart == "NULL" ||$qend == "NULL"))
 		exit(http_response_code(400));
 	if(!$start ||!$end)
@@ -140,16 +140,16 @@ function multiAdd(obj,name){
 		<label for="ID">আইডি</label>
 		<input name="ID" type="" placeholder="" value="<?php echo $res['ID'];?>" readonly/><br/>
 		<label for="start">শুরু</label>
-		<input name="start" type="datetime-local" placeholder="" value="<?php echo $res['Start'];?>" required/><br>
+		<input name="start" type="datetime-local" placeholder="" value="<?php echo date_create($res['Start'])->format('Y-m-d\TH:i');?>" required/><br>
 		<label for="end">সমাপ্তি</label>
-		<input name="end" type="datetime-local" placeholder="" value="<?php echo $res['End'];?>" required/><br/>
+		<input name="end" type="datetime-local" placeholder="" value="<?php echo date_create($res['End'])->format('Y-m-d\TH:i');?>" required/><br/>
 		<input name="quiz" type="checkbox" onchange="" <?php if($q = $res['Qstart'] != '00-00-00T00:00' ) echo 'checked'; ?>/><label for="quiz">কুইজ আছে</label><br/>
 			<fieldset>
 			<legend>কুইজ</legend>
 			<label for="qstart">শুরু</label>
-			<input name="qstart" type="datetime-local" placeholder="" <?php if($q) echo 'value="'.$res['Qstart'].'" required';?>/><br/>
+			<input name="qstart" type="datetime-local" placeholder="" <?php if($q) echo 'value="'.date_create($res['Qstart'])->format('Y-m-d\TH:i').'" required';?>/><br/>
 			<label for="qend">সমাপ্তি</label>
-			<input name="qend" type="datetime-local" placeholder="" <?php if($q) echo 'value="'.$res['Qend'].'" required';?>/><br/>
+			<input name="qend" type="datetime-local" placeholder="" <?php if($q) echo 'value="'.date_create($res['Qend'])->format('Y-m-d\TH:i').'" required';?>/><br/>
 		</fieldset>
 		<label for="certificate"></label>
 		<textarea name="certificate" placeholder="" value="" required><?php echo $res["Certificate"];?></textarea>
