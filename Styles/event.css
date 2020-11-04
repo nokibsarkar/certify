@@ -148,14 +148,14 @@
         padding: .5vh !important;
         background-color: darkgreen !important;
         color: white;
-        font-size: 3vh;
+        font-size: 2vw;
     }
 
     .remove{
         background-color: red !important;
         color: white;
         padding: .5vh !important;
-        font-size: 3vh;
+        font-size: 2vw;
     }
 }
 
