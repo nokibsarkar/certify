@@ -57,7 +57,7 @@ else{
 	$res = $conn->query($sql);
 	if(!($res = $res->fetch_assoc()))
 		header("Location: workshop.php");
-	$question = json_decode($res["Quiz"],true);
+	$question = ($question = json_decode($res["Quiz"],true))?$question:[];
 var_dump($question);
 if($_SESSION["user"]["admin"]){
 	//User is an admin so trying to edit
