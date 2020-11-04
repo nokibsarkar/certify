@@ -2,7 +2,7 @@
 session_start();
 $id = isset($_REQUEST["ID"])?(int)$_REQUEST["ID"]:0;
 if(!$id) //No Workshop ID is given
-	header("Location: workshop.php");
+	echo("Break") || exit();//header("Location: workshop.php");
 if(!isset($_SESSION["user"]))//Not logged in
 	header("Location: login.php?return=".urlencode($_SERVER["REQUEST_URI"]));
 $_SESSION['user']['admin']=true;
@@ -52,8 +52,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 }
 else{
 	$sql = "SELECT Quiz, Qstart, Qend FROM Workshop WHERE ID = $id AND Status = 0";
-	echo $sql;
-	exit();
 	$res = $conn->query($sql);
 	if(!($res = $res->fetch_assoc()))
 		header("Location: workshop.php");
