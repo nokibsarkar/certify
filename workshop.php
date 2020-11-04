@@ -11,9 +11,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$bn_name = strip_tags(addslashes($_POST["bn_name"]));
 	$en_name = strip_tags(addslashes($_POST["en_name"]));
 	$name = json_encode([$bn_name,$en_name],JSON_UNESCAPED_UNICODE);
-	$start = ($start = date_create($_POST["start"]))?date_format($start,"Y-m-d\TH:i"):NULL;
-	$end = ($end = date_create($_POST["end"]))?date_format($start,"Y-m-d\TH:i"):NULL;
-	var_dump($_POST);
+	$start = ($start = date_create($_POST["start"]))?$start->format("Y-m-d\TH:i"):NULL;
+	echo $start;
+	$end = ($end = date_create($_POST["end"]))?$end->format("Y-m-d\TH:i"):NULL;
+	echo $end;
 	/*Quiz specification*/
 	$qz = isset($_POST["quiz"]);
 	$qstart = $qz && ($qstart = date_create($_POST["qstart"]))?date_format($qstart,"Y-m-d\TH:i"):"NULL";
