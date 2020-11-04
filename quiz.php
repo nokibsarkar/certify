@@ -52,6 +52,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 }
 else{
 	$sql = "SELECT Quiz, Qstart, Qend FROM Workshop WHERE ID = $id AND Status = 0";
+	echo $sql;
+	exit();
 	$res = $conn->query($sql);
 	if(!($res = $res->fetch_assoc()))
 		header("Location: workshop.php");
