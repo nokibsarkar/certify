@@ -1,9 +1,12 @@
 <?php
 session_start();
 $id = isset($_REQUEST["ID"])?(int)$_REQUEST["ID"]:0;
-if(!$id) //No Workshop ID is given
-	echo("Break") || exit();//header("Location: workshop.php");
-if(!isset($_SESSION["user"]))//Not logged in
+
+if(!$id) {//No Workshop ID is given
+	echo "Break";
+	exit();//header("Location: workshop.php");
+
+}if(!isset($_SESSION["user"]))//Not logged in
 	header("Location: login.php?return=".urlencode($_SERVER["REQUEST_URI"]));
 $_SESSION['user']['admin']=true;
 $host = "tools.db.svc.eqiad.wmflabs";
@@ -32,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		echo 2;
 		//exit(http_response_code(400));
 	}
-		$data = json_encode($data,JSON_UNESCAPED_UNICODE);
+	$data = json_encode($data,JSON_UNESCAPED_UNICODE);
 	$sql = "UPDATE Workshop SET Quiz = '$data' WHERE ID = $id AND Status = 0 AND NOW() <= Qstart";
 	echo $sql;
 	$conn->query($sql);
