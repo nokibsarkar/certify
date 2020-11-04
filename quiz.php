@@ -23,6 +23,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	//sanitize data
 	try{
 	$data = [];
+	var_dump($_POST["data"]);
 	foreach($_POST["data"] as $q){
 		$q["q"] = htmlspecialchars(addslashes($q["q"]));
 		$q["a"] = (int)$q["a"];
@@ -58,7 +59,6 @@ else{
 		header("Location: workshop.php");
 	$question = json_decode($res["Quiz"],true);
 var_dump($question);
-exit();
 if($_SESSION["user"]["admin"]){
 	//User is an admin so trying to edit
 ?>
