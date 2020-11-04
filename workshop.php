@@ -110,20 +110,20 @@ function multiAdd(obj,name){
 	<legend>তথ্যাদি</legend>
 		<fieldset>
 		<legend>নাম</legend>
-			<input name="bn_name" placeholder="বাংলা" value="<?php echo $res['Title'][0];?>" required/>
-			<input name="en_name" placeholder="English" value="<?php echo $res['Title'][1];?>" required/>
+			<input type="text" name="bn_name" placeholder="বাংলা" value="<?php echo $res['Title'][0];?>" required/>
+			<input type="text" name="en_name" placeholder="English" value="<?php echo $res['Title'][1];?>" required/>
 		</fieldset>
 		<fieldset>
 		<legend>ভেন্যু</legend>
-			<input name="ven[]" placeholder="বাংলা" value="<?php echo $res['Venue'][0];?>" required/>
-			<input name="ven[]" placeholder="English" value="<?php echo $res['Venue'][1];?>" required/>
+			<input type="text" name="ven[]" placeholder="বাংলা" value="<?php echo $res['Venue'][0];?>" required/>
+			<input type="text" name="ven[]" placeholder="English" value="<?php echo $res['Venue'][1];?>" required/>
 		</fieldset>
 		<fieldset id="partner">
 		<legend>সহযোগী</legend>
 		<?php 
 		$l = count($res["Partner"][0]);
 		for($i=0;$i<$l;$i++)
-			echo "<li class='pair'><input name='bn_partner[]' placeholder='বাংলা' value='".$res["Partner"][0][$i]."' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input name='en_partner[]' placeholder='English' value='".$res["Partner"][1][$i]."' required/></li>"
+			echo "<li class='pair'><input type='text' name='bn_partner[]' placeholder='বাংলা' value='".$res["Partner"][0][$i]."' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input type='text' name='en_partner[]' placeholder='English' value='".$res["Partner"][1][$i]."' required/></li>"
 		?>
 		</fieldset>
 		<button type="button" onclick="multiAdd(partner,'partner')">+</button>
@@ -132,7 +132,7 @@ function multiAdd(obj,name){
 		<?php
 		$l = count($res["Instructor"][0]);
 		for($i=0;$i<$l;$i++)
-			echo "<li class='pair'><input name='bn_inst[]' placeholder='বাংলা' value='".$res["Instructor"][0][$i]."' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input name='en_inst[]' placeholder='English' value='".$res["Instructor"][1][$i]."' required/></li>";
+			echo "<li class='pair'><input type='text' name='bn_inst[]' placeholder='বাংলা' value='".$res["Instructor"][0][$i]."' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input type='text' name='en_inst[]' placeholder='English' value='".$res["Instructor"][1][$i]."' required/></li>";
 		?>
 		</fieldset>
 		<button type="button" onclick="multiAdd(inst,'inst')">+</button>
@@ -140,7 +140,7 @@ function multiAdd(obj,name){
 	<fieldset>
 		<legend>উপাত্ত</legend>
 		<label for="ID">আইডি</label>
-		<input name="ID" type="" placeholder="" value="<?php echo $res['ID'];?>"/><br/>
+		<input type='text' name="ID" type="" placeholder="" value="<?php echo $res['ID'];?>"/><br/>
 		<label for="start">শুরু</label>
 		<input name="start" type="datetime-local" placeholder="" value="<?php echo date_create($res['Start'])->format('Y-m-d\TH:i');?>" required/><br>
 		<label for="end">সমাপ্তি</label>
