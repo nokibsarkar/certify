@@ -1,6 +1,7 @@
 <?php
 session_start();
 $id = isset($_REQUEST["ID"])?(int)$_REQUEST["ID"]:0;
+echo $id;
 if(!$id) //No Workshop ID is given
 	header("Location: workshop.php");
 if(!isset($_SESSION["user"]))//Not logged in
@@ -60,7 +61,6 @@ else{
 	if(!($res = $res->fetch_assoc()))
 		header("Location: workshop.php");
 	$question = ($question = json_decode($res["Quiz"],true))?$question:[];
-var_dump($question);
 if($_SESSION["user"]["admin"]){
 	//User is an admin so trying to edit
 ?>
