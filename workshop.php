@@ -207,6 +207,13 @@ else
 {
 	//Print the list of Event
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" href="Styles/style.css">
+<link rel="stylesheet" href="Styles/event.css">
+</head>
 <ol id="evList">
 <?php
 while($row = $res->fetch_assoc()){
