@@ -39,6 +39,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	}
 		$data = json_encode($data,JSON_UNESCAPED_UNICODE);
 	$sql = "UPDATE Workshop SET Quiz = '$data' WHERE ID = $id AND Status = 0 AND NOW() <= Start";
+	echo $sql;
 	$conn->query($sql);
 	echo mysqli_error($conn);
 	}else{
