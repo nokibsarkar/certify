@@ -81,7 +81,7 @@ if($_SESSION["user"]["admin"]){
 			for($j=0;$j<$l1;$j++){
 			?>
 				<li>
-					<input type="radio" name="question[<?php echo $i;?>][a]" <?php if($j == $question[$i]["a"]) echo "checked";?>/>
+					<input type="radio" name="question[<?php echo $i;?>][a]" value="<?php echo $j;?>" <?php if($j == $question[$i]["a"]) echo "checked";?>/>
 					<input name="question[<?php echo $i;?>][o][<?php echo $j;?>]" value="<?php echo $question[$i]['o'][$j];?>" class="option"/>
 				</li>
 				<?php } ?>
@@ -120,10 +120,12 @@ $question = json_decode($res["Quiz"],true);
 		<div class="qBox">
 			<p class="question"><?php echo $q["q"];?></p>
 			<ol class="options">
-			<?php foreach($q["o"] as $o){?>
+			<?php 
+			$l = count($q["o"]);
+			for($i=0;$i<$l;$i++){?>
 				<li>
-					<input type="radio" name="answer[]" />
-					<span class="option"><?php echo $o;?></span>
+					<input type="radio" name="answer[]" value="<?php echo $i;?>"/>
+					<span class="option"><?php echo $q["o"][$i];?></span>
 				</li>
 			<?php }?>
 			</ol>
