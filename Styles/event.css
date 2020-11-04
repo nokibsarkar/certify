@@ -146,13 +146,15 @@
     
     .add{
         padding: .5vh !important;
-        background-color: rgb(120, 255, 86) !important;
+        background-color: darkgreen !important;
+        color: white;
         font-size: 3vh;
     }
 
     .remove{
+        background-color: red !important;
+        color: white;
         padding: .5vh !important;
-        background-color: rgb(255, 86, 86) !important;
         font-size: 3vh;
     }
 }
@@ -268,7 +270,7 @@
 		padding-bottom: 2vh;
 	}
 
-	.mainfiled {
+	.mainfield {
 		margin-left: 5%;
     }
     
