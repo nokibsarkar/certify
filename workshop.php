@@ -167,6 +167,37 @@ function multiAdd(obj,name){
 <?php
 }else{
 	//Show Normal details
+	require 'parse.php';
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<div id="event">
+	<h><?php echo $res["Title"][0];?></h>
+	<span><?php echo $res["Status"];?></span>
+	<span><?php echo bn_form(date_create($res["Start"]))." - ".bn_form(date_create($res["End"]));?></span>
+	<ul>
+	<?php
+	foreach($res["Instructor"][0] as $v)
+		echo "<li>$v</li>";
+	?>
+	</ul>
+	<ul>
+	<?php
+	foreach($res["Partner"][0] as $v)
+		echo "<li>$v</li>";
+	?>
+	</ul>
+	<ul>
+	প্রতিযোগীর তালিকা
+	</ul>
+</div>
+</body>
+</html>
+<?php
 }
 }
 else
