@@ -157,7 +157,7 @@ function multiAdd(obj,name){
 		</ul>
 		<textarea id="certificate" name="certificate" placeholder="" value="" required><?php echo $res["Certificate"];?></textarea>
 		<br/>
-		<input name="edit" type="hidden"/>
+		<input name="status" type="checkbox"/> <label for="status">সমাপ্ত</label>
 	</fieldset>
 	<input type="submit"/>
 	</form>
