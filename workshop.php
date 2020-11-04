@@ -18,23 +18,23 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$qstart = $qz && ($qstart = date_create($_POST["qstart"]))?date_format($qstart,"Y-m-d\TH:i"):"NULL";
 	$qend = $qz && ($qend = date_create($_POST["qend"]))?date_format($qend,"Y-m-d\TH:i"):"NULL";
 	if($qz && ($qstart == "NULL" ||$qend == "NULL"))
-		exit(http_response_code(400));
+		exit(echo(1)); //http_response_code(400));
 	if(!$start ||!$end)
-		exit(http_response_code(400));
+		exit(echo(2)); //http_response_code(400));
 	$instructor_bn = filter_var_array($_POST["bn_ins"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	$instructor_en = filter_var_array($_POST["en_ins"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	if(count($instructor_bn) != count($instructor_en))
-		exit(http_response_code(400));
+		exit(echo(3)); //http_response_code(400));
 	$instructor = json_encode([$instructor_bn,$instructor_en],JSON_UNESCAPED_UNICODE);
 	$partners_bn = filter_var_array($_POST["bn_part"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	$partners_en = filter_var_array($_POST["en_part"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	if(count($partners_bn) != count($partners_en))
-		exit(http_response_code(400));
+		exit(echo(4)); //http_response_code(400));
 	$partners = json_encode([$partners_bn,$partners_en],JSON_UNESCAPED_UNICODE);
 	$venue_bn = filter_var_array($_POST["bn_ven"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	$venue_en = filter_var_array($_POST["en_ven"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	if(count($venue_bn) != count($venue_en))
-		exit(http_response_code(400));
+		exit(echo(5)); //http_response_code(400));
 	$venue = json_encode([$venue_bn,$venue_en],JSON_UNESCAPED_UNICODE);
 	$certificate = strip_tags(addslashes($_POST["certificate"]),["p","div","font","span","br","a","img","b","i","u","h","h1", "h2"," h3", "h4","h5", "h6"]);
 	if($id){
