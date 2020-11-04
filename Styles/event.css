@@ -134,6 +134,15 @@
         display: none;
     }
 
+    ul{
+        list-style-type: none;
+    }
+
+    span{
+        margin: 5%;
+        font-size: 4vw;
+    }
+
     .suggestion{
         margin-left: 0%;
         margin-right: 0.5vh;
@@ -275,7 +284,12 @@
 		padding-right: 2vw;
 		padding-top: 2vh;
 		padding-bottom: 2vh;
-	}
+    }
+    
+    span{
+        margin: 5%;
+        font-size: 4vh;
+    }
 
 	.mainfield {
 		margin-left: 5%;
@@ -305,11 +319,17 @@
         margin-right: 5%;
         margin-bottom: 1%;
     }
+
+    ul{
+        list-style-type: none;
+    }
+
     ul::marker{
         display: none;
     }
 
     #certificate{
 		width: 100% !important;
-	}
+    }
+
 }
