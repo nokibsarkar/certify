@@ -18,13 +18,13 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	//Edit submitted
 	if($_SESSION["user"]["admin"]){
 	//User is an admin so trying to edit
-	if(!isset($_POST["data"]) || !is_array($_POST["data"]))
+	if(!isset($_POST["question"]) || !is_array($_POST["question"]))
 		echo(1) || exit();//exit(http_response_code(400));
 	//sanitize data
 	try{
 	$data = [];
-	var_dump($_POST["data"]);
-	foreach($_POST["data"] as $q){
+	var_dump($_POST["question"]);
+	foreach($_POST["question"] as $q){
 		$q["q"] = htmlspecialchars(addslashes($q["q"]));
 		$q["a"] = (int)$q["a"];
 		$l = count($q["o"]);
@@ -82,7 +82,7 @@ if($_SESSION["user"]["admin"]){
 			for($j=0;$j<$l1;$j++){
 			?>
 				<li>
-					<input type="radio" name="answer[]" <?php if($j == $question[$i]["a"]) echo "checked";?>/>
+					<input type="radio" name="question[<?php echo $i;?>][a]" <?php if($j == $question[$i]["a"]) echo "checked";?>/>
 					<input name="question[<?php echo $i;?>][o][<?php echo $j;?>]" value="<?php echo $question[$i]['o'][$j];?>" class="option"/>
 				</li>
 				<?php } ?>
