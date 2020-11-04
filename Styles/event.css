@@ -147,6 +147,10 @@
         font-size: 4vw;
     }
 
+    .title{
+        font-size: 4vw;
+    }
+
     .suggestion{
         margin-left: 0%;
         margin-right: 0.5vh;
@@ -337,7 +341,12 @@
     }
 
     #certificate{
-		width: 100% !important;
+        background:url("frame.webp") no-repeat;
+        background-size: 100%;
+    }
+
+    .title{
+        font-size: 4vh;
     }
 
 }
