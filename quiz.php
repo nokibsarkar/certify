@@ -37,10 +37,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		echo 2;
 		//exit(http_response_code(400));
 	}
-	echo json_encode($data,JSON_UNESCAPED_UNICODE);
-	$data = json_encode($data,JSON_UNESCAPED_UNICODE);
-	$sql = "UPDATE Workshop SET Quiz = '' WHERE ID = $id AND Status = 0 AND NOW() <= Start";
-	echo $sql;
+		$data = json_encode($data,JSON_UNESCAPED_UNICODE);
+	$sql = "UPDATE Workshop SET Quiz = '$data' WHERE ID = $id AND Status = 0 AND NOW() <= Start";
+	$conn->query($sql);
+	echo mysqli_error($conn);
 	}else{
 		//Answer submitted
 		$data = filter_var_array($_POST["answer"],FILTER_SANITIZE_NUMBER_INT);
