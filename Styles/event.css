@@ -129,6 +129,10 @@
         font-size: 2.5vh;
         margin-left: 5%;
     }
+    
+    ul{
+        list-style-type: none;
+    }
 
     .suggestion{
         margin-left: 0%;
@@ -145,16 +149,16 @@
     }
     
     .add{
-        padding: .5vh !important;
-        background-color: darkgreen !important;
+        padding: .5vh;
+        background-color: darkgreen;
         color: white;
         font-size: 2vw;
     }
 
     .remove{
-        background-color: red !important;
+        background-color: red;
         color: white;
-        padding: .5vh !important;
+        padding: .5vh;
         font-size: 2vw;
     }
 }
@@ -297,5 +301,8 @@
         margin-left: 5%;
         margin-right: 5%;
         margin-bottom: 1%;
+    }
+    ul{
+        list-style-type: none;
     }
 }
