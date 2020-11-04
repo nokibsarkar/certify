@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		echo 2;
 		//exit(http_response_code(400));
 	}
-	echo json_encode($data);
+	echo json_encode($data,JSON_UNESCAPE_UNICODE);
 	$data = json_encode($data,JSON_UNESCAPED_UNICODE);
 	$sql = "UPDATE Workshop SET Quiz = '' WHERE ID = $id AND Status = 0 AND NOW() <= Start";
 	echo $sql;
