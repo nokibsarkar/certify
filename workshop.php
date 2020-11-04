@@ -166,7 +166,7 @@ function multiAdd(obj,name){
 </html>
 <?php
 }else{
-	//Show Normal details
+	//Show Woekshop details
 ?>
 <!DOCTYPE html>
 <html>
