@@ -81,6 +81,7 @@ div#certificate {
 		background-size:100% !important;
 		background:url("frame.webp") no-repeat;
 		width:100vw !important;
+		height: 100vh !important;
 		text-align:justify !important;
 		font-size: xx-large !important;
 	}
