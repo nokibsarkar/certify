@@ -95,8 +95,8 @@ var_dump($row);
 ?>
 <li class="event">
 	<span class="status"><?php echo $row["Status"]?'▶️':'⏸';?>️</span>
-	<span class="title"><?php echo json_decode($row["Title"],true)[0];?></span>
-	<span class="date">(<?php bn_form(date_create($row["Start"])).' - '.bn_form(date_create($row["End"]))?>)</span>
+	<a class="title" href="workshop.php?ID=<?php echo $row['ID'];?>"><?php echo json_decode($row["Title"],true)[0];?></a>
+	<span class="date">(<?php echo bn_form(date_create($row["Start"])).' - '.bn_form(date_create($row["End"]))?>)</span>
 </li>
 <?php
 }
