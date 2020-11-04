@@ -8,7 +8,7 @@ if(!$id) {//No Workshop ID is given
 
 }if(!isset($_SESSION["user"]))//Not logged in
 	header("Location: login.php?return=".urlencode($_SERVER["REQUEST_URI"]));
-$_SESSION['user']['admin']=true;
+//$_SESSION['user']['admin']=true;
 $host = "tools.db.svc.eqiad.wmflabs";
 $creds = parse_ini_file("../replica.my.cnf");
 $conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify');
