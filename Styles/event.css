@@ -268,9 +268,23 @@
 		padding-bottom: 2vh;
 	}
 
-	.main {
+	.mainfiled {
 		margin-left: 5%;
-	}
+    }
+    
+    .add{
+        padding: .5vh !important;
+        background-color: darkgreen !important;
+        color: white;
+        font-size: 3vh;
+    }
+
+    .remove{
+        padding: .5vh !important;
+        background-color: red !important;
+        color: white;
+        font-size: 3vh;
+    }
 	
     .suggestion{
         margin-left: 0%;
