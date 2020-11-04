@@ -100,6 +100,8 @@ function multiAdd(obj,name){
 }
 
 </script>
+<link rel="stylesheet" href="Styles/style.css">
+<link rel="stylesheet" href="Styles/event.css">
 </head>
 <body>
 
