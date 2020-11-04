@@ -70,7 +70,7 @@ echo $sql;
 else{
 require 'parse.php';
 $id = isset($_GET["ID"])?(int)$_GET["ID"]:0;
-$sql = "SELECT * FROM Workshop".($id?" WHERE ID = $id":"");
+$sql = "SELECT ID,Title,Start,End,Status FROM Workshop".($id?" WHERE ID = $id":"");
 $host = "tools.db.svc.eqiad.wmflabs";
 $creds = parse_ini_file("../replica.my.cnf");
 $conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify');
