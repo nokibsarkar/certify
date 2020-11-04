@@ -81,6 +81,11 @@ if(!$res){
 	echo "পাওয়া যায় নি";
 	exit(0);
 }
+$res["Title"] = json_decode($res["Title"],true);
+$res["Venue"] = json_decode($res["Venue"],true);
+$res["Instructor"] = json_decode($res["Instructor"],true);
+$res["Partner"] = json_decode($res["Partner"],true);
+
 //Print a single Event
 if(1 || empty($_SESSION["user"]) || !in_array("sysop",$_SESSION["user"]["groups"])){
 	//Show the edit interface
