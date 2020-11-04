@@ -47,7 +47,6 @@
 	}
 	
     textarea{
-		width: 90% !important;
         padding: 5%;
         margin-bottom: 1vh;
         font-size: .8vh;
@@ -185,8 +184,8 @@
     textarea#certificate{
         background:url("frame.webp") no-repeat;
         background-size: 100%;
-        width: 84vw;
-        height: 59vw;
+        width: 84vw !important;
+        height: 59vw !important;
 	}
 }
 
@@ -267,7 +266,6 @@
     }
 
     textarea{
-        width: 89% !important;
         padding: 5%;
         margin-bottom: 2vh;
         font-size: 2vh;
@@ -354,8 +352,8 @@
     textarea#certificate{
         background:url("frame.webp") no-repeat;
         background-size: 100%;
-        width: 87vh;
-        height: 58vh;
+        width: 87vh !important;
+        height: 58vh !important;
         padding: 5%;
     }
 
