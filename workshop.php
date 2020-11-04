@@ -7,7 +7,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	/*if(empty($_SESSION["user"]) || !in_array("sysop",$_SESSION["user"]["groups"]))
 		exit(http_response_code(403));*/
 	//Checked he is an admin
-	var_dump($_POST);
 	$id = isset($_POST["ID"])?(int)$_POST["ID"]:0; // 0 -> new,  non-zero means edit
 	$bn_name = strip_tags(addslashes($_POST["bn_name"]));
 	$en_name = strip_tags(addslashes($_POST["en_name"]));
