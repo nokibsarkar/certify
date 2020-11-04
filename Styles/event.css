@@ -161,6 +161,9 @@
         padding: .5vh;
         font-size: 2vw;
     }
+    #certificate{
+		width: 100% !important;
+	}
 }
 
 @media (orientation: landscape){
@@ -305,4 +308,8 @@
     ul::marker{
         display: none;
     }
+
+    #certificate{
+		width: 100% !important;
+	}
 }
