@@ -86,9 +86,8 @@ $res["Venue"] = json_decode($res["Venue"],true);
 $res["Instructor"] = json_decode($res["Instructor"],true);
 $res["Partner"] = json_decode($res["Partner"],true);
 //Print a single Event
-if(0 && isset($_SESSION["user"]) && $_SESSION["user"]["admin"]){
+if( isset($_SESSION["user"]) && $_SESSION["user"]["admin"]){
 	//Show the edit interface
-	var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html>
