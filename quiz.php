@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	if($_SESSION["user"]["admin"]){
 	//User is an admin so trying to edit
 	if(!isset($_POST["data"]) || !is_array($_POST["data"]))
-		exit(http_response_code(400));
+		echo(1) || exit();//exit(http_response_code(400));
 	//sanitize data
 	try{
 	$data = [];
@@ -35,7 +35,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	}
 	}
 	catch(Exception $e){
-		exit(http_response_code(400));
+		echo 2;
+		//exit(http_response_code(400));
 	}
 	$data = json_encode($data,JSON_UNESCAPED_UNICODE);
 	$sql = "UPDATE Workshop SET Quiz = '' WHERE ID = $id AND Status = 0 AND NOW() <= Start";
