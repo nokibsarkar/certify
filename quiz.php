@@ -1,19 +1,15 @@
 <?php
 session_start();
 $id = isset($_REQUEST["ID"])?(int)$_REQUEST["ID"]:0;
-echo $id;
 if(!$id) //No Workshop ID is given
 	header("Location: workshop.php");
 if(!isset($_SESSION["user"]))//Not logged in
 	header("Location: login.php?return=".urlencode($_SERVER["REQUEST_URI"]));
 $_SESSION['user']['admin']=true;
-$sql = "SELECT Quiz,Qstart,Qend FROM Workshop WHERE ID = $id AND Status = 0";	
-	$id = isset($_GET["ID"])?(int)$_GET["ID"]:0;
-	$sql = "SELECT * FROM Workshop".($id?" WHERE ID = $id":"");
-	$host = "tools.db.svc.eqiad.wmflabs";
-	$creds = parse_ini_file("../replica.my.cnf");
-	$conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify');
-
+$sql = "SELECT Quiz,Qstart,Qend FROM Workshop WHERE ID = $id AND Status = 0";
+$host = "tools.db.svc.eqiad.wmflabs";
+$creds = parse_ini_file("../replica.my.cnf");
+$conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify');
 //Checked for loginned
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 	//Edit submitted
