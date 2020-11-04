@@ -106,7 +106,7 @@ function multiAdd(obj,name){
 <body>
 
 <form method="post" action="">
-	<fieldset>
+	<fieldset id="">
 	<legend>তথ্যাদি</legend>
 		<fieldset>
 		<legend>নাম</legend>

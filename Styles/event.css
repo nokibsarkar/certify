@@ -47,7 +47,6 @@
 	}
 	
     textarea{
-		border-radius: 15px;
 		width: 96%;
         padding: 1vh;
         height: 25vh;
@@ -147,12 +146,6 @@
 }
 
 @media (orientation: landscape){
-    body{
-		padding-left: 2vw;
-		padding-right: 2vw;
-		padding-top: 2vh;
-		padding-bottom: 2vh;
-    }
     label{
         margin-left: 5%;
         font-size: 3vh;
