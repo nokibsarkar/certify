@@ -167,7 +167,6 @@ function multiAdd(obj,name){
 <?php
 }else{
 	//Show Normal details
-	require 'parse.php';
 ?>
 <!DOCTYPE html>
 <html>
