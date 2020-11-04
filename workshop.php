@@ -106,7 +106,7 @@ function multiAdd(obj,name){
 <body>
 
 <form method="post" action="">
-	<fieldset id="">
+	<fieldset class="mainfield">
 	<legend>তথ্যাদি</legend>
 		<fieldset>
 		<legend>নাম</legend>
@@ -125,8 +125,8 @@ function multiAdd(obj,name){
 		for($i=0;$i<$l;$i++)
 			echo "<li class='pair'><input type='text' name='bn_partner[]' placeholder='বাংলা' value='".$res["Partner"][0][$i]."' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input type='text' name='en_partner[]' placeholder='English' value='".$res["Partner"][1][$i]."' required/></li>"
 		?>
+		<button class="add" type="button" onclick="multiAdd(partner,'partner')">+</button>
 		</fieldset>
-		<button type="button" onclick="multiAdd(partner,'partner')">+</button>
 		<fieldset id="inst">
 		<legend>নির্দেশনা প্রদানকারী</legend>
 		<?php
@@ -134,10 +134,10 @@ function multiAdd(obj,name){
 		for($i=0;$i<$l;$i++)
 			echo "<li class='pair'><input type='text' name='bn_inst[]' placeholder='বাংলা' value='".$res["Instructor"][0][$i]."' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input type='text' name='en_inst[]' placeholder='English' value='".$res["Instructor"][1][$i]."' required/></li>";
 		?>
+		<button class="add" type="button" onclick="multiAdd(inst,'inst')">+</button>
 		</fieldset>
-		<button type="button" onclick="multiAdd(inst,'inst')">+</button>
-			</fieldset>
-	<fieldset>
+	</fieldset>
+	<fieldset class="mainfield">
 		<legend>উপাত্ত</legend>
 		<label for="ID">আইডি</label>
 		<input type='text' name="ID" type="" placeholder="" value="<?php echo $res['ID'];?>"/><br/>
