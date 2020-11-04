@@ -91,6 +91,7 @@ else
 <ol id="evList">
 <?php
 while($row = $res->fetch_assoc()){
+var_dump($row);
 ?>
 <li class="event">
 	<span class="status"><?php echo $row["Status"]?'▶️':'⏸';?>️</span>
