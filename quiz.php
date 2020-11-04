@@ -1,12 +1,12 @@
 <?php
 session_start();
+$id = isset($_REQUEST["ID"])?(int)$_REQUEST["ID"]:0;
 if(!$id) //No Workshop ID is given
 	header("Location: workshop.php");
 if(!isset($_SESSION["user"]))//Not logged in
 	header("Location: login.php?return=".urlencode($_SERVER["REQUEST_URI"]));
 $_SESSION['user']['admin']=true;
 //Checked for loginned
-$id = isset($_REQUEST["ID"])?(int)$_REQUEST["ID"]:0;
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 	//Edit submitted
 	if($_SESSION["user"]["admin"]){
