@@ -9,12 +9,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	//Checked he is an admin
 	$id = isset($_POST["ID"])?(int)$_POST["ID"]:0; // 0 -> new,  non-zero means edit
 	$bn_name = strip_tags(addslashes($_POST["bn_name"]));
+	echo $bn_name;
 	$en_name = strip_tags(addslashes($_POST["en_name"]));
 	$name = json_encode([$bn_name,$en_name],JSON_UNESCAPED_UNICODE);
 	$start = ($start = date_create($_POST["start"]))?$start->format("Y-m-d\TH:i"):NULL;
-	echo $start;
 	$end = ($end = date_create($_POST["end"]))?$end->format("Y-m-d\TH:i"):NULL;
-	echo $end;
 	/*Quiz specification*/
 	$qz = isset($_POST["quiz"]);
 	$qstart = $qz && ($qstart = date_create($_POST["qstart"]))?date_format($qstart,"Y-m-d\TH:i"):"NULL";
