@@ -127,7 +127,7 @@ function multiAdd(obj,name){
 		<label for="start">শুরু</label>
 		<input name="start" type="datetime-local" placeholder="" value="<?php echo $res['Start'];?>" required/><br>
 		<label for="end">সমাপ্তি</label>
-		<input name="end" type="datetime-local" placeholder="" value="<?php echo $res['End';?>" required/><br/>
+		<input name="end" type="datetime-local" placeholder="" value="<?php echo $res['End'];?>" required/><br/>
 		<input name="quiz" type="checkbox" onchange="" <?php if(!($q = $res['Qstart']=='00-00-00T00:00')) echo 'checked'; ?>/><label for="quiz">কুইজ আছে</label><br/>
 			<fieldset>
 			<legend>কুইজ</legend>
