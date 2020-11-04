@@ -1,0 +1,380 @@
+@media (orientation: portrait){
+
+    label {
+        display: none;
+    }
+
+	fieldset {
+		margin-bottom: 2vh;
+		border: 1px solid black;
+		width: 80vw;
+		padding-left: 2vw;
+		padding-right: 2vw;
+		padding-top: 0.5vh;
+		padding-bottom: 0.5vh;
+	}
+
+    .unhide{
+        display: initial;
+        margin-left: 5%;
+        font-size: 3vh;
+    }
+
+    input[type=text] {
+        border-radius: 25px;
+        width: 90%;
+        height: 2vh;
+        margin-bottom: 1vh;
+        padding: 3%;
+        font-size: 2vh;
+        justify-content: center;
+        border-color: skyblue;
+        outline: none;
+        border: 1px solid #5F6368;
+	}
+	
+	input[type=datetime-local] {
+        border-radius: 25px;
+        width: 90%;
+        height: 2vh;
+        margin-bottom: 1vh;
+        padding: 3%;
+        font-size: 2vh;
+        justify-content: center;
+        border-color: skyblue;
+        outline: none;
+        border: 1px solid #5F6368;
+	}
+	
+    textarea{
+        padding: 5%;
+        margin-bottom: 1vh;
+        font-size: .8vw;
+        border-color: skyblue;
+        outline: none;
+        border: 1px solid #5F6368;
+    }
+
+    input[type=text]::placeholder{
+        font-size: 2vh;
+        justify-content: center;
+    }
+
+    input[type=checkbox]{
+        height: 2.5vh;
+        width: 2.5vh;
+    }
+
+    div{
+        text-align: justify;
+        font-size: 1.1vh;
+    }
+
+    input[type=submit]{
+        font-size: 3vh;
+        height: 8vh;
+        width: 12vh;
+        margin-left: 5%;
+        border: .5vh solid skyblue;
+        background-color: rgb(192, 230, 245);
+    }
+
+    input[type=button]{
+        font-size: 1.9vh;
+        padding: 1vh;
+        border: .5vh solid skyblue;
+        background-color: rgb(192, 230, 245);
+    }
+
+    input[type=range]{
+        -webkit-appearance: none;
+        width: 40vw;
+        height: 1vh;
+        background:rgb(192, 230, 245);
+        outline: none;
+        margin-bottom: 3vh;
+    }
+    input[type=range]::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        border: 3px solid royalblue;
+        height: 2vh;
+        width: 2vh;
+        border-radius: 3px;
+        background: royalblue;
+        cursor: pointer;
+    }
+
+    select {
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        background-color: rgb(192, 230, 245);
+        color: black;
+        padding: 1vh;
+        font-size: 2vh;
+    }
+
+    h1 {
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        font-size: 4vh;
+        margin-left: 5%;
+	}
+	
+	legend {
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        font-size: 2.5vh;
+        margin-left: 5%;
+    }
+
+    form {
+        margin-left: 5%; 
+        margin-top: 5%;
+    }
+
+    span{
+        margin: 5%;
+        font-size: 4vw;
+    }
+
+    li{
+        margin-left: 4%;
+    }
+
+    .title{
+        font-size: 4vw;
+    }
+
+    .suggestion{
+        margin-left: 0%;
+        margin-right: 0.5vh;
+    }
+    
+    #suggestions{
+        margin-left: 5%;
+        margin-right: 5%;
+	}
+	
+	.mainfield{
+		margin-left: 5%;
+    }
+    
+    .add{
+        padding: .5vh;
+        background-color: darkgreen;
+        color: white;
+        font-size: 2vw;
+    }
+
+    .remove{
+        background-color: red;
+        color: white;
+        padding: .5vh;
+        font-size: 2vw;
+    }
+
+    .contact{
+        margin-left: 0%;
+    }
+
+    summary {
+        font-size: 3vw;
+    }
+    .cert{
+        font-size: 2vw;
+    }
+
+    a {
+        color: blue;
+    }
+
+    textarea#certificate{
+        background:url("frame.webp") no-repeat;
+        background-size: 100%;
+        width: 75vw !important;
+        height: 51vw !important;
+    }
+    
+    div{
+        margin-left: 5%;
+    }
+}
+
+@media (orientation: landscape){
+    label{
+        margin-left: 5%;
+        font-size: 3vh;
+    }
+    input[type=text] {
+        border-radius: 25px;
+        width: 30vw;
+        height: 1.5vh;
+        margin-bottom: 2vh;
+        padding: 2vh;
+        font-size: 2vh;
+        border-color: skyblue;
+        outline: none;
+        border: 1px solid #5F6368;
+    }
+
+    input[type=text]::placeholder{
+        font-size: 2vh;
+        justify-content: center;
+    }
+
+    input[type=checkbox]{
+        height: 3vh;
+        width: 3vh;
+	}
+	
+	input[type=datetime-local]{
+		border-radius: 25px;
+        width: 30vw;
+        height: 1.5vh;
+        margin-bottom: 2vh;
+        padding: 2vh;
+        font-size: 2vh;
+        border-color: skyblue;
+        outline: none;
+        border: 1px solid #5F6368;
+	}
+
+    div{
+        text-align: justify;
+        font-size: 2vh;
+        margin-left: 5%;
+        margin-right: 5%;
+        position: relative;
+    }
+
+    input[type=submit]{
+        font-size: 2.5vh;
+        height: 7vh;
+        width: 10vh;
+        margin-left: 5%;
+        border: .25vh solid skyblue;
+        background-color: rgb(192, 230, 245);
+    }
+
+    input[type=button]{
+        font-size: 2.5vh;
+        padding: 0.5vh;
+        border: .25vh solid skyblue;
+        background-color: rgb(192, 230, 245);
+    }
+
+    input[type=range]{
+        margin-bottom: 2vh;
+    }
+
+
+    select {
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        background-color: rgb(192, 230, 245);
+        color: black;
+        padding: 1vh;
+    }
+
+    textarea{
+        padding: 5%;
+        margin-bottom: 2vh;
+        font-size: 2.2vh;
+        border-color: skyblue;
+        outline: none;
+        border: 1px solid #5F6368;
+    }
+
+    h1 {
+        margin-top: 1.5vh;
+        margin-bottom: 1.5vh;
+        font-size: 8vh;
+        margin-left: 5%;
+    }
+    
+    .contact{
+        margin-left: 0%;
+    }
+	
+    legend {
+        margin-top: 1.5vh;
+        margin-bottom: 1.5vh;
+        font-size: 3vh;
+        margin-left: 5%;
+	}
+
+	fieldset {
+		margin-top: 2vh;
+		margin-bottom: 2vh;
+		width: 80vw;
+		padding-left: 2vw;
+		padding-right: 2vw;
+		padding-top: 2vh;
+		padding-bottom: 2vh;
+    }
+
+    form {
+        margin-left: 5%; 
+        margin-top: 5%;
+    }
+    
+    span{
+        margin: 5%;
+        font-size: 4vh;
+    }
+
+    summary {
+        font-size: 4vh;
+    }
+
+    a {
+        color: blue;
+    }
+
+    .cert {
+        color: blue;
+        font-size: 3vh;
+    }
+
+	.mainfield {
+		margin-left: 5%;
+    }
+    
+    .add{
+        padding: .5vh;
+        background-color: darkgreen;
+        color: white;
+        font-size: 3vh;
+    }
+
+    .remove{
+        padding: .5vh;
+        background-color: red;
+        color: white;
+        font-size: 3vh;
+    }
+	
+    .suggestion{
+        margin-left: 0%;
+        margin-right: 0.5vw;
+    }
+
+    #suggestions{
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 1%;
+    }
+
+    textarea#certificate{
+        background:url("frame.webp") no-repeat;
+        background-size: 100%;
+        width: 87vh !important;
+        height: 58vh !important;
+        padding: 5%;
+    }
+
+    .title{
+        font-size: 4vh;
+    }
+
+}

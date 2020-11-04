@@ -3,7 +3,7 @@
 	<head>
 		<title></title>
 		<link rel="stylesheet" href="Styles/style.css">
-		<link rel="stylesheet" href="Styles/form.css">
+		<link rel="stylesheet" href="Styles/index.css">
 		<style>
 			form {margin-left: 5%; margin-top: 5%;}
 		</style>
@@ -20,7 +20,7 @@
 			<details id="details">
 				<summary>সনদপত্র</summary>
 				<ol style='margin-left: 5%;'>
-					<li><input type="button" onclick="window.location='certify.php/id='" value="কর্মশালা"></li>
+					<li><a href='certify.php/id=' class='cert'>কর্মশালা</a></li>
 				</ol>
 			</details>
 		</div>
@@ -32,5 +32,24 @@
 			<input type="button" value="Demo">
 			<input type="button" value="Demo">
 		</form>
+
+		<div style="margin-top: 5%;">
+			<h3>
+				Contact Us
+			</h3>
+			<div class="contact">
+				<h4>নাজমুল হক নকীব</h4>
+				Email: loremepsum@gmail.com <br>
+				Facebook: <a href='https://www.facebook.com/nokib.sorkar' target="_blank">/nokib.sarkar</a>
+			</div>
+			<div class="contact">
+				<h4>মুতাসিম ভূইয়া রাফিদ</h4>
+				Email: rafeedm.bhuiyan@gmail.com
+			</div>
+			<div class="contact">
+				<h4>Site Source: <a href='https://github.com/nokibsarkar/certify' target="_blank">github</a></h4>		
+			</div>
+
+		</div>
 	</body>
 </html>
