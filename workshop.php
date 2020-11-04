@@ -70,16 +70,82 @@ echo $sql;
 else{
 require 'parse.php';
 $id = isset($_GET["ID"])?(int)$_GET["ID"]:0;
-$sql = "SELECT ID,Title,Start,End,Status FROM Workshop".($id?" WHERE ID = $id":"");
+$sql = "SELECT * FROM Workshop".($id?" WHERE ID = $id":"");
 $host = "tools.db.svc.eqiad.wmflabs";
 $creds = parse_ini_file("../replica.my.cnf");
 $conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify');
 $res = $conn->query($sql);
 if($id){
+$res = $res->fetch_assoc();
+if(!$res){
+	echo "পাওয়া যায় নি";
+	exit(0);
+}
 //Print a single Event
-if(empty($_SESSION["user"]) || !in_array("sysop",$_SESSION["user"]["groups"])){
+if(1 || empty($_SESSION["user"]) || !in_array("sysop",$_SESSION["user"]["groups"])){
 	//Show the edit interface
-	
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<script type="text/javascript">
+function multiAdd(obj,name){
+	obj.innerHTML+="<li class='pair'><input name='bn_" + name + "[]' placeholder='বাংলা' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input name='en_" + name + "[]' placeholder='English' required/></li>";
+}
+
+</script>
+</head>
+<body>
+
+<form method="post" action="">
+	<fieldset>
+	<legend>তথ্যাদি</legend>
+		<fieldset>
+		<legend>নাম</legend>
+			<input name="bn_name" placeholder="বাংলা" value="<?php echo $res['Title'][0];?>" required/>
+			<input name="en_name" placeholder="English" value="<?php echo $res['Title'][1];?>" required/>
+		</fieldset>
+		<fieldset>
+		<legend>ভেন্যু</legend>
+			<input name="bn_ven" placeholder="বাংলা" value="<?php echo $res['Venue'][0];?>" required/>
+			<input name="en_ven" placeholder="English" value="<?php echo $res['Venue'][1];?>" required/>
+		</fieldset>
+		<fieldset id="partner">
+		<legend>সহযোগী</legend>
+		</fieldset>
+		<button type="button" onclick="multiAdd(partner,'part')">+</button>
+		<fieldset id="inst">
+		<legend>নির্দেশনা প্রদানকারী</legend>
+		</fieldset>
+		<button type="button" onclick="multiAdd(inst,'part')">+</button>
+			</fieldset>
+	<fieldset>
+		<legend>উপাত্ত</legend>
+		<label for="ID">আইডি</label>
+		<input name="ID" type="" placeholder="" value="<?php echo $res['ID'];?>" readonly/><br/>
+		<label for="start">শুরু</label>
+		<input name="start" type="datetime-local" placeholder="" value="<?php echo $res['Start'];?>" required/><br>
+		<label for="end">সমাপ্তি</label>
+		<input name="end" type="datetime-local" placeholder="" value="<?php echo $res['End';?>" required/><br/>
+		<input name="quiz" type="checkbox" onchange="" <?php if(!($q = $res['Qstart']=='00-00-00T00:00')) echo 'checked'; ?>/><label for="quiz">কুইজ আছে</label><br/>
+			<fieldset>
+			<legend>কুইজ</legend>
+			<label for="qstart">শুরু</label>
+			<input name="qstart" type="datetime-local" placeholder="" <?php if($q) echo 'value="'.$res['Qstart'].'" required';?>/><br/>
+			<label for="qend">সমাপ্তি</label>
+			<input name="qend" type="datetime-local" placeholder="" <?php if($q) echo 'value="'.$res['Qend'].'" required';?>/><br/>
+		</fieldset>
+		<label for="certificate"></label>
+		<textarea name="certificate" placeholder="" value="" required><?php echo $res["Certificate"];?></textarea>
+		<br/>
+		<input name="edit" type="hidden"/>
+	</fieldset>
+	<input type="submit"/>
+	</form>
+</body>
+</html>
+<?php
 }else{
 	//Show Normal details
 }
@@ -91,7 +157,6 @@ else
 <ol id="evList">
 <?php
 while($row = $res->fetch_assoc()){
-var_dump($row);
 ?>
 <li class="event">
 	<span class="status"><?php echo $row["Status"]?'▶️':'⏸';?>️</span>
