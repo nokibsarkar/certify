@@ -23,7 +23,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	//sanitize data
 	try{
 	$data = [];
-	var_dump($_POST["question"]);
 	foreach($_POST["question"] as $q){
 		$q["q"] = htmlspecialchars(addslashes($q["q"]));
 		$q["a"] = (int)$q["a"];
@@ -38,8 +37,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		echo 2;
 		//exit(http_response_code(400));
 	}
-	echo "Passed";
-	var_dump($data);
+	echo json_encode($data);
 	$data = json_encode($data,JSON_UNESCAPED_UNICODE);
 	$sql = "UPDATE Workshop SET Quiz = '' WHERE ID = $id AND Status = 0 AND NOW() <= Start";
 	echo $sql;
