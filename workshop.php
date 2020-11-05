@@ -21,7 +21,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		exit(var_dump(1)); //http_response_code(400));
 	if(!$start ||!$end)
 		exit(var_dump(2)); //http_response_code(400));
-	var_dump($_POST["bn_inst"]);
 	$instructor_bn = ($instructor_bn = filter_var_array($_POST["bn_inst"],FILTER_SANITIZE_FULL_SPECIAL_CHARS))?$instructor_bn:[];
 	$instructor_en = $instructor_bn != []?filter_var_array($_POST["en_inst"],FILTER_SANITIZE_FULL_SPECIAL_CHARS):[];
 	if(count($instructor_bn) != count($instructor_en))
@@ -66,7 +65,20 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		'$certificate'
 		)";
 	}
-echo $sql;
+$conn->query($sql);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>সফল</title>
+<link href="Styles/style.css" rel="stylesheet"/>
+<meta http-equiv="refresh" content="3;url=quiz.php?ID=">
+</head>
+<body>
+	<b class="correct">আপনার সম্পাদনা সফলভাবে সংরক্ষিত হয়েছে। কিছুক্ষণের মাঝেই আপনি পুনর্নির্দেশিত না হলে <a href="workshop.php?ID=<?php echo $id;?>">এখানে</a> ক্লিক করুন</b>
+</body>
+</html>
+<?php
 }
 else{
 require 'parse.php';
