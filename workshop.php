@@ -188,7 +188,8 @@ function multiAdd(obj,name){
 <!DOCTYPE html>
 <html>
 <head>
-<title></title>
+<title><?php echo $res["Title"][0];?></title>
+<link href="Styles/style.css" rel="stylesheet"/>
 </head>
 <body>
 <div id="event">
@@ -236,5 +237,4 @@ while($row = $res->fetch_assoc()){
 <?php
 }
 }
-$_SESSION["user"]["admin"] = false;
 ?>
