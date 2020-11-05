@@ -156,16 +156,18 @@ if($before || $after){
 }else{?>
 	<form method="post" action="quiz.php" id="qPaper">
 	<input type="hidden" name="ID" value="<?php echo $id;?>"/>
-	<?php foreach($question as $q){ ?>
+	<?php 
+	$l1 = count($question);
+	for($j=0;$j<$l;$j++){ ?>
 		<div class="qBox">
-			<p class="question"><?php echo $q["q"];?></p>
+			<p class="question"><?php echo $question[$j]["q"];?></p>
 			<ol class="options">
 			<?php 
-			$l = count($q["o"]);
+			$l = count($question[$j]["o"]);
 			for($i=0;$i<$l;$i++){?>
 				<li>
-					<input type="radio" name="answer[]" value="<?php echo $i;?>"/>
-					<span class="option"><?php echo $q["o"][$i];?></span>
+					<input type="radio" name="answer[<?php echo $j;?>]" value="<?php echo $i;?>"/>
+					<span class="option"><?php echo $question[$j]["o"][$i];?></span>
 				</li>
 			<?php }?>
 			</ol>
