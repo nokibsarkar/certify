@@ -230,6 +230,7 @@ else
 <link href="Styles/style.css" rel="stylesheet"/>
 <link href="Styles/event.css" rel="stylesheet"/>
 </head>
+<body>
 <ol id="evList">
 <?php
 while($row = $res->fetch_assoc()){
@@ -247,4 +248,5 @@ while($row = $res->fetch_assoc()){
 }
 }
 ?>
+</body>
 </html>
