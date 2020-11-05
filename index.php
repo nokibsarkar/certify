@@ -34,7 +34,6 @@
 				<summary>সনদপত্র</summary>
 				<ol style='margin-left: 5%;'>
 				<?php
-				require "parse.php";
 				$sql = "SELECT Certificate.ID AS ID, Workshop.Title AS Title FROM Certificate JOIN Workshop WHERE Certificate.`To` = '".$_SESSION["user"]["name"]."' AND Certificate.Event = Workshop.ID";
 				$res = $conn->query($sql);
 				while($row = $res->fetch_assoc()){
