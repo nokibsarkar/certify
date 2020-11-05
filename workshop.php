@@ -191,27 +191,57 @@ function multiAdd(obj,name){
 <head>
 <title><?php echo $res["Title"][0];?></title>
 <link href="Styles/style.css" rel="stylesheet"/>
-<link href="Styles/event.css" rel="stylesheet"/>
+<style>
+.timeline {
+	color: grey;
+}
+li::marker{
+	display: none;
+}
+li{
+	list-style-type: none;
+}
+@media (orientation: landscape){
+	body{
+		padding: 5%;
+	}
+	ul{
+		margin-top: 3vh;
+	}
+}
+
+@media (orientation: portrait){
+	body{
+		padding: 10%;
+		font-size: 3vw;
+	}
+	ul{
+		margin-top: 3vw;
+	}
+}
+</style>
 </head>
 <body>
 <div id="event">
-	<h><?php echo $res["Title"][0];?></h>
-	<span><?php echo $res["Status"];?></span>
-	<span><?php echo bn_form(date_create($res["Start"]))." - ".bn_form(date_create($res["End"]));?></span>
+	<h1><?php echo $res["Title"][0];?></h1>
+	<span><?php echo $res["Status"];?></span><br>
+	<span class="timeline"><?php echo bn_form(date_create($res["Start"]))." - ".bn_form(date_create($res["End"]));?></span>
 	<ul>
+	<h3>প্রশিক্ষক</h3>
 	<?php
 	foreach($res["Instructor"][0] as $v)
 		echo "<li>$v</li>";
 	?>
 	</ul>
 	<ul>
+	<h3>সহযোগীতায়</h3>
 	<?php
 	foreach($res["Partner"][0] as $v)
 		echo "<li>$v</li>";
 	?>
 	</ul>
 	<ul>
-	প্রতিযোগীর তালিকা
+	<h3>প্রতিযোগীর তালিকা<h3>
 	</ul>
 </div>
 </body>
