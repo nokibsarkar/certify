@@ -67,12 +67,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		$s /= $l;
 		$s*=100;
 		$sql = "INSERT INTO Response (`By`, `Workshop`, `Answers`, `Score`, `Checked`,`Questions`) VALUES('".$_SESSION["user"]["name"]."',$id,'".implode(",",$data)."',$s,1,'".json_encode($q,JSON_UNESCAPED_UNICODE)."')";
-		$conn->query($sql);
-		echo $sql;
-		if($conn->affetcted_rows){
+		if($conn->query($sql)){
 			echo "Successfully";
 		}else{
-		echo "Error";
+		echo mysqli_error($conn);
 		}
 	}
 }
