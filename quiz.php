@@ -1,6 +1,6 @@
 <?php
 session_start();
-date_default_timezone("Asia/Dhaka");
+date_default_timezone_set("Asia/Dhaka");
 $id = isset($_REQUEST["ID"])?(int)$_REQUEST["ID"]:0;
 if(!$id) //No Workshop ID is given
 	header("Location: workshop.php");
