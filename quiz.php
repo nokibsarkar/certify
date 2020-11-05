@@ -74,9 +74,9 @@ else{
 	if(!($res = $res->fetch_assoc()))
 		header("Location: workshop.php");
 	$now = time();
-	echo date_timestamp_get(date_create($res["Start"]));
+	echo date_timestamp_get(date_create($res["Qstart"]));
 	echo "<br>$now";
-	$before = $now < date_timestamp_get(date_create($res["Start"]));
+	$before = $now < date_timestamp_get(date_create($res["Qstart"]));
 	$question = ($question = json_decode($res["Quiz"],true))?$question:[];
 if($_SESSION["user"]["admin"]){
 	//User is an admin so trying to edit
@@ -135,7 +135,7 @@ function addQ(){
 <?php
 	}else{
 	//User is not an admin
-$after = $now > date_timestamp_get(date_create($res["End"]));
+$after = $now > date_timestamp_get(date_create($res["Qend"]));
 //Show Question Paper
 $question = json_decode($res["Quiz"],true);
 ?>
