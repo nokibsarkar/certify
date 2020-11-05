@@ -68,9 +68,23 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		$s*=100;
 		$sql = "INSERT INTO Response (`By`, `Workshop`, `Answers`, `Score`, `Checked`,`Questions`) VALUES('".$_SESSION["user"]["name"]."',$id,'".implode(",",$data)."',$s,1,'".json_encode($q,JSON_UNESCAPED_UNICODE)."')";
 		if($conn->query($sql)){
-			echo "Successfully";
-		}else{
-		echo mysqli_errno($conn);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>সফল</title>
+<link href="Styles/style.css" rel="stylesheet"/>
+<meta http-equiv="refresh" content="3;url=workshop.php?ID=">
+</head>
+<body>
+	<b class="correct">আপনার সম্পাদনা সফলভাবে সংরক্ষিত হয়েছে। কিছুক্ষণের মাঝেই আপনি পুনর্নির্দেশিত না হলে <a ref="workshop.php?ID=">এখানে</a> ক্লিক করুন</b>
+</body>
+</html>
+<?php
+		}elseif(mysqli_errno()($conn)==1062){
+?>
+<b class="error">আপনি ইতিমধ্যেই একবার অংশ নিয়ে ফেলেছেন। তাই এবারের উত্তরপত্রটি গ্রহণযোগ্য নয়। যদি কোনো ভুল হয়ে থাকে তবে অনুগ্রহপূর্বক কর্তৃপক্ষের সাথে যোগাযোগ করুন।</b>
+<?php
 		}
 	}
 }
