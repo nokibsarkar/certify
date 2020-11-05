@@ -30,8 +30,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	}
 	}
 	catch(Exception $e){
-		echo 2;
-		//exit(http_response_code(400));
+		exit(http_response_code(400));
 	}
 	$data = json_encode($data,JSON_UNESCAPED_UNICODE);
 	$sql = "UPDATE Workshop SET Quiz = '$data' WHERE ID = $id AND Status = 0 AND NOW() <= Qstart";
