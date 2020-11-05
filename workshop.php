@@ -2,6 +2,9 @@
 session_start();
 $_SESSION["user"]["admin"] = isset($_GET["admin"]);
 date_default_timezone_set('Asia/Dhaka');
+$host = "tools.db.svc.eqiad.wmflabs";
+$creds = parse_ini_file("../replica.my.cnf");
+$conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify');
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 	//Request for edit
 	//Check for permission
@@ -233,4 +236,5 @@ while($row = $res->fetch_assoc()){
 <?php
 }
 }
+$_SESSION["user"]["admin"] = false;
 ?>
