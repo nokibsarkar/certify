@@ -245,7 +245,7 @@ li{
 	}
 	if($res["Quiz"]){
 	?>
-	<a href="quiz.php?ID=<?php echo $res['ID'];?>"><button>কুইজে অংশ নিন</button></a>
+	<a href="quiz.php?ID=<?php echo $res['ID'];?>"><button style='width: 20em;'>কুইজে অংশ নিন</button></a>
 	<?php
 	}
 	?>
