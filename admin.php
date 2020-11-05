@@ -1,14 +1,18 @@
 <?php
 session_start();
-/*if(!isset($_SESSION["user"]["name"]))
-	header("location:login.php?return=".urlencode($_SERVER["REQUEST_URI"]));*/
+if(!isset($_SESSION["user"]["name"]))
+    header("location:login.php?return=".urlencode($_SERVER["REQUEST_URI"]));
+if(!$_SESSION["user"]["admin"])
+    exit(http_response_code(403));
 $user = $_SESSION["user"]["name"];
+$id = isset($_REQUEST["ID"])?(int)$_REQUEST["ID"]:0;
+if(!$id)
+	header("location: workshop.php");
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 	//form submitted
 	require 'parse.php';
 	$list = (int)$_POST["list"]; //the email list criteria
 	$data = $_POST["data"];
-	$id = (int)$_POST["ID"];
 	$subject = htmlspecialchars(addslashes($_POST["subject"]));
 	$body = $_POST["body"];
 	$sql = "SELECT Users.* FROM Users";
@@ -62,7 +66,7 @@ else{
 <link rel="stylesheet" href="Styles/form.css">
 <h1>ইমেইল ফর্ম</h1>
 <form action="admin.php" method="post">
-	<label>কর্মশালা নং</label><input type="text" placeholder="কর্মশালা নং" name="ID" value="" readonly/><br/>
+	<label>কর্মশালা নং</label><input type="text" placeholder="কর্মশালা নং" name="ID" value="<?php echo $id;?>" readonly/><br/>
 	<label for="subject">বিষয়:</label><input type="text" name="subject" placeholder="বিষয় লিখুন" value="আপনার অংশগ্রহণ সার্টিফিকেট"></input><br/>
 	<label for="body" class="unhide">বিষয়বস্তু</label>
 	<ul id="suggestions">
