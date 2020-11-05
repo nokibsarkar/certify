@@ -225,6 +225,7 @@ register:
 
 <?php
 }else{
+var_dump($res);
 $_SESSION["user"]["Bengali"] = $res["Bengali"];
 $_SESSION["user"]["admin"] = $res["Admin"];
 go:
