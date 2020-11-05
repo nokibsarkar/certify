@@ -69,7 +69,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		'$certificate'
 		)";
 	}
-$conn->query($sql);
+if($conn->query($sql)){
 ?>
 <!DOCTYPE html>
 <html>
@@ -83,6 +83,10 @@ $conn->query($sql);
 </body>
 </html>
 <?php
+}
+else{
+	echo 5;
+}
 }
 else{
 require 'parse.php';
@@ -201,12 +205,6 @@ li::marker{
 li{
 	list-style-type: none;
 }
-.active{
-	color: limegreen;
-}
-.inactive{
-	color: crimson;
-}
 @media (orientation: landscape){
 	body{
 		padding: 5%;
@@ -239,6 +237,17 @@ li{
 		echo "<li>$v</li>";
 	?>
 	</ul>
+	<?php if($res["Link"]){
+	?>
+	<a class="join" href="<?php echo $res['Link'];?>">যোগদান করুন</a>
+	<?php
+	}
+	if($res["Quiz"]){
+	?>
+	<a href="quiz.php?ID=<?php echo $res['ID'];?>"><button>কুইজে অংশ নিন</button></a>
+	<?php
+	}
+	?>
 	<ul>
 	<h3>সহযোগীতায়</h3>
 	<?php
@@ -258,8 +267,8 @@ li{
 else
 {
 	//Print the list of Event
-$sql = "SELECT Title,Status, ID, Start, End FROM Workshop";
-$res = $conn->query($sql);
+	$sql = "SELECT Title,Status, ID, Start, End FROM Workshop";
+	$res = $conn->query($sql);
 ?>
 <!DOCTYPE html>
 <html>

@@ -1,7 +1,7 @@
 <?php
 session_start();
+date_default_timezone_set("Asia/Dhaka");
 $id = isset($_REQUEST["ID"])?(int)$_REQUEST["ID"]:0;
-
 if(!$id) //No Workshop ID is given
 	header("Location: workshop.php");
 if(!isset($_SESSION["user"]))//Not logged in
@@ -22,6 +22,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	foreach($_POST["question"] as $q){
 		$q["q"] = htmlspecialchars(addslashes($q["q"]));
 		$q["a"] = (int)$q["a"];
+		$q["i"] = (int)$q["i"];
 		$l = count($q["o"]);
 		//sanitize options
 		for($i=0;$i<$l;$i++)
@@ -60,11 +61,31 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		$q = $_SESSION["question"]; //convert to binary
 		$l = count($data);
 		$s = 0;
+		unset($_SESSION["question"]);
 		for($i=0;$i<$l;$i++)
-			$s += $data[$i]==$q[$i]["a"]?1:0;
-		$s /= $l*100;
-		$sql = "INSERT INTO Response (By, Event, Answer, Score, Checked,Question) VALUES('".$_SESSION["user"]["name"]."',$id,'".implode($data)."',$s,1,'".json_encode($q,JSON_UNESCAPED_UNICODE)."')";
-		echo $sql;
+			$s += $data[$i]==$q[$i][1]?1:0;
+		$s /= $l;
+		$s*=100;
+		$sql = "INSERT INTO Response (`By`, `Workshop`, `Answers`, `Score`, `Checked`,`Questions`) VALUES('".$_SESSION["user"]["name"]."',$id,'".implode(",",$data)."',$s,1,'".json_encode($q,JSON_UNESCAPED_UNICODE)."')";
+		if($conn->query($sql)){
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>সফল</title>
+<link href="Styles/style.css" rel="stylesheet"/>
+<meta http-equiv="refresh" content="3;url=workshop.php?ID=">
+</head>
+<body>
+	<b class="correct">আপনার সম্পাদনা সফলভাবে সংরক্ষিত হয়েছে। কিছুক্ষণের মাঝেই আপনি পুনর্নির্দেশিত না হলে <a ref="workshop.php?ID=">এখানে</a> ক্লিক করুন</b>
+</body>
+</html>
+<?php
+		}elseif(mysqli_errno($conn)==1062){
+?>
+<b class="error">আপনি ইতিমধ্যেই একবার অংশ নিয়ে ফেলেছেন। তাই এবারের উত্তরপত্রটি গ্রহণযোগ্য নয়। যদি কোনো ভুল হয়ে থাকে তবে অনুগ্রহপূর্বক কর্তৃপক্ষের সাথে যোগাযোগ করুন।</b>
+<?php
+		}
 	}
 }
 else{
@@ -72,6 +93,8 @@ else{
 	$res = $conn->query($sql);
 	if(!($res = $res->fetch_assoc()))
 		header("Location: workshop.php");
+	$now = time();
+	$before = $now < date_timestamp_get(date_create($res["Qstart"]));
 	$question = ($question = json_decode($res["Quiz"],true))?$question:[];
 if($_SESSION["user"]["admin"]){
 	//User is an admin so trying to edit
@@ -85,12 +108,16 @@ if($_SESSION["user"]["admin"]){
 </head>
 <body>
 <h1><a href="workshop.php?ID=<?php echo $id;?>"><?php echo json_decode($res["Title"],true)[0];?></a></h>
+	<?php
+	if($before){
+	?>
 	<form method="post" action="quiz.php" id="qPaper">
 		<?php
 		$l = count($question);
 		for($i=0;$i<$l;$i++){?>
 		<div class="qBox">
 		<input class="remove" type="button" onclick="this.parentElement.remove()" value='-'></button>
+			<input type="hidden" name="question[<?php echo $i;?>][i]" value="<?php echo $question[$i]['i'];?>"/>
 			<textarea name="question[<?php echo $i;?>][q]" class="question"><?php echo $question[$i]["q"];?></textarea>
 			<ol class="options">
 			<?php
@@ -113,17 +140,22 @@ if($_SESSION["user"]["admin"]){
 var o = document.getElementsByClassName("qBox");
 function addQ(){
 	var l = o.length;
-	var s = '<div class="qBox"><input class="remove" type="button" onclick="this.parentElement.remove()" value="-"><textarea placeholder="আপনার প্রশ্ন লিখুন" name="question['+l+'][q]" class="question"></textarea><ol class="options"><li><input type="radio" name="question['+l+'][a]" value="0" /><input name="question['+l+'][o][0]" class="option"/></li><li><input type="radio" name="question['+l+'][a]" value="1" /><input name="question['+l+'][o][1]" class="option"/></li><li><input type="radio" name="question['+l+'][a]" value="2" /><input name="question['+l+'][o][2]" class="option"/></li><li><input type="radio" name="question['+l+'][a]" value="3" /><input name="question['+l+'][o][3]" class="option"/></li></ol></div>';
+	var s = '<div class="qBox"><input class="remove" type="button" onclick="this.parentElement.remove()" value="-"><input type="hidden" name="question['+l+'][i]" value="'+l+'" /><textarea placeholder="আপনার প্রশ্ন লিখুন" name="question['+l+'][q]" class="question"></textarea><ol class="options"><li><input type="radio" name="question['+l+'][a]" value="0" /><input name="question['+l+'][o][0]" class="option"/></li><li><input type="radio" name="question['+l+'][a]" value="1" /><input name="question['+l+'][o][1]" class="option"/></li><li><input type="radio" name="question['+l+'][a]" value="2" /><input name="question['+l+'][o][2]" class="option"/></li><li><input type="radio" name="question['+l+'][a]" value="3" /><input name="question['+l+'][o][3]" class="option"/></li></ol></div>';
 	qPaper.innerHTML+=s
 }
 </script>
+<?php }else{?>
+<b class="error">দুঃখিত, কুইজটি শুরু হওয়ার পূর্ব পর্যন্ত সম্পাদনার সুযোগ ছিল।</b>
+<?php }?>
 </body>
 </html>
 <?php
 	}else{
 	//User is not an admin
+$after = $now > date_timestamp_get(date_create($res["Qend"]));
 //Show Question Paper
-$question = json_decode($res["Quiz"],true);
+shuffle(json_decode($res["Quiz"],true));
+$_SESSION["question"] = array_map(function($o){return [$o["i"],$o["a"]];},$question);
 ?>
 <!DOCTYPE html>
 <html>
@@ -132,18 +164,28 @@ $question = json_decode($res["Quiz"],true);
 <link rel="stylesheet" href="Styles/quiz.css">
 </head>
 <body>
+<?php 
+if($before || $after){
+?>
+<b class="error">
+	<?php echo $before?'দুঃখিত, কুইজটি এখনো শুরু হয় নি':'দুঃখিত, কুইজটি ইতিমধ্যেই অনুষ্ঠিত হয়ে গেছে';?>
+</b>
+<?php
+}else{?>
 	<form method="post" action="quiz.php" id="qPaper">
-	<input type="hidden" name="ID" value="<?php echo $res['ID'];?>"/>
-	<?php foreach($question as $q){ ?>
+	<input type="hidden" name="ID" value="<?php echo $id;?>"/>
+	<?php 
+	$l1 = count($question);
+	for($j=0;$j<$l1;$j++){ ?>
 		<div class="qBox">
-			<p class="question"><?php echo $q["q"];?></p>
+			<p class="question"><?php echo $question[$j]["q"];?></p>
 			<ol class="options">
 			<?php 
-			$l = count($q["o"]);
+			$l = count($question[$j]["o"]);
 			for($i=0;$i<$l;$i++){?>
 				<li>
-					<input type="radio" name="answer[]" value="<?php echo $i;?>"/>
-					<span class="option"><?php echo $q["o"][$i];?></span>
+					<input type="radio" name="answer[<?php echo $j;?>]" value="<?php echo $i;?>"/>
+					<span class="option"><?php echo $question[$j]["o"][$i];?></span>
 				</li>
 			<?php }?>
 			</ol>
@@ -151,6 +193,7 @@ $question = json_decode($res["Quiz"],true);
 		<?php } ?>
 		<input type="submit"/>
 	</form>
+	<?php }?>
 </body>
 </html>
 <?php
