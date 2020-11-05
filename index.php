@@ -25,11 +25,9 @@
 			<details>
 				<summary>চলমান কর্মশালা</summary>
 				<ol>
-					<?php while($row=$res->fetch_assoc()){
-					?>
-					<li><a href="workshop.php?ID=<?php echo $row['ID'];?>"><?php echo json_decode($row['Title'],true)[0];?></a>(<?php echo bn_form(date_create($row["Start"])).' - '.bn_form(bn_create($row["End"]));?>)</li>
-					<?php
-					}?>
+				<?php while($row=$res->fetch_assoc()){ ?>
+					<li><a href="workshop.php?ID=<?php echo $row['ID'];?>"><?php echo json_decode($row['Title'],true)[0];?></a>(<?php echo bn_form(date_create($row["Start"])).' - '.bn_form(date_create($row["End"]));?>)</li>
+					<?php } ?>
 				</ol>
 			</details>
 			<details id="details">
