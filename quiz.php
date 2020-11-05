@@ -112,7 +112,7 @@ if($_SESSION["user"]["admin"]){
 var o = document.getElementsByClassName("qBox");
 function addQ(){
 	var l = o.length;
-	var s = '<div class="qBox"><input class="remove" type="button" onclick="this.parentElement.remove()" value="-"><textarea placeholder="আপনার প্রশ্ন লিখুন" name="question['+l+'][q]" class="question"></textarea><ol class="options"><li><input type="radio" name="answer[]" value="0" /><input name="question['+l+'][o][0]" class="option"/></li><li><input type="radio" name="answer[]" value="1" /><input name="question['+l+'][o][1]" class="option"/></li><li><input type="radio" name="answer[]" value="2" /><input name="question['+l+'][o][2]" class="option"/></li><li><input type="radio" name="answer[]" value="3" /><input name="question['+l+'][o][3]" class="option"/></li></ol></div>';
+	var s = '<div class="qBox"><input class="remove" type="button" onclick="this.parentElement.remove()" value="-"><textarea placeholder="আপনার প্রশ্ন লিখুন" name="question['+l+'][q]" class="question"></textarea><ol class="options"><li><input type="radio" name="question['+l+'][a]" value="0" /><input name="question['+l+'][o][0]" class="option"/></li><li><input type="radio" name="question['+l+'][a]" value="1" /><input name="question['+l+'][o][1]" class="option"/></li><li><input type="radio" name="question['+l+'][a]" value="2" /><input name="question['+l+'][o][2]" class="option"/></li><li><input type="radio" name="question['+l+'][a]" value="3" /><input name="question['+l+'][o][3]" class="option"/></li></ol></div>';
 	qPaper.innerHTML+=s
 }
 </script>
