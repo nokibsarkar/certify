@@ -68,7 +68,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	}
 }
 else{
-	$sql = "SELECT Quiz, Qstart, Qend FROM Workshop WHERE ID = $id AND Status = 0";
+	$sql = "SELECT Title,Quiz, Qstart, Qend FROM Workshop WHERE ID = $id AND Status = 0";
 	$res = $conn->query($sql);
 	if(!($res = $res->fetch_assoc()))
 		header("Location: workshop.php");
@@ -84,6 +84,7 @@ if($_SESSION["user"]["admin"]){
 <link rel="stylesheet" href="Styles/quiz.css">
 </head>
 <body>
+<h1><a href="workshop.php?ID=<?php echo $id;?>"><?php echo json_decode($res["Title"],true)[0];?></a></h>
 	<form method="post" action="quiz.php" id="qPaper">
 		<?php
 		$l = count($question);
