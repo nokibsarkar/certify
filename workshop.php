@@ -111,6 +111,7 @@ if( isset($_SESSION["user"]) && $_SESSION["user"]["admin"]){
 <head>
 <title><?php echo $res['Title'][0];?></title>
 <link href="Styles/style.css" rel="stylesheet"/>
+<link href="Styles/event.css" rel="stylesheet"/>
 <script type="text/javascript">
 function multiAdd(obj,name){
 	obj.innerHTML+="<li class='pair'><input name='bn_" + name + "[]' placeholder='বাংলা' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input name='en_" + name + "[]' placeholder='English' required/></li>";
@@ -125,20 +126,20 @@ function multiAdd(obj,name){
 	<legend>তথ্যাদি</legend>
 		<fieldset>
 		<legend>নাম</legend>
-			<input name="bn_name" placeholder="বাংলা" value="<?php echo $res['Title'][0];?>" required/>
-			<input name="en_name" placeholder="English" value="<?php echo $res['Title'][1];?>" required/>
+			<input type="text" name="bn_name" placeholder="বাংলা" value="<?php echo $res['Title'][0];?>" required/>
+			<input type="text" name="en_name" placeholder="English" value="<?php echo $res['Title'][1];?>" required/>
 		</fieldset>
 		<fieldset>
 		<legend>ভেন্যু</legend>
-			<input name="ven[]" placeholder="বাংলা" value="<?php echo $res['Venue'][0];?>" required/>
-			<input name="ven[]" placeholder="English" value="<?php echo $res['Venue'][1];?>" required/>
+			<input type="text" name="ven[]" placeholder="বাংলা" value="<?php echo $res['Venue'][0];?>" required/>
+			<input type="text" name="ven[]" placeholder="English" value="<?php echo $res['Venue'][1];?>" required/>
 		</fieldset>
 		<fieldset id="partner">
 		<legend>সহযোগী</legend>
 		<?php 
 		$l = count($res["Partner"][0]);
 		for($i=0;$i<$l;$i++)
-			echo "<li class='pair'><input name='bn_partner[]' placeholder='বাংলা' value='".$res["Partner"][0][$i]."' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input name='en_partner[]' placeholder='English' value='".$res["Partner"][1][$i]."' required/></li>"
+			echo "<li class='pair'><input type='text' name='bn_partner[]' placeholder='বাংলা' value='".$res["Partner"][0][$i]."' required/><input class='remove' type='button' onclick='this.parentElement.remove()' value='-'><input type='text' name='en_partner[]' placeholder='English' value='".$res["Partner"][1][$i]."' required/></li>"
 		?>
 		</fieldset>
 		<button type="button" onclick="multiAdd(partner,'partner')">+</button>
@@ -147,15 +148,15 @@ function multiAdd(obj,name){
 		<?php
 		$l = count($res["Instructor"][0]);
 		for($i=0;$i<$l;$i++)
-			echo "<li class='pair'><input name='bn_inst[]' placeholder='বাংলা' value='".$res["Instructor"][0][$i]."' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input name='en_inst[]' placeholder='English' value='".$res["Instructor"][1][$i]."' required/></li>";
+			echo "<li class='pair'><input type='text' name='bn_inst[]' placeholder='বাংলা' value='".$res["Instructor"][0][$i]."' required/><input class='remove' type='button' onclick='this.parentElement.remove()' value='-'><input name='en_inst[]' type='text' placeholder='English' value='".$res["Instructor"][1][$i]."' required/></li>";
 		?>
 		</fieldset>
-		<button type="button" onclick="multiAdd(inst,'inst')">+</button>
+		<button class='add' type="button" onclick="multiAdd(inst,'inst')">+</button>
 			</fieldset>
 	<fieldset>
 		<legend>উপাত্ত</legend>
 		<label for="ID">আইডি</label>
-		<input name="ID" placeholder="স্বয়ংক্রিয়ভাবে পূরণ হবে" value="<?php echo $res['ID'];?>" readonly/><br/>
+		<input class='text' name="ID" placeholder="স্বয়ংক্রিয়ভাবে পূরণ হবে" value="<?php echo $res['ID'];?>" readonly/><br/>
 		<label for="start">শুরু</label>
 		<input name="start" type="datetime-local" placeholder="" value="<?php echo date_create($res['Start'])->format('Y-m-d\TH:i');?>" required/><br>
 		<label for="end">সমাপ্তি</label>
@@ -190,6 +191,7 @@ function multiAdd(obj,name){
 <head>
 <title><?php echo $res["Title"][0];?></title>
 <link href="Styles/style.css" rel="stylesheet"/>
+<link href="Styles/event.css" rel="stylesheet"/>
 </head>
 <body>
 <div id="event">
@@ -221,6 +223,13 @@ else
 {
 	//Print the list of Event
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+<title><?php echo $res["Title"][0];?></title>
+<link href="Styles/style.css" rel="stylesheet"/>
+<link href="Styles/event.css" rel="stylesheet"/>
+</head>
 <ol id="evList">
 <?php
 while($row = $res->fetch_assoc()){
