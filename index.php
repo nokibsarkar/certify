@@ -66,7 +66,7 @@
 				আধানডাক: <a href="mailto:rafeedm.bhuiyan@gmail.com">rafeedm.bhuiyan@gmail.com</a>
 			</div>
 			<div class="contact">
-				<h4>সাইটের উৎস: <a href='https://github.com/nokibsarkar/certify' target="_blank"><img src="Styles/GitHub-Mark-120px-plus.png" style="width: 1em;"></a></h4>		
+				<h4>সাইটের উৎস: <a href='https://github.com/nokibsarkar/certify' target="_blank"><img src="Styles/GitHub-Mark-120px-plus.png" style="width: 1em;"> গিটহাব</a></h4>		
 			</div>
 
 		</div>
