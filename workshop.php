@@ -267,6 +267,33 @@ $res = $conn->query($sql);
 <title>কর্মশালার তালিকা</title>
 <link href="Styles/style.css" rel="stylesheet"/>
 <link href="Styles/event.css" rel="stylesheet"/>
+<style>
+    ol{
+        margin-top: 5%;
+    }
+    span.play{
+        display: inline-block;
+        padding: none !important;
+        width: 1.5em;
+        height: 1.5em;
+        text-align: center;
+        color: white;
+        background-color: black;
+        font-weight: bold;
+        /*letter-spacing: -5px;*/
+    }
+    span.pause{
+        display: inline-block;
+        padding: none !important;
+        width: 1.5em;
+        height: 1.5em;
+        text-align: center;
+        color: white;
+        background-color: black;
+        font-weight: bold;
+        
+    }
+</style>
 </head>
 <body>
 <ol id="evList">
@@ -274,7 +301,7 @@ $res = $conn->query($sql);
 while($row = $res->fetch_assoc()){
 ?>
 <li class="event">
-	<span class="status"><?php echo $row["Status"]?'▶️':'⏸';?>️</span>
+	<?php echo $row["Status"]?'<span class="status play">▶</span>':'<span class="status pause">|&nbsp;|</span>';?>
 	<a class="title" href="workshop.php?ID=<?php echo $row['ID'];?>"><?php echo json_decode($row["Title"],true)[0];?></a>
 	<span class="date">(<?php echo bn_form(date_create($row["Start"])).' - '.bn_form(date_create($row["End"]))?>)</span>
 </li>
