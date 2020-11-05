@@ -2,7 +2,7 @@
 session_start();
 $host = "tools.db.svc.eqiad.wmflabs";
 $creds = parse_ini_file("../replica.my.cnf");
-$conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify',0,NULL,MYSQLI_CLIENT_FOUND_ROWS);
+$conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify');
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 	if(!isset($_POST['policy'])){
 		echo "<b class='error'>আপনি আমাদের নীতির সঙ্গে সম্মত হন নি</b>";
