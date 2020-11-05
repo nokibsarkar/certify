@@ -39,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		if(count($venue) != 2)
 			exit(var_dump(5)); //http_response_code(400));
 	$venue = json_encode($venue,JSON_UNESCAPED_UNICODE);
-	$certificate = strip_tags(addslashes($_POST["certificate"]),["p","div","font","span","br","a","img","b","i","u","h","h1", "h2"," h3", "h4","h5", "h6"]);
+	$certificate = addslashes(strip_tags($_POST["certificate"],"<p><div><font><span><br><a><img><b><i><u><h><h1><h2><h3><h4><h5><h6>"));
 	if($id){
 		//Update an existing
 		$status = isset($_POST["status"])?1:0;
