@@ -22,13 +22,13 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	if(!$start ||!$end)
 		exit(var_dump(2)); //http_response_code(400));
 	var_dump($_POST["bn_inst"]);
-	$instructor_bn = filter_var_array($_POST["bn_inst"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-	$instructor_en = filter_var_array($_POST["en_inst"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+	$instructor_bn = ($instructor_bn = filter_var_array($_POST["bn_inst"],FILTER_SANITIZE_FULL_SPECIAL_CHARS))?$instructor_bn:[];
+	$instructor_en = ($instructor_en = filter_var_array($_POST["en_inst"],FILTER_SANITIZE_FULL_SPECIAL_CHARS))?$instructor_en:[];
 	if(count($instructor_bn) != count($instructor_en))
 		exit(var_dump(3)); //http_response_code(400));
 	$instructor = json_encode([$instructor_bn,$instructor_en],JSON_UNESCAPED_UNICODE);
-	$partners_bn = filter_var_array($_POST["bn_partner"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-	$partners_en = filter_var_array($_POST["en_partner"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+	$partners_bn = ($partners_bn = filter_var_array($_POST["bn_partner"],FILTER_SANITIZE_FULL_SPECIAL_CHARS))?$partners_bn:[];
+	$partners_en = ($partners_en = filter_var_array($_POST["en_partner"],FILTER_SANITIZE_FULL_SPECIAL_CHARS))?$partners_en:[];
 	if(count($partners_bn) != count($partners_en))
 		exit(var_dump(4)); //http_response_code(400));
 	$partners = json_encode([$partners_bn,$partners_en],JSON_UNESCAPED_UNICODE);
