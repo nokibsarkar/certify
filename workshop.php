@@ -143,7 +143,7 @@ function multiAdd(obj,name){
 		<?php 
 		$l = count($res["Partner"][0]);
 		for($i=0;$i<$l;$i++)
-			echo "<li class='pair'><input type='text' name='bn_partner[]' placeholder='বাংলা' value='".$res["Partner"][0][$i]."' required/><input class='remove' type='button' onclick='this.parentElement.remove()' value='-'><input type='text' name='en_partner[]' placeholder='English' value='".$res["Partner"][1][$i]."' required/></li>"
+			echo "<li class='pair'><input type='text' name='bn_partner[]' placeholder='বাংলা' value='".$res["Partner"][0][$i]."' required/><button class='remove' onclick='this.parentElement.remove()'>-</button><input type='text' name='en_partner[]' placeholder='English' value='".$res["Partner"][1][$i]."' required/></li>"
 		?>
 		</fieldset>
 		<button class='add' type="button" onclick="multiAdd(partner,'partner')">+</button>
@@ -152,7 +152,7 @@ function multiAdd(obj,name){
 		<?php
 		$l = count($res["Instructor"][0]);
 		for($i=0;$i<$l;$i++)
-			echo "<li class='pair'><input type='text' name='bn_inst[]' placeholder='বাংলা' value='".$res["Instructor"][0][$i]."' required/><input class='remove' type='button' onclick='this.parentElement.remove()' value='-'><input name='en_inst[]' type='text' placeholder='English' value='".$res["Instructor"][1][$i]."' required/></li>";
+			echo "<li class='pair'><input type='text' name='bn_inst[]' placeholder='বাংলা' value='".$res["Instructor"][0][$i]."' required/><button class='remove' onclick='this.parentElement.remove()'>-</button><input name='en_inst[]' type='text' placeholder='English' value='".$res["Instructor"][1][$i]."' required/></li>";
 		?>
 		</fieldset>
 		<button class='add' type="button" onclick="multiAdd(inst,'inst')">+</button>
