@@ -75,7 +75,7 @@ $conn->query($sql);
 <meta http-equiv="refresh" content="3;url=quiz.php?ID=">
 </head>
 <body>
-	<b class="correct">আপনার সম্পাদনা সফলভাবে সংরক্ষিত হয়েছে। কিছুক্ষণের মাঝেই আপনি পুনর্নির্দেশিত না হলে <a href="workshop.php?ID=<?php echo $id;?>">এখানে</a> ক্লিক করুন</b>
+	<b class="correct">আপনার সম্পাদনা সফলভাবে সংরক্ষিত হয়েছে। কিছুক্ষণের মাঝেই আপনি পুনর্নির্দেশিত না হলে <a href="workshop.php?ID=<?php echo $id?$id:$conn->insert_id;?>">এখানে</a> ক্লিক করুন</b>
 </body>
 </html>
 <?php
