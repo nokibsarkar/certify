@@ -150,6 +150,7 @@ function fetch_token(){
 $token = fetch_token();
 foreach($mail_list as $v){
 	send:
+	echo "Sending mail to : ".$v[0];
 	$data = [
 	"action"=> "emailuser",
 	"format"=> "json",
@@ -169,6 +170,8 @@ foreach($mail_list as $v){
 	}
 	else
 		echo "Sent to :".$v[0];
+	//Sleep for 5 seconds
+	sleep(5);
 }
 $sql = "UPDATE Queue SET Status = b'10' WHERE ID = $id";
 $conn->query($sql);
