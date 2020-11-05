@@ -80,7 +80,7 @@
         background-color: rgb(192, 230, 245);
     }
 
-    input[type=button]{
+    input[type=button], button{
         font-size: 1.4vh;
         padding: 1vh;
         border: .5vh solid skyblue;
@@ -169,17 +169,17 @@
     }
     
     .add{
-        padding: .5vh;
-        background-color: darkgreen;
-        color: white;
-        font-size: 2vw;
+        padding: .5vh !important;
+        background-color: darkgreen !important;
+        color: white !important;
+        font-size: 2vw !important;
     }
 
     .remove{
-        background-color: red;
-        color: white;
-        padding: .5vh;
-        font-size: 2vw;
+        background-color: red !important;
+        color: white !important;
+        padding: .5vh !important;
+        font-size: 2vw !important;
     }
     textarea#certificate{
         background:url("frame.webp") no-repeat;
@@ -245,7 +245,7 @@
         background-color: rgb(192, 230, 245);
     }
 
-    input[type=button]{
+    input[type=button], button{
         font-size: 2vh;
         padding: 0.5vh;
         border: .25vh solid skyblue;
@@ -308,17 +308,17 @@
     }
     
     .add{
-        padding: .5vh;
-        background-color: darkgreen;
-        color: white;
-        font-size: 3vh;
+        padding: .5vh !important;
+        background-color: darkgreen !important;
+        color: white !important;
+        font-size: 3vh !important;
     }
 
     .remove{
-        padding: .5vh;
-        background-color: red;
-        color: white;
-        font-size: 3vh;
+        padding: .5vh !important;
+        background-color: red !important;
+        color: white !important;
+        font-size: 3vh !important;
     }
 	
     .suggestion{

@@ -118,7 +118,7 @@ if( isset($_SESSION["user"]) && $_SESSION["user"]["admin"]){
 <link href="Styles/event.css" rel="stylesheet"/>
 <script type="text/javascript">
 function multiAdd(obj,name){
-	obj.innerHTML+="<li class='pair'><input name='bn_" + name + "[]' placeholder='বাংলা' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input name='en_" + name + "[]' placeholder='English' required/></li>";
+	obj.innerHTML+="<li class='pair'><input type='text' name='bn_" + name + "[]' placeholder='বাংলা' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input name='en_" + name + "[]' placeholder='English' required/></li>";
 }
 
 </script>
@@ -146,7 +146,7 @@ function multiAdd(obj,name){
 			echo "<li class='pair'><input type='text' name='bn_partner[]' placeholder='বাংলা' value='".$res["Partner"][0][$i]."' required/><input class='remove' type='button' onclick='this.parentElement.remove()' value='-'><input type='text' name='en_partner[]' placeholder='English' value='".$res["Partner"][1][$i]."' required/></li>"
 		?>
 		</fieldset>
-		<button type="button" onclick="multiAdd(partner,'partner')">+</button>
+		<button class='add' type="button" onclick="multiAdd(partner,'partner')">+</button>
 		<fieldset id="inst">
 		<legend>নির্দেশনা প্রদানকারী</legend>
 		<?php
@@ -183,7 +183,7 @@ function multiAdd(obj,name){
 		<input name="status" type="checkbox"/> <label for="status">সমাপ্ত</label>
 	</fieldset>
 	<input type="submit"/>
-        <a href="admin.php?ID=<?php echo res['ID'];?>">প্রতিযোগীদের সনদপত্র প্রদান</a>
+        <a href="admin.php?ID=<?php echo res['ID'];?>"><button>প্রতিযোগীদের সনদপত্র প্রদান</button></a>
 	</form>
 </body>
 </html>
