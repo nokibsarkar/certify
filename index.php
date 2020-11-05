@@ -22,7 +22,7 @@
 				$host = "tools.db.svc.eqiad.wmflabs";
 				$creds = parse_ini_file("../replica.my.cnf");
 				$conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify');
-				$sql = "SELECT * FROM Certificate WHERE To = '".$_SESSION["user"]["name"]."'";
+				$sql = "SELECT * FROM Certificate WHERE `To` = '".$_SESSION["user"]["name"]."'";
 				echo $sql;
 				$res = $conn->query($sql);
 				
