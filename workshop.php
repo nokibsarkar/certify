@@ -138,7 +138,7 @@ function multiAdd(obj,name){
 	<fieldset>
 		<legend>উপাত্ত</legend>
 		<label for="ID">আইডি</label>
-		<input name="ID" type="" placeholder="" value="<?php echo $res['ID'];?>"/><br/>
+		<input name="ID" placeholder="স্বয়ংক্রিয়ভাবে পূরণ হবে" value="<?php echo $res['ID'];?>" readonly/><br/>
 		<label for="start">শুরু</label>
 		<input name="start" type="datetime-local" placeholder="" value="<?php echo date_create($res['Start'])->format('Y-m-d\TH:i');?>" required/><br>
 		<label for="end">সমাপ্তি</label>
