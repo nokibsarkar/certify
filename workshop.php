@@ -247,3 +247,4 @@ while($row = $res->fetch_assoc()){
 }
 }
 ?>
+</html>
