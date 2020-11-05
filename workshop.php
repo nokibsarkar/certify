@@ -92,7 +92,8 @@ if( isset($_SESSION["user"]) && $_SESSION["user"]["admin"]){
 <!DOCTYPE html>
 <html>
 <head>
-<title></title>
+<title><?php echo $res['Title'][0];?></title>
+<link href="Styles/style.css" rel="stylesheet"/>
 <script type="text/javascript">
 function multiAdd(obj,name){
 	obj.innerHTML+="<li class='pair'><input name='bn_" + name + "[]' placeholder='বাংলা' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input name='en_" + name + "[]' placeholder='English' required/></li>";
