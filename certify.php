@@ -46,11 +46,26 @@ function t(){
 	bn.forEach((v)=>{v.style.display = isBn?"initial":"none"});
 }
 </script>
+<style>
+	.barcode{
+		margin-right: 4vmin;
+		margin-top: 5vmin;
+		height: 10vmin;
+		width: 10vmin;
+		float: right;
+	}
+	div img{
+		height: 100%;
+		width: 100%;
+	}
+</style>
 </head>
 <body>
 
 	<div id="certificate">
+	<div class="barcode"><img src="Styles/220px-Code-aztec.png"></div>
 		<div style="padding: 10%;">
+
 	<?php echo parse($res["Certificate"],$data);?>
 	</div>
 	</div>
