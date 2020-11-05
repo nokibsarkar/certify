@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION["user"]["admin"] = isset($_GET["admin"]);
 date_default_timezone_set('Asia/Dhaka');
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 	//Request for edit
