@@ -36,8 +36,21 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$data = json_encode($data,JSON_UNESCAPED_UNICODE);
 	$sql = "UPDATE Workshop SET Quiz = '$data' WHERE ID = $id AND Status = 0 AND NOW() <= Qstart";
 	$conn->query($sql);
-	if($conn->affected_rows)
-		header("Location: quiz.php?ID=$id");
+	if($conn->affected_rows){
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>সফল</title>
+<link href="Styles/style.css" rel="stylesheet"/>
+<meta http-equiv="refresh" content="3;url=quiz.php?ID=<?php echo $id;?>">
+</head>
+<body>
+	<b class="correct">আপনার সম্পাদনা সফলভাবে সংরক্ষিত হয়েছে। কিছুক্ষণের মাঝেই আপনি পুনর্নির্দেশিত না হলে <a ref="quiz.php?ID=<?php echo $id;?>">এখানে</a> ক্লিক করুন</b>
+</body>
+</html>
+<?php
+	}
 	else{
 		echo "<link href='Styles/style.css' rel='stylesheet'/><b class='error'>আপনার কোনো পরিবর্তন না করায় কোনো সম্পাদনা হয় নি</b>";
 		exit();
