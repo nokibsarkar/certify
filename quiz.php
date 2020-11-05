@@ -135,7 +135,8 @@ function addQ(){
 	//User is not an admin
 $after = $now > date_timestamp_get(date_create($res["Qend"]));
 //Show Question Paper
-$question = shuffle(json_decode($res["Quiz"],true));
+shuffle(json_decode($res["Quiz"],true));
+var_dump($question);
 $_SESSION["question"] = array_map(function($o){return [$o["i"],$o["a"]];},$question);
 var_dump($_SESSION["question"]);
 ?>
