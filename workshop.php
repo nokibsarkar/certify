@@ -201,6 +201,12 @@ li::marker{
 li{
 	list-style-type: none;
 }
+.active{
+	color: limegreen;
+}
+.inactive{
+	color: crimson;
+}
 @media (orientation: landscape){
 	body{
 		padding: 5%;

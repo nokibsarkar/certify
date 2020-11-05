@@ -58,8 +58,8 @@
 			</h3>
 			<div class="contact">
 				<h4>নাজমুল হক নকীব</h4>
-				আধানডাক: <a href="mailto:nokibsarkar@gmail.com">nokibsarkar@gmail.com</a>
-				ফেসবুজ: <a href='https://www.facebook.com/nokib.sorkar' target="_blank">/nokib.sarkar</a>
+				আধানডাক: <a href="mailto:nokibsarkar@gmail.com">nokibsarkar@gmail.com</a><br>
+				ফেসবুক: <a href='https://www.facebook.com/nokib.sorkar' target="_blank">/nokib.sarkar</a>
 			</div>
 			<div class="contact">
 				<h4>মুতাসিম ভূইয়া রাফিদ</h4>
