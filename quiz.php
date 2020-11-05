@@ -62,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		$l = count($data);
 		$s = 0;
 		for($i=0;$i<$l;$i++)
-			$s += $data[$i]==$q[$i]["a"]?1:0;
+			$s += $data[$i]==$q[$i][1]?1:0;
 		$s /= $l*100;
 		$sql = "INSERT INTO Response (By, Event, Answer, Score, Checked,Question) VALUES('".$_SESSION["user"]["name"]."',$id,'".implode($data)."',$s,1,'".json_encode($q,JSON_UNESCAPED_UNICODE)."')";
 		echo $sql;
@@ -136,9 +136,7 @@ function addQ(){
 $after = $now > date_timestamp_get(date_create($res["Qend"]));
 //Show Question Paper
 shuffle(json_decode($res["Quiz"],true));
-var_dump($question);
 $_SESSION["question"] = array_map(function($o){return [$o["i"],$o["a"]];},$question);
-var_dump($_SESSION["question"]);
 ?>
 <!DOCTYPE html>
 <html>
