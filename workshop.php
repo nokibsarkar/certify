@@ -21,6 +21,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		exit(var_dump(1)); //http_response_code(400));
 	if(!$start ||!$end)
 		exit(var_dump(2)); //http_response_code(400));
+	var_dump($_POST["bn_inst"]);
 	$instructor_bn = filter_var_array($_POST["bn_inst"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	$instructor_en = filter_var_array($_POST["en_inst"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 	if(count($instructor_bn) != count($instructor_en))
@@ -33,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$partners = json_encode([$partners_bn,$partners_en],JSON_UNESCAPED_UNICODE);
 	$venue = filter_var_array($_POST["ven"],FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 		if(count($venue) != 2)
-		exit(var_dump(5)); //http_response_code(400));
+			exit(var_dump(5)); //http_response_code(400));
 	$venue = json_encode($venue,JSON_UNESCAPED_UNICODE);
 	$certificate = strip_tags(addslashes($_POST["certificate"]),["p","div","font","span","br","a","img","b","i","u","h","h1", "h2"," h3", "h4","h5", "h6"]);
 	if($id){
