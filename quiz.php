@@ -22,6 +22,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	foreach($_POST["question"] as $q){
 		$q["q"] = htmlspecialchars(addslashes($q["q"]));
 		$q["a"] = (int)$q["a"];
+		$q["i"] = (int)$q["i"];
 		$l = count($q["o"]);
 		//sanitize options
 		for($i=0;$i<$l;$i++)
@@ -96,6 +97,7 @@ if($_SESSION["user"]["admin"]){
 		for($i=0;$i<$l;$i++){?>
 		<div class="qBox">
 		<input class="remove" type="button" onclick="this.parentElement.remove()" value='-'></button>
+			<input type="hidden" name="question[<?php echo $i;?>][q]" value="<?php echo $i;?>"/>
 			<textarea name="question[<?php echo $i;?>][q]" class="question"><?php echo $question[$i]["q"];?></textarea>
 			<ol class="options">
 			<?php
@@ -119,7 +121,7 @@ if($_SESSION["user"]["admin"]){
 var o = document.getElementsByClassName("qBox");
 function addQ(){
 	var l = o.length;
-	var s = '<div class="qBox"><input class="remove" type="button" onclick="this.parentElement.remove()" value="-"><textarea placeholder="আপনার প্রশ্ন লিখুন" name="question['+l+'][q]" class="question"></textarea><ol class="options"><li><input type="radio" name="question['+l+'][a]" value="0" /><input name="question['+l+'][o][0]" class="option"/></li><li><input type="radio" name="question['+l+'][a]" value="1" /><input name="question['+l+'][o][1]" class="option"/></li><li><input type="radio" name="question['+l+'][a]" value="2" /><input name="question['+l+'][o][2]" class="option"/></li><li><input type="radio" name="question['+l+'][a]" value="3" /><input name="question['+l+'][o][3]" class="option"/></li></ol></div>';
+	var s = '<div class="qBox"><input class="remove" type="button" onclick="this.parentElement.remove()" value="-"><input type="hidden" name="question['+l+'][i]" value="'+l+'" /><textarea placeholder="আপনার প্রশ্ন লিখুন" name="question['+l+'][q]" class="question"></textarea><ol class="options"><li><input type="radio" name="question['+l+'][a]" value="0" /><input name="question['+l+'][o][0]" class="option"/></li><li><input type="radio" name="question['+l+'][a]" value="1" /><input name="question['+l+'][o][1]" class="option"/></li><li><input type="radio" name="question['+l+'][a]" value="2" /><input name="question['+l+'][o][2]" class="option"/></li><li><input type="radio" name="question['+l+'][a]" value="3" /><input name="question['+l+'][o][3]" class="option"/></li></ol></div>';
 	qPaper.innerHTML+=s
 }
 </script>
