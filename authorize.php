@@ -225,12 +225,11 @@ register:
 
 <?php
 }else{
-var_dump($res);
 $_SESSION["user"]["Bengali"] = $res["Bengali"];
-$_SESSION["user"]["admin"] = $res["Admin"];
+$_SESSION["user"]["admin"] = $res["Admin"]=='1';
 go:
 $return = isset($_SESSION['return'])?urldecode($_SESSION['return']):'index.php';
-//header("Location: $return");
+header("Location: $return");
 }
 }
 ?>
