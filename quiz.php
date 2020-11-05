@@ -1,7 +1,7 @@
 <?php
 session_start();
+date_default_timezone("Asia/Dhaka");
 $id = isset($_REQUEST["ID"])?(int)$_REQUEST["ID"]:0;
-
 if(!$id) //No Workshop ID is given
 	header("Location: workshop.php");
 if(!isset($_SESSION["user"]))//Not logged in
@@ -72,6 +72,8 @@ else{
 	$res = $conn->query($sql);
 	if(!($res = $res->fetch_assoc()))
 		header("Location: workshop.php");
+	$now = time();
+	$before = $now < date_create($res["Start"])::getTimestamp();
 	$question = ($question = json_decode($res["Quiz"],true))?$question:[];
 if($_SESSION["user"]["admin"]){
 	//User is an admin so trying to edit
@@ -85,6 +87,9 @@ if($_SESSION["user"]["admin"]){
 </head>
 <body>
 <h1><a href="workshop.php?ID=<?php echo $id;?>"><?php echo json_decode($res["Title"],true)[0];?></a></h>
+	<?php
+	if($before){
+	?>
 	<form method="post" action="quiz.php" id="qPaper">
 		<?php
 		$l = count($question);
@@ -106,6 +111,7 @@ if($_SESSION["user"]["admin"]){
 		</div>
 		<?php }?>
 	</form>
+	
 	<input name="ID" type="hidden" form="qPaper" value="<?php echo $id;?>"/>
 	<input type="submit" form="qPaper" />
 	<input type="button" class="add" onclick="addQ()" value="+">
@@ -117,11 +123,15 @@ function addQ(){
 	qPaper.innerHTML+=s
 }
 </script>
+<?php }else{?>
+<b class="error">দুঃখিত, কুইজটি শুরু হওয়ার পূর্ব পর্যন্ত সম্পাদনার সুযোগ ছিল।</b>
+<?php }?>
 </body>
 </html>
 <?php
 	}else{
 	//User is not an admin
+$after = $now > date_create($res["End"])::getTimestamp();
 //Show Question Paper
 $question = json_decode($res["Quiz"],true);
 ?>
@@ -132,6 +142,14 @@ $question = json_decode($res["Quiz"],true);
 <link rel="stylesheet" href="Styles/quiz.css">
 </head>
 <body>
+<?php 
+if($before || $after){
+?>
+<b class="error">
+	<?php echo $before?'দুঃখিত, কুইজটি এখনো শুরু হয় নি':'দুঃখিত, কুইজটি ইতিমধ্যেই অনুষ্ঠিত হয়ে গেছে';
+</b>
+<?php
+}else{?>
 	<form method="post" action="quiz.php" id="qPaper">
 	<input type="hidden" name="ID" value="<?php echo $res['ID'];?>"/>
 	<?php foreach($question as $q){ ?>
@@ -151,6 +169,7 @@ $question = json_decode($res["Quiz"],true);
 		<?php } ?>
 		<input type="submit"/>
 	</form>
+	<?php }?>
 </body>
 </html>
 <?php
