@@ -146,7 +146,7 @@ $question = json_decode($res["Quiz"],true);
 if($before || $after){
 ?>
 <b class="error">
-	<?php echo $before?'দুঃখিত, কুইজটি এখনো শুরু হয় নি':'দুঃখিত, কুইজটি ইতিমধ্যেই অনুষ্ঠিত হয়ে গেছে';
+	<?php echo $before?'দুঃখিত, কুইজটি এখনো শুরু হয় নি':'দুঃখিত, কুইজটি ইতিমধ্যেই অনুষ্ঠিত হয়ে গেছে';?>
 </b>
 <?php
 }else{?>
