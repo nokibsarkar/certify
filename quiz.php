@@ -67,7 +67,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		$s /= $l;
 		$s*=100;
 		$sql = "INSERT INTO Response (`By`, `Workshop`, `Answers`, `Score`, `Checked`,`Questions`) VALUES('".$_SESSION["user"]["name"]."',$id,'".implode(",",$data)."',$s,1,'".json_encode($q,JSON_UNESCAPED_UNICODE)."')";
-		echo $sql;
+		$conn->query($sql);
+		if($conn->affetcted_rows){
+			echo "Successfully";
+		}else{
+		echo "Error";
+		}
 	}
 }
 else{
@@ -115,7 +120,6 @@ if($_SESSION["user"]["admin"]){
 		</div>
 		<?php }?>
 	</form>
-	
 	<input name="ID" type="hidden" form="qPaper" value="<?php echo $id;?>"/>
 	<input type="submit" form="qPaper" />
 	<input type="button" class="add" onclick="addQ()" value="+">
