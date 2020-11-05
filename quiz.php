@@ -81,7 +81,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 </body>
 </html>
 <?php
-		}elseif(mysqli_errno()($conn)==1062){
+		}elseif(mysqli_errno($conn)==1062){
 ?>
 <b class="error">আপনি ইতিমধ্যেই একবার অংশ নিয়ে ফেলেছেন। তাই এবারের উত্তরপত্রটি গ্রহণযোগ্য নয়। যদি কোনো ভুল হয়ে থাকে তবে অনুগ্রহপূর্বক কর্তৃপক্ষের সাথে যোগাযোগ করুন।</b>
 <?php
