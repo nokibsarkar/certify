@@ -136,7 +136,7 @@ function addQ(){
 $after = $now > date_timestamp_get(date_create($res["Qend"]));
 //Show Question Paper
 $question = shuffle(json_decode($res["Quiz"],true));
-$_SESSION["question"] = array_map(function($o){var_dump($o);return [$o["i"],$o["a"]]},$question);
+$_SESSION["question"] = array_map(function($o){return [$o["i"],$o["a"]];},$question);
 var_dump($_SESSION["question"]);
 ?>
 <!DOCTYPE html>
