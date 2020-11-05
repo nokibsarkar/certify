@@ -61,10 +61,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		$q = $_SESSION["question"]; //convert to binary
 		$l = count($data);
 		$s = 0;
+		unset($_SESSION["question"]);
 		for($i=0;$i<$l;$i++)
 			$s += $data[$i]==$q[$i][1]?1:0;
 		$s /= $l*100;
-		$sql = "INSERT INTO Response (By, Event, Answer, Score, Checked,Question) VALUES('".$_SESSION["user"]["name"]."',$id,'".implode($data)."',$s,1,'".json_encode($q,JSON_UNESCAPED_UNICODE)."')";
+		$sql = "INSERT INTO Response (By, Event, Answers, Score, Checked,Questions) VALUES('".$_SESSION["user"]["name"]."',$id,'".implode(",",$data)."',$s,1,'".json_encode($q,JSON_UNESCAPED_UNICODE)."')";
 		echo $sql;
 	}
 }
