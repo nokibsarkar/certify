@@ -2,8 +2,7 @@
 session_start();
 $host = "tools.db.svc.eqiad.wmflabs";
 $creds = parse_ini_file("../replica.my.cnf");
-$conn = mysqli_init();
-$conn->real_connect($host,$creds['user'],$creds['password'],'s54548__certify',0,NULL,MYSQLI_CLIENT_FOUND_ROWS);
+$conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify',0,NULL,MYSQLI_CLIENT_FOUND_ROWS);
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 	if(!isset($_POST['policy'])){
 		echo "<b class='error'>আপনি আমাদের নীতির সঙ্গে সম্মত হন নি</b>";
@@ -198,9 +197,9 @@ $_SESSION['user']=[
 ];
 /****SAVE it on database ***/
 ///Check if already exists
-$sql = "UPDATE Users SET Token_Secret = '$gTokenSecret', Token_Key = '$gTokenKey' WHERE Username = '".$_SESSION['user']['name']."'";
-$conn->query($sql);
-if(!$conn->affected_rows){
+$sql = "SELECT Admin, Bengali FROM Users WHERE Username = '".$_SESSION['user']['name']."' AND Token_Secret = '$gTokenSecret' AND Token_Key = '$gTokenKey'";
+$res = $conn->query($sql);
+if(!($res = $res->fetch_assoc())){
 	//Not yet registered so prompt for register
 register:
 
@@ -226,6 +225,8 @@ register:
 
 <?php
 }else{
+$_SESSION["user"]["Bengali"] = $res["Bengali"];
+$_SESSION["user"]["admin"] = $res["Admin"];
 go:
 $return = isset($_SESSION['return'])?urldecode($_SESSION['return']):'index.php';
 header("Location: $return");
