@@ -66,7 +66,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 			$s += $data[$i]==$q[$i][1]?1:0;
 		$s /= $l;
 		$s*=100;
-		$sql = "INSERT INTO Response (`By`, `Event`, `Answers`, `Score`, `Checked`,`Questions`) VALUES('".$_SESSION["user"]["name"]."',$id,'".implode(",",$data)."',$s,1,'".json_encode($q,JSON_UNESCAPED_UNICODE)."')";
+		$sql = "INSERT INTO Response (`By`, `Workshop`, `Answers`, `Score`, `Checked`,`Questions`) VALUES('".$_SESSION["user"]["name"]."',$id,'".implode(",",$data)."',$s,1,'".json_encode($q,JSON_UNESCAPED_UNICODE)."')";
 		echo $sql;
 	}
 }
