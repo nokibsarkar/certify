@@ -267,11 +267,13 @@ li{
 else
 {
 	//Print the list of Event
+	$sql = "SELECT Title,Status, ID, Start, End FROM Workshop";
+	$res = $conn->query($sql);
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title><?php echo $res["Title"][0];?></title>
+<title>কর্মশালার তালিকা</title>
 <link href="Styles/style.css" rel="stylesheet"/>
 <link href="Styles/event.css" rel="stylesheet"/>
 </head>
