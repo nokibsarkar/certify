@@ -39,16 +39,11 @@ if($serial){
 <title></title>
 <link href="Styles/style.css" rel="stylesheet"/>
 <script type="text/javascript">
+var isBn = false;
 function t(){
-	var o = document.querySelectorAll("[data-tr]");
-	[...o].forEach(function(v){
-		var prev = v.innerHTML;
-		v.innerHTML = v.dataset.tr;
-		v.dataset.tr = prev;
-		prev = getComputedStyle(v).fontFamily;
-		v.style.fontFamily = v.dataset.ff=="undefined"?"Times new Roman":v.dataset.ff;
-		v.dataset.ff = prev;
-	})
+	en.forEach((v)=>{v.style.display = isBn?"initial":"none"});
+	isBn = !isBn;
+	bn.forEach((v)=>{v.style.display = isBn?"initial":"none"});
 }
 </script>
 </head>
@@ -63,6 +58,11 @@ function t(){
 	<button data-ff="SiyamRupali" style="font-family:Times new Roman" data-tr="বাংলা" type="button" onclick="t()">English</button>
 	<button type="button" onclick="window.print()"  data-tr="Print" >মুদ্রণ</button>
 	</div>
+	<script type="text/javascript">
+	var en = [...document.querySelectorAll('[lang="en"]')];
+	var bn = [...document.querySelectorAll('[lang="bn"]')];
+	t();
+	</script>
 <?php
 	}
 }
