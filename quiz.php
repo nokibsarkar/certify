@@ -39,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	if($conn->affected_rows)
 		header("Location: quiz.php?ID=$id");
 	else{
-		echo "<b class='error'>আপনার কোনো পরিবর্তন না করায় কোনো সম্পাদনা হয় নি</b>";
+		echo "<link href='Styles/style.css' rel='stylesheet'/><b class='error'>আপনার কোনো পরিবর্তন না করায় কোনো সম্পাদনা হয় নি</b>";
 		exit();
 		}
 	}else{
