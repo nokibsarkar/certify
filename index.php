@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
+		<title>প্রধান পাতা</title>
 		<link rel="stylesheet" href="Styles/style.css">
 		<link rel="stylesheet" href="Styles/index.css">
 	</head>
@@ -11,7 +11,7 @@
 	 if(isset($_SESSION["user"])){?>
 	<a href="login.php?logout"><button>প্রস্থান</button></a>
 		<h1>
-			স্বাগতম <?php echo $_SESSION["user"]["name"];?>
+			স্বাগতম <?php echo $_SESSION["user"]["Bengali"];?>
 		</h1>
 		<div>
 			<details id="details">
