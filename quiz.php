@@ -158,7 +158,7 @@ if($before || $after){
 	<input type="hidden" name="ID" value="<?php echo $id;?>"/>
 	<?php 
 	$l1 = count($question);
-	for($j=0;$j<$l;$j++){ ?>
+	for($j=0;$j<$l1;$j++){ ?>
 		<div class="qBox">
 			<p class="question"><?php echo $question[$j]["q"];?></p>
 			<ol class="options">
