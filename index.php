@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>প্রধান পাতা</title>
+		<title></title>
 		<link rel="stylesheet" href="Styles/style.css">
 		<link rel="stylesheet" href="Styles/index.css">
 	</head>
@@ -23,7 +23,9 @@
 				$creds = parse_ini_file("../replica.my.cnf");
 				$conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify');
 				$sql = "SELECT * FROM Certificate WHERE To = '".$_SESSION["user"]["name"]."'";
+				echo $sql;
 				$res = $conn->query($sql);
+				
 				while($row = $res->fetch_assoc()){
 				?>
 					<li><a href='certify.php?i=<?php echo $row["ID"];?>' class='cert'><?php echo bn_form(date_create($row["Timestamp"]));?></a></li>
