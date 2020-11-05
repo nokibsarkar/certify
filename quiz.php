@@ -74,6 +74,8 @@ else{
 	if(!($res = $res->fetch_assoc()))
 		header("Location: workshop.php");
 	$now = time();
+	echo date_timestamp_get(date_create($res["Start"]));
+	echo "<br>$now";
 	$before = $now < date_timestamp_get(date_create($res["Start"]));
 	$question = ($question = json_decode($res["Quiz"],true))?$question:[];
 if($_SESSION["user"]["admin"]){
