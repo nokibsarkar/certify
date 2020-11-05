@@ -38,7 +38,7 @@
 				$res = $conn->query($sql);
 				while($row = $res->fetch_assoc()){
 				?>
-					<li><a href='certify.php?i=<?php echo $row["ID"];?>' class='cert'><?php echo json_decode($res["Title"],true)[0];?></a></li>
+					<li><a href='certify.php?i=<?php echo $row["ID"];?>' class='cert'><?php echo json_decode($row["Title"],true)[0];?></a></li>
 				<?php }
 				 ?>
 				</ol>
@@ -58,15 +58,15 @@
 			</h3>
 			<div class="contact">
 				<h4>নাজমুল হক নকীব</h4>
-				ইমেল: <a href="mailto:nokibsarkar@gmail.com">nokibsarkar@gmail.com</a>
-				Facebook: <a href='https://www.facebook.com/nokib.sorkar' target="_blank">/nokib.sarkar</a>
+				আধানডাক: <a href="mailto:nokibsarkar@gmail.com">nokibsarkar@gmail.com</a>
+				ফেসবুজ: <a href='https://www.facebook.com/nokib.sorkar' target="_blank">/nokib.sarkar</a>
 			</div>
 			<div class="contact">
 				<h4>মুতাসিম ভূইয়া রাফিদ</h4>
-				Email: rafeedm.bhuiyan@gmail.com
+				আধানডাক: <a href="mailto:rafeedm.bhuiyan@gmail.com">rafeedm.bhuiyan@gmail.com</a>
 			</div>
 			<div class="contact">
-				<h4>Site Source: <a href='https://github.com/nokibsarkar/certify' target="_blank">github</a></h4>		
+				<h4>সাইটের উৎস: <a href='https://github.com/nokibsarkar/certify' target="_blank">গিথাব</a></h4>		
 			</div>
 
 		</div>
