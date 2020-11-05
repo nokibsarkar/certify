@@ -151,7 +151,7 @@ if($before || $after){
 <?php
 }else{?>
 	<form method="post" action="quiz.php" id="qPaper">
-	<input type="hidden" name="ID" value="<?php echo $res['ID'];?>"/>
+	<input type="hidden" name="ID" value="<?php echo $id;?>"/>
 	<?php foreach($question as $q){ ?>
 		<div class="qBox">
 			<p class="question"><?php echo $q["q"];?></p>
