@@ -70,7 +70,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 		if($conn->query($sql)){
 			echo "Successfully";
 		}else{
-		echo mysqli_errorno($conn);
+		echo mysqli_errno($conn);
 		}
 	}
 }
