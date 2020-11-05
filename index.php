@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
+		<title>প্রধান পাতা</title>
 		<link rel="stylesheet" href="Styles/style.css">
 		<link rel="stylesheet" href="Styles/index.css">
 	</head>
@@ -14,21 +14,34 @@
 			স্বাগতম <?php echo $_SESSION["user"]["Bengali"];?>
 		</h1>
 		<div>
+		<?php
+		require "parse.php";
+		$host = "tools.db.svc.eqiad.wmflabs";
+		$creds = parse_ini_file("../replica.my.cnf");
+		$conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify');
+		$sql = "SELECT ID, Title, Start, End FROM Workshop WHERE Status = 0";
+		$res = $conn->query($sql);
+		?>
+			<details>
+				<summary>চলমান কর্মশালা</summary>
+				<ol>
+					<?php while($row=$res->fetch_assoc()){
+					?>
+					<li><a href="workshop.php?ID=<?php echo $row['ID'];?>"><?php echo json_decode($row['Title'],true)[0];?></a>(<?php echo bn_form(date_create($row["Start"])).' - '.bn_form(bn_create($row["End"]));?>)</li>
+					<?php
+					}?>
+				</ol>
+			</details>
 			<details id="details">
 				<summary>সনদপত্র</summary>
 				<ol style='margin-left: 5%;'>
 				<?php
 				require "parse.php";
-				$host = "tools.db.svc.eqiad.wmflabs";
-				$creds = parse_ini_file("../replica.my.cnf");
-				$conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify');
-				$sql = "SELECT * FROM Certificate WHERE `To` = '".$_SESSION["user"]["name"]."'";
-				echo $sql;
+				$sql = "SELECT Certificate.ID AS ID, Workshop.Title AS Title FROM Certificate JOIN Workshop WHERE Certificate.`To` = '".$_SESSION["user"]["name"]."' AND Certificate.Event = Workshop.ID";
 				$res = $conn->query($sql);
-				
 				while($row = $res->fetch_assoc()){
 				?>
-					<li><a href='certify.php?i=<?php echo $row["ID"];?>' class='cert'><?php echo bn_form(date_create($row["Timestamp"]));?></a></li>
+					<li><a href='certify.php?i=<?php echo $row["ID"];?>' class='cert'><?php echo json_decode($res["Title"],true)[0];?></a></li>
 				<?php }
 				 ?>
 				</ol>
@@ -36,8 +49,9 @@
 				else{ ?>
 				<a href="login.php"><button>প্রবেশ</button></a>
 				<?php
-				}?>
-				<a href="workshop.php">কর্মশালাসমূহ</a>
+				}
+				
+				?>
 			</details>
 		</div>
 
