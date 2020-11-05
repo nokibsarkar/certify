@@ -57,7 +57,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$sql = "INSERT INTO `Queue` VALUES (NULL, '$user', b'01', '$list', b'00');";
 	$conn->query($sql);
 	$id = $conn->insert_id;
-	echo exec("jsub -N T$id php -f /data/project/certify/public_html/email.php '$user'");
+	$cm = "jsub -N T$id php -f /data/project/certify/public_html/email.php '$user'";
+	echo shell_exec($cm);
 	//echo en2bn($id)."নং কাজটি জমা দেয়া হয়েছে";
 }
 else{
