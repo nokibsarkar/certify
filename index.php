@@ -9,7 +9,7 @@
 	<?php
 	session_start();
 	 if(isset($_SESSION["user"])){?>
-	<a href="login.php?logout"><button>প্রস্থান</button></a>
+	 <form><a href="login.php?logout"><button>প্রস্থান</button></a></form>
 		<h1>
 			স্বাগতম <?php echo $_SESSION["user"]["Bengali"];?>
 		</h1>
@@ -59,14 +59,14 @@
 			<div class="contact">
 				<h4>নাজমুল হক নকীব</h4>
 				আধানডাক: <a href="mailto:nokibsarkar@gmail.com">nokibsarkar@gmail.com</a><br>
-				ফেসবুক: <a href='https://www.facebook.com/nokib.sorkar' target="_blank">/nokib.sarkar</a>
+				ফেসবুক: <a href='https://www.facebook.com/nokib.sorkar' target="_blank"><img src="Styles/f_logo_RGB-Blue_58.png" style="width: 1em;">/nokib.sarkar</a>
 			</div>
 			<div class="contact">
 				<h4>মুতাসিম ভূইয়া রাফিদ</h4>
 				আধানডাক: <a href="mailto:rafeedm.bhuiyan@gmail.com">rafeedm.bhuiyan@gmail.com</a>
 			</div>
 			<div class="contact">
-				<h4>সাইটের উৎস: <a href='https://github.com/nokibsarkar/certify' target="_blank">গিটহাব</a></h4>		
+				<h4>সাইটের উৎস: <a href='https://github.com/nokibsarkar/certify' target="_blank"><img src="Styles/GitHub-Mark-120px-plus.png" style="width: 1em;"></a></h4>		
 			</div>
 
 		</div>
