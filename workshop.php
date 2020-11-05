@@ -183,7 +183,7 @@ function multiAdd(obj,name){
 		<input name="status" type="checkbox"/> <label for="status">সমাপ্ত</label>
 	</fieldset>
 	<input type="submit"/>
-        <a href="admin.php?ID=<?php echo res['ID'];?>"><input type='submit' value='প্রতিযোগীদের সনদপত্র প্রদান'></a>
+        <a href="admin.php?ID=<?php echo res['ID'];?>"><button style='width: 20em;'>প্রতিযোগীদের সনদপত্র প্রদান</button></a>
 	</form>
 </body>
 </html>
