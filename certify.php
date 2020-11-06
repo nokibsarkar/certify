@@ -41,9 +41,9 @@ if($serial){
 <script type="text/javascript">
 var isBn = false;
 function t(){
-	en.forEach((v)=>{v.style.display = isBn?"initial":"none"});
+	en.forEach((v)=>{v.style.display = isBn?"block":"none"});
 	isBn = !isBn;
-	bn.forEach((v)=>{v.style.display = isBn?"initial":"none"});
+	bn.forEach((v)=>{v.style.display = isBn?"block":"none"});
 }
 </script>
 <style>
