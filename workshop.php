@@ -118,7 +118,7 @@ if( isset($_SESSION["user"]) && $_SESSION["user"]["admin"]){
 <link href="Styles/event.css" rel="stylesheet"/>
 <script type="text/javascript">
 function multiAdd(obj,name){
-	obj.innerHTML+="<li class='pair'><input type='text' name='bn_" + name + "[]' placeholder='বাংলা' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input name='en_" + name + "[]' placeholder='English' required/></li>";
+	obj.innerHTML+="<li class='pair'><input type='text' name='bn_" + name + "[]' placeholder='বাংলা' required/><button class='remove' type='button' onclick='this.parentElement.remove()'>-</button><input name='en_" + name + "[]' type='text' placeholder='English' required/></li>";
 }
 
 </script>
