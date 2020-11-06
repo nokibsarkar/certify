@@ -28,13 +28,11 @@ $host = "tools.db.svc.eqiad.wmflabs";
 $creds = parse_ini_file("/data/project/certify/replica.my.cnf");
 $conn = mysqli_connect($host,$creds['user'],$creds['password'],'s54548__certify');
 $sql = "SELECT Users.Token_Key AS K, Users.Token_Secret AS S, Queue.Task AS T, Queue.ID AS I FROM Users JOIN Queue WHERE Queue.ID = ".(int)$argv[1]." AND Users.Username = Queue.Initiator AND Queue.Type = 1 AND Queue.Status = 0";
-echo $sql;
 $res = $conn->query($sql);
-echo mysqli_error($conn);
+echo mysqli_error($conn)."\n";
 $res = $res->fetch_assoc();
-var_dump($res);
 if(!$res)
-	exit("No task is Defined");
+	exit("No task is Defined\n");
 eval('$mail_list = '.$res["T"].';');
 $gTokenKey = $res["K"];
 $gTokenSecret= $res["S"];
@@ -44,7 +42,6 @@ $sql = "UPDATE Queue SET Status = b'01' WHERE ID = $id";
 $conn->query($sql);
 $mwOAuthUrl = 'https://meta.wikimedia.org/w/index.php?title=Special:OAuth';
 $mwOAuthIW = 'meta';
-
  function sign_request( $method, $url, $params = array() ) {
  global $gConsumerSecret, $gTokenSecret;
  $parts = parse_url( $url );
@@ -59,7 +56,6 @@ $mwOAuthIW = 'meta';
  // Only include the port if it's not the default
  $host = "$host:$port";
  }
- 
  // Also the parameters
  $pairs = array();
  parse_str( isset( $parts['query'] ) ? $parts['query'] : '', $query );
@@ -76,7 +72,6 @@ $mwOAuthIW = 'meta';
  $pairs[] = "$k=$v";
  }
  }
- 
  $toSign = rawurlencode( strtoupper( $method ) ) . '&' .
  rawurlencode( "$scheme://$host$path" ) . '&' .
  rawurlencode( join( '&', $pairs ) );
@@ -155,7 +150,7 @@ foreach($mail_list as $v){
 	send:
 	//Sleep for 5 seconds
 	sleep(5);
-	echo "Sending mail to : ".$v[0];
+	echo "Sending mail to : ".$v[0]."\n";
 	$data = [
 	"action"=> "emailuser",
 	"format"=> "json",
@@ -171,11 +166,13 @@ foreach($mail_list as $v){
 				$token = fetch_token();
 				goto send;
 			}
-		echo $res["info"];
+		var_dump($res);
+		echo "\n";
 	}
 	else
-		echo "Sent to :".$v[0];
+		echo "Sent to :".$v[0]." \n";
 }
 $sql = "UPDATE Queue SET Status = b'10' WHERE ID = $id";
 $conn->query($sql);
+echo "Task completed\n";
 ?>
