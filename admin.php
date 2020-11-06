@@ -14,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$list = (int)$_POST["list"]; //the email list criteria
 	$data = $_POST["data"];
 	$subject = htmlspecialchars(addslashes($_POST["subject"]));
-	$body = $_POST["body"];
+	$body = strip_tags($_POST["body"],"<p><div><font><span><br><a><img><b><i><u><h><h1><h2><h3><h4><h5><h6>");
 	$sql = "SELECT Users.* FROM Users";
 	switch($list){
 		case 0:
@@ -58,6 +58,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$conn->query($sql);
 	$id = $conn->insert_id;
 	$cm = "jsub -N T$id php -f /data/project/certify/public_html/email.php $id";
+	echo $cm;
 	echo shell_exec($cm);
 	//echo en2bn($id)."নং কাজটি জমা দেয়া হয়েছে";
 }
@@ -74,7 +75,7 @@ else{
 	<input class="suggestion" type="button" onclick="in_body.value+=this.value" value="$bn.name$">
 	<input class="suggestion" type="button" onclick="in_body.value+=this.value" value="$en.name$">
 	</ul>
-	<textarea name id="in_body"> ওকে </textarea><br/>
+	<textarea name="body" id="in_body"> ওকে </textarea><br/>
 	<label for="list" class="unhide">ছাঁকনী:</label>
 	<select name="list">
 		<option value="0">উত্তীর্ণ অংশগ্রহণকারী</option>
